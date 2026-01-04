@@ -1,6 +1,14 @@
 import { useEffect, useMemo } from "react";
 import { useSearchParams } from "react-router-dom";
-import { BookOpen, Target, Trophy } from "lucide-react";
+import {
+  BookOpen,
+  Target,
+  Trophy,
+  FlaskConical,
+  Microscope,
+  Telescope,
+  Calculator,
+} from "lucide-react";
 import {
   Card,
   CardContent,
@@ -72,6 +80,17 @@ export default function Index() {
 
   const examData = getSelectedExamData();
   const subjectData = getSelectedSubjectData();
+
+  // Map subject IDs to their icons
+  const getSubjectIcon = (subjectId: string) => {
+    const iconMap: Record<string, typeof FlaskConical> = {
+      chemistry: FlaskConical,
+      biology: Microscope,
+      mathematics: Calculator,
+      physics: Telescope,
+    };
+    return iconMap[subjectId] || BookOpen;
+  };
 
   // Calculate ad positions at top level (hooks must be called unconditionally)
   const topicAdPosition = useMemo(() => {
@@ -168,7 +187,7 @@ export default function Index() {
     );
   }
 
-  // Default: Show welcome screen with all subjects
+  // Default: Show subjects directly
   return (
     <>
       <SEOHead {...seoContent} />
@@ -187,6 +206,58 @@ export default function Index() {
             Your ultimate recall and revision vault for {selectedExam}. Access
             formulas, reactions, and tricks organized for quick revision.
           </p>
+        </div>
+
+        {/* Subjects Grid - Direct Display */}
+        <div>
+          <h2 className="text-xl font-semibold text-foreground mb-4">
+            {selectedExam} Subjects
+          </h2>
+          <p className="text-muted-foreground mb-6">
+            Select a subject to start exploring topics
+          </p>
+
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {examData?.subjects.map((subject) => {
+              const SubjectIcon = getSubjectIcon(subject.id);
+              return (
+                <Card
+                  key={subject.id}
+                  className="cursor-pointer transition-all hover:shadow-md hover:border-primary/50"
+                  onClick={() => {
+                    // Trigger subject selection in sidebar
+                    const event = new CustomEvent("select-subject", {
+                      detail: subject.id,
+                    });
+                    window.dispatchEvent(event);
+                  }}
+                >
+                  <CardHeader>
+                    <div className="flex items-center gap-3">
+                      <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10">
+                        <SubjectIcon className="h-6 w-6 text-primary" />
+                      </div>
+                      <div>
+                        <CardTitle className="text-lg">
+                          {subject.name}
+                        </CardTitle>
+                        <CardDescription>
+                          {subject.topics.length} topics
+                        </CardDescription>
+                      </div>
+                    </div>
+                  </CardHeader>
+                </Card>
+              );
+            })}
+          </div>
+
+          {/* Ad after subjects grid */}
+          {shouldShowAdForPlacement("homeAfterSubjects") &&
+            (() => {
+              const ad = getAdForPlacement("homeAfterSubjects");
+              return ad ? <RankMargAd ad={ad} className="mt-6" /> : null;
+            })()}
         </div>
 
         {/* Features */}
@@ -219,53 +290,6 @@ export default function Index() {
             const ad = getAdForPlacement("homeAfterFeatures");
             return ad ? <RankMargAd ad={ad} className="mt-6" /> : null;
           })()}
-
-        {/* Subjects Grid */}
-        <div>
-          <h2 className="text-xl font-semibold text-foreground mb-4">
-            {selectedExam} Subjects
-          </h2>
-          <p className="text-muted-foreground mb-6">
-            Select a subject from the sidebar or below to start exploring
-          </p>
-
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {examData?.subjects.map((subject) => (
-              <Card
-                key={subject.id}
-                className="cursor-pointer transition-all hover:shadow-md hover:border-primary/50"
-                onClick={() => {
-                  // Trigger subject selection in sidebar
-                  const event = new CustomEvent("select-subject", {
-                    detail: subject.id,
-                  });
-                  window.dispatchEvent(event);
-                }}
-              >
-                <CardHeader>
-                  <div className="flex items-center gap-3">
-                    <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10">
-                      <BookOpen className="h-6 w-6 text-primary" />
-                    </div>
-                    <div>
-                      <CardTitle className="text-lg">{subject.name}</CardTitle>
-                      <CardDescription>
-                        {subject.topics.length} topics
-                      </CardDescription>
-                    </div>
-                  </div>
-                </CardHeader>
-              </Card>
-            ))}
-          </div>
-
-          {/* Ad after subjects grid */}
-          {shouldShowAdForPlacement("homeAfterSubjects") &&
-            (() => {
-              const ad = getAdForPlacement("homeAfterSubjects");
-              return ad ? <RankMargAd ad={ad} className="mt-6" /> : null;
-            })()}
-        </div>
       </div>
     </>
   );

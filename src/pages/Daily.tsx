@@ -90,20 +90,20 @@ export default function Daily() {
   };
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4 sm:space-y-6">
       {/* Header */}
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
         <div>
-          <h1 className="text-2xl font-bold text-foreground flex items-center gap-2">
-            <Sparkles className="h-6 w-6 text-primary" />
+          <h1 className="text-xl sm:text-2xl font-bold text-foreground flex items-center gap-2">
+            <Sparkles className="h-5 w-5 sm:h-6 sm:w-6 text-primary" />
             Daily Recall
           </h1>
-          <p className="text-muted-foreground mt-1">
-            10 items selected for today's revision based on your history
+          <p className="text-sm text-muted-foreground mt-1">
+            10 items selected for today based on your history
           </p>
         </div>
 
-        <Button variant="outline" onClick={handleRefresh}>
+        <Button variant="outline" onClick={handleRefresh} size="sm">
           <RefreshCw className="h-4 w-4 mr-2" />
           Refresh
         </Button>
@@ -121,40 +121,39 @@ export default function Daily() {
           </p>
         </div>
       ) : (
-        <div className="grid gap-4 sm:grid-cols-2">
+        <div className="grid gap-3 sm:gap-4 grid-cols-1 sm:grid-cols-2">
           {dailyItems.map((item, index) => {
             const typeInfo = contentTypeLabels[item.contentType];
             
             return (
               <Card
                 key={`${item.id}-${index}`}
-                className="cursor-pointer transition-all hover:shadow-md hover:border-primary/30"
+                className="cursor-pointer transition-all hover:shadow-md hover:border-primary/30 bg-card"
                 onClick={() => handleItemClick(index)}
               >
-                <CardHeader className="pb-2">
+                <CardHeader className="pb-2 p-3 sm:p-4 sm:pb-2">
                   <div className="flex items-start justify-between gap-2">
-                    <CardTitle className="text-base font-medium line-clamp-2">
+                    <CardTitle className="text-sm sm:text-base font-medium line-clamp-2">
                       {item.title}
                     </CardTitle>
                     <Badge
                       variant="secondary"
                       className={
                         item.importance === 'high'
-                          ? 'bg-destructive/10 text-destructive'
+                          ? 'bg-destructive/10 text-destructive shrink-0'
                           : item.importance === 'medium'
-                          ? 'bg-warning/10 text-warning'
-                          : ''
+                          ? 'bg-warning/10 text-warning shrink-0'
+                          : 'shrink-0'
                       }
                     >
-                      {item.importance === 'high' && '🔥'}
                       {item.importance.charAt(0).toUpperCase()}
                     </Badge>
                   </div>
                   <CardDescription className="text-xs">
-                    {item.subjectName} → {item.topicName}
+                    {item.subjectName} / {item.topicName}
                   </CardDescription>
                 </CardHeader>
-                <CardContent className="pt-0">
+                <CardContent className="pt-0 p-3 sm:p-4 sm:pt-0">
                   <div className="flex items-center justify-between">
                     <Badge variant="outline" className="text-xs">
                       {typeInfo.icon} {typeInfo.label}

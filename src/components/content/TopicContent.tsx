@@ -36,27 +36,29 @@ export function TopicContent() {
   };
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4 sm:space-y-6">
       {/* Header */}
-      <div className="flex items-center gap-4">
+      <div className="flex items-center gap-3 sm:gap-4">
         <Button
           variant="ghost"
           size="icon"
           onClick={() => setSelectedTopicId(null)}
-          className="shrink-0"
+          className="shrink-0 h-8 w-8 sm:h-10 sm:w-10"
         >
-          <ArrowLeft className="h-5 w-5" />
+          <ArrowLeft className="h-4 w-4 sm:h-5 sm:w-5" />
         </Button>
 
-        <div>
-          <div className="flex items-center gap-2 text-sm text-muted-foreground mb-1">
+        <div className="min-w-0 flex-1">
+          <div className="flex items-center gap-2 text-xs sm:text-sm text-muted-foreground mb-1">
             <span>{selectedExam}</span>
-            <span>→</span>
-            <span>{subject.name}</span>
+            <span>/</span>
+            <span className="truncate">{subject.name}</span>
           </div>
-          <h1 className="text-2xl font-bold text-foreground flex items-center gap-2">
-            <span>{topic.icon}</span>
-            {topic.name}
+          <h1 className="text-lg sm:text-2xl font-bold text-foreground flex items-center gap-2">
+            <span className="w-6 h-6 sm:w-8 sm:h-8 rounded-lg bg-primary/10 text-primary flex items-center justify-center text-xs sm:text-sm font-bold">
+              {topic.icon}
+            </span>
+            <span className="truncate">{topic.name}</span>
           </h1>
         </div>
       </div>
@@ -66,7 +68,7 @@ export function TopicContent() {
         value={activeTab || ''}
         onValueChange={(value) => setActiveTab(value as ContentType)}
       >
-        <TabsList className="w-full justify-start overflow-x-auto flex-nowrap">
+        <TabsList className="w-full justify-start overflow-x-auto flex-nowrap h-auto p-1">
           {allowedTypes.map((type) => {
             const typeInfo = contentTypeLabels[type];
             const content = getTopicContent(topic.id, type);
@@ -75,11 +77,13 @@ export function TopicContent() {
               <TabsTrigger
                 key={type}
                 value={type}
-                className="flex items-center gap-2 whitespace-nowrap"
+                className="flex items-center gap-1 sm:gap-2 whitespace-nowrap text-xs sm:text-sm px-2 sm:px-3 py-1.5 sm:py-2"
               >
-                <span>{typeInfo.icon}</span>
-                <span>{typeInfo.label}</span>
-                <span className="text-xs bg-muted px-1.5 py-0.5 rounded">
+                <span className="w-4 h-4 sm:w-5 sm:h-5 rounded bg-muted flex items-center justify-center text-xs font-medium">
+                  {typeInfo.icon}
+                </span>
+                <span className="hidden xs:inline sm:inline">{typeInfo.label}</span>
+                <span className="text-xs bg-muted px-1 sm:px-1.5 py-0.5 rounded">
                   {content.length}
                 </span>
               </TabsTrigger>
@@ -88,7 +92,7 @@ export function TopicContent() {
         </TabsList>
 
         {allowedTypes.map((type) => (
-          <TabsContent key={type} value={type} className="mt-6">
+          <TabsContent key={type} value={type} className="mt-4 sm:mt-6">
             <ContentList
               items={getTopicContent(topic.id, type)}
               onItemClick={handleItemClick}

@@ -45,11 +45,13 @@ export interface SavedItem {
   id: string;
   topicId: string;
   topicName: string;
+  subjectId: string;
   subjectName: string;
   examId: string;
-  contentType: string;
+  contentType: 'formulas' | 'short_tricks' | 'reactions' | 'constants' | 'exceptions';
   title: string;
   savedAt: number;
+  itemIndex?: number;
 }
 
 export interface ViewedItem {

@@ -7,7 +7,6 @@ import { AppProvider } from "@/contexts/AppContext";
 import { Layout } from "@/components/layout/Layout";
 import Index from "./pages/Index";
 import Saved from "./pages/Saved";
-import Daily from "./pages/Daily";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -23,7 +22,6 @@ const App = () => (
             <Routes>
               <Route path="/" element={<Index />} />
               <Route path="/saved" element={<Saved />} />
-              <Route path="/daily" element={<Daily />} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
             </Routes>

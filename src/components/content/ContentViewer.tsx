@@ -23,8 +23,10 @@ import {
   calculateAdPosition,
   defaultAdConfig,
   rankMargAd,
+  getAdForPlacement,
   type AdContent,
 } from "@/config/ads";
+import { RankMargAd } from "@/components/ads/RankMargAd";
 
 type DisplayItem = ContentItem | AdContent;
 
@@ -72,6 +74,9 @@ export function ContentViewer({
     adIndex: null,
   });
 
+  // Get ad for content viewer
+  const contentViewerAd = useMemo(() => getAdForPlacement("contentViewer"), []);
+
   // Calculate ad position once when items change
   const adIndex = useMemo(() => {
     // Reset if items actually changed (different key)
@@ -93,11 +98,11 @@ export function ContentViewer({
 
   // Create display items array with ad inserted
   const displayItems: DisplayItem[] = useMemo(() => {
-    if (adIndex === null) return items;
+    if (adIndex === null || !contentViewerAd) return items;
     const result: DisplayItem[] = [...items];
-    result.splice(adIndex, 0, rankMargAd);
+    result.splice(adIndex, 0, contentViewerAd);
     return result;
-  }, [items, adIndex]);
+  }, [items, adIndex, contentViewerAd]);
 
   // Map display index to actual item index (accounting for ad)
   const getActualIndex = useCallback(
@@ -386,58 +391,19 @@ export function ContentViewer({
           {...swipeHandlers}
         >
           {isAd ? (
-            <Card
+            <div
               className={cn(
-                "max-w-3xl w-full mx-auto transition-all duration-500 ease-in-out origin-center overflow-auto max-h-full",
-                "bg-gradient-to-br from-primary/10 via-primary/5 to-background border-primary/20",
+                "max-w-3xl w-full mx-auto transition-all duration-500 ease-in-out origin-center",
                 getCardAnimation()
               )}
             >
-              <CardHeader className="pb-2 sm:pb-4">
-                <div className="flex items-center gap-2 mb-2">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary">
-                    <Sparkles className="h-6 w-6 text-primary-foreground" />
-                  </div>
-                  <div>
-                    <CardTitle className="text-lg sm:text-xl">
-                      {currentDisplayItem && "type" in currentDisplayItem
-                        ? (currentDisplayItem as AdContent).title
-                        : "Advertisement"}
-                    </CardTitle>
-                    <Badge variant="secondary" className="text-xs mt-1">
-                      Sponsored
-                    </Badge>
-                  </div>
-                </div>
-              </CardHeader>
-              <CardContent>
-                <div className="space-y-4">
-                  <div className="bg-muted/50 p-4 sm:p-6 rounded-lg text-center">
-                    <h3 className="text-xl sm:text-2xl font-bold text-foreground mb-2">
-                      Boost Your Exam Preparation
-                    </h3>
-                    <p className="text-sm sm:text-base text-muted-foreground mb-4">
-                      {currentDisplayItem && "type" in currentDisplayItem
-                        ? (currentDisplayItem as AdContent).description
-                        : rankMargAd.description}
-                    </p>
-                    <Button
-                      onClick={handleAdClick}
-                      className="w-full sm:w-auto"
-                      size="lg"
-                    >
-                      {currentDisplayItem && "type" in currentDisplayItem
-                        ? (currentDisplayItem as AdContent).buttonText
-                        : rankMargAd.buttonText}
-                      <ExternalLink className="ml-2 h-4 w-4" />
-                    </Button>
-                  </div>
-                  <p className="text-xs text-center text-muted-foreground">
-                    Advertisement
-                  </p>
-                </div>
-              </CardContent>
-            </Card>
+              {currentDisplayItem && "type" in currentDisplayItem && (
+                <RankMargAd
+                  ad={currentDisplayItem as AdContent}
+                  onClick={handleAdClick}
+                />
+              )}
+            </div>
           ) : currentItem ? (
             <Card
               className={cn(

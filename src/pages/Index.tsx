@@ -1,28 +1,42 @@
-import { useEffect } from 'react';
-import { useSearchParams } from 'react-router-dom';
-import { BookOpen, Target, Trophy } from 'lucide-react';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { useApp } from '@/contexts/AppContext';
-import { TopicCard } from '@/components/content/TopicCard';
-import { TopicContent } from '@/components/content/TopicContent';
-import { SEOHead } from '@/components/seo/SEOHead';
-import { ExamType } from '@/data/content';
+import { useEffect, useMemo } from "react";
+import { useSearchParams } from "react-router-dom";
+import { BookOpen, Target, Trophy } from "lucide-react";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { useApp } from "@/contexts/AppContext";
+import { TopicCard } from "@/components/content/TopicCard";
+import { TopicContent } from "@/components/content/TopicContent";
+import { SEOHead } from "@/components/seo/SEOHead";
+import { ExamType } from "@/data/content";
+import {
+  getAdForPlacement,
+  shouldShowAdForPlacement,
+  calculateAdPosition,
+  adPlacements,
+} from "@/config/ads";
+import { RankMargAd } from "@/components/ads/RankMargAd";
 
 const features = [
   {
     icon: BookOpen,
-    title: 'Structured Learning',
-    description: 'Content organized by exam, subject, and topic for easy navigation',
+    title: "Structured Learning",
+    description:
+      "Content organized by exam, subject, and topic for easy navigation",
   },
   {
     icon: Target,
-    title: 'Exam Focused',
-    description: 'Content prioritized by exam importance and frequency',
+    title: "Exam Focused",
+    description: "Content prioritized by exam importance and frequency",
   },
   {
     icon: Trophy,
-    title: 'Track Progress',
-    description: 'Save items and track your revision progress locally',
+    title: "Track Progress",
+    description: "Save items and track your revision progress locally",
   },
 ];
 
@@ -41,11 +55,11 @@ export default function Index() {
 
   // Handle URL-based navigation for shared links
   useEffect(() => {
-    const examParam = searchParams.get('exam') as ExamType | null;
-    const subjectParam = searchParams.get('subject');
-    const topicParam = searchParams.get('topic');
+    const examParam = searchParams.get("exam") as ExamType | null;
+    const subjectParam = searchParams.get("subject");
+    const topicParam = searchParams.get("topic");
 
-    if (examParam && (examParam === 'JEE' || examParam === 'NEET')) {
+    if (examParam && (examParam === "JEE" || examParam === "NEET")) {
       setSelectedExam(examParam);
     }
     if (subjectParam) {
@@ -59,10 +73,26 @@ export default function Index() {
   const examData = getSelectedExamData();
   const subjectData = getSelectedSubjectData();
 
+  // Calculate ad positions at top level (hooks must be called unconditionally)
+  const topicAdPosition = useMemo(() => {
+    if (!subjectData) return null;
+    const placementConfig = adPlacements.topicGrid;
+    if (!shouldShowAdForPlacement("topicGrid", subjectData.topics.length)) {
+      return null;
+    }
+    if (!placementConfig.config) return null;
+    return calculateAdPosition(
+      subjectData.topics.length,
+      placementConfig.config
+    );
+  }, [subjectData]);
+
+  const topicAd = useMemo(() => getAdForPlacement("topicGrid"), []);
+
   // Generate SEO content based on current view
   const getSEOContent = () => {
     if (selectedTopicId && subjectData) {
-      const topic = subjectData.topics.find(t => t.id === selectedTopicId);
+      const topic = subjectData.topics.find((t) => t.id === selectedTopicId);
       if (topic) {
         return {
           title: `${topic.name} - ${subjectData.name} - ${selectedExam}`,
@@ -84,7 +114,7 @@ export default function Index() {
       title: `${selectedExam} Preparation`,
       description: `RankVault - Your ultimate recall and revision vault for ${selectedExam}. Access formulas, reactions, and tricks organized for quick revision.`,
       keywords: `${selectedExam} preparation, ${selectedExam} formulas, ${selectedExam} revision, JEE NEET preparation`,
-      canonicalPath: '/',
+      canonicalPath: "/",
     };
   };
 
@@ -119,13 +149,18 @@ export default function Index() {
           </div>
 
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {subjectData.topics.map((topic) => (
-              <TopicCard
-                key={topic.id}
-                topic={topic}
-                isSelected={false}
-                onClick={() => setSelectedTopicId(topic.id)}
-              />
+            {subjectData.topics.map((topic, index) => (
+              <div key={topic.id}>
+                <TopicCard
+                  topic={topic}
+                  isSelected={false}
+                  onClick={() => setSelectedTopicId(topic.id)}
+                />
+                {/* Show ad after this topic if position matches */}
+                {topicAdPosition !== null &&
+                  topicAdPosition === index &&
+                  topicAd && <RankMargAd ad={topicAd} className="mt-4" />}
+              </div>
             ))}
           </div>
         </div>
@@ -149,8 +184,8 @@ export default function Index() {
             Welcome to RankVault
           </h1>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Your ultimate recall and revision vault for {selectedExam}. 
-            Access formulas, reactions, and tricks organized for quick revision.
+            Your ultimate recall and revision vault for {selectedExam}. Access
+            formulas, reactions, and tricks organized for quick revision.
           </p>
         </div>
 
@@ -166,13 +201,24 @@ export default function Index() {
                       <Icon className="h-6 w-6 text-primary" />
                     </div>
                   </div>
-                  <h3 className="font-semibold text-foreground mb-1">{feature.title}</h3>
-                  <p className="text-sm text-muted-foreground">{feature.description}</p>
+                  <h3 className="font-semibold text-foreground mb-1">
+                    {feature.title}
+                  </h3>
+                  <p className="text-sm text-muted-foreground">
+                    {feature.description}
+                  </p>
                 </CardContent>
               </Card>
             );
           })}
         </div>
+
+        {/* Ad after features */}
+        {shouldShowAdForPlacement("homeAfterFeatures") &&
+          (() => {
+            const ad = getAdForPlacement("homeAfterFeatures");
+            return ad ? <RankMargAd ad={ad} className="mt-6" /> : null;
+          })()}
 
         {/* Subjects Grid */}
         <div>
@@ -190,7 +236,9 @@ export default function Index() {
                 className="cursor-pointer transition-all hover:shadow-md hover:border-primary/50"
                 onClick={() => {
                   // Trigger subject selection in sidebar
-                  const event = new CustomEvent('select-subject', { detail: subject.id });
+                  const event = new CustomEvent("select-subject", {
+                    detail: subject.id,
+                  });
                   window.dispatchEvent(event);
                 }}
               >
@@ -210,6 +258,13 @@ export default function Index() {
               </Card>
             ))}
           </div>
+
+          {/* Ad after subjects grid */}
+          {shouldShowAdForPlacement("homeAfterSubjects") &&
+            (() => {
+              const ad = getAdForPlacement("homeAfterSubjects");
+              return ad ? <RankMargAd ad={ad} className="mt-6" /> : null;
+            })()}
         </div>
       </div>
     </>

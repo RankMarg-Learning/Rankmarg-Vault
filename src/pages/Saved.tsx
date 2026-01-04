@@ -1,5 +1,5 @@
 import { Bookmark, Trash2, Filter } from 'lucide-react';
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -15,6 +15,13 @@ import { contentTypeLabels, ExamType, getTopicContent, ContentType } from '@/dat
 import { ContentViewer } from '@/components/content/ContentViewer';
 import { SEOHead } from '@/components/seo/SEOHead';
 import { SavedItem } from '@/hooks/useLocalStorage';
+import { 
+  shouldShowAdForPlacement, 
+  calculateAdPosition, 
+  getAdForPlacement,
+  adPlacements 
+} from '@/config/ads';
+import { RankMargAd } from '@/components/ads/RankMargAd';
 
 export default function Saved() {
   const { savedItems, unsaveItem } = useApp();
@@ -29,6 +36,18 @@ export default function Saved() {
     if (filterType !== 'all' && item.contentType !== filterType) return false;
     return true;
   });
+
+  // Calculate ad position for saved list
+  const adPosition = useMemo(() => {
+    const placementConfig = adPlacements.savedList;
+    if (!shouldShowAdForPlacement('savedList', filteredItems.length)) {
+      return null;
+    }
+    if (!placementConfig.config) return null;
+    return calculateAdPosition(filteredItems.length, placementConfig.config);
+  }, [filteredItems.length]);
+
+  const ad = useMemo(() => getAdForPlacement('savedList'), []);
 
   const handleItemClick = (item: SavedItem) => {
     const content = getTopicContent(item.topicId, item.contentType);
@@ -126,50 +145,55 @@ export default function Saved() {
           </div>
         ) : (
           <div className="space-y-2 sm:space-y-3">
-            {filteredItems.map((item) => {
+            {filteredItems.map((item, index) => {
               const typeInfo = contentTypeLabels[item.contentType];
               
               return (
-                <Card
-                  key={item.id}
-                  className="cursor-pointer transition-all hover:shadow-md hover:border-primary/30"
-                >
-                  <CardContent className="p-3 sm:p-4">
-                    <div className="flex items-start justify-between gap-2 sm:gap-3">
-                      <div
-                        className="flex-1 min-w-0"
-                        onClick={() => handleItemClick(item)}
-                      >
-                        <h4 className="font-medium text-foreground truncate mb-1 text-sm sm:text-base">
-                          {item.title}
-                        </h4>
-                        <p className="text-xs sm:text-sm text-muted-foreground">
-                          {item.examId} / {item.subjectName} / {item.topicName}
-                        </p>
-                        <div className="flex items-center gap-2 mt-2">
-                          <Badge variant="secondary" className="text-xs">
-                            {typeInfo?.icon} {typeInfo?.label}
-                          </Badge>
-                          <span className="text-xs text-muted-foreground hidden sm:inline">
-                            Saved {new Date(item.savedAt).toLocaleDateString()}
-                          </span>
+                <div key={item.id}>
+                  <Card
+                    className="cursor-pointer transition-all hover:shadow-md hover:border-primary/30"
+                  >
+                    <CardContent className="p-3 sm:p-4">
+                      <div className="flex items-start justify-between gap-2 sm:gap-3">
+                        <div
+                          className="flex-1 min-w-0"
+                          onClick={() => handleItemClick(item)}
+                        >
+                          <h4 className="font-medium text-foreground truncate mb-1 text-sm sm:text-base">
+                            {item.title}
+                          </h4>
+                          <p className="text-xs sm:text-sm text-muted-foreground">
+                            {item.examId} / {item.subjectName} / {item.topicName}
+                          </p>
+                          <div className="flex items-center gap-2 mt-2">
+                            <Badge variant="secondary" className="text-xs">
+                              {typeInfo?.icon} {typeInfo?.label}
+                            </Badge>
+                            <span className="text-xs text-muted-foreground hidden sm:inline">
+                              Saved {new Date(item.savedAt).toLocaleDateString()}
+                            </span>
+                          </div>
                         </div>
-                      </div>
 
-                      <Button
-                        variant="ghost"
-                        size="icon"
-                        className="shrink-0 text-muted-foreground hover:text-destructive h-8 w-8 sm:h-10 sm:w-10"
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          unsaveItem(item.id);
-                        }}
-                      >
-                        <Trash2 className="h-4 w-4" />
-                      </Button>
-                    </div>
-                  </CardContent>
-                </Card>
+                        <Button
+                          variant="ghost"
+                          size="icon"
+                          className="shrink-0 text-muted-foreground hover:text-destructive h-8 w-8 sm:h-10 sm:w-10"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            unsaveItem(item.id);
+                          }}
+                        >
+                          <Trash2 className="h-4 w-4" />
+                        </Button>
+                      </div>
+                    </CardContent>
+                  </Card>
+                  {/* Show ad after this item if position matches */}
+                  {adPosition !== null && adPosition === index && ad && (
+                    <RankMargAd ad={ad} />
+                  )}
+                </div>
               );
             })}
           </div>

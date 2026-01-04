@@ -5,6 +5,8 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { getAdForPlacement, shouldShowAdForPlacement } from "@/config/ads";
+import { RankMargAd } from "@/components/ads/RankMargAd";
 
 const footerSections = [
   {
@@ -30,8 +32,18 @@ const footerSections = [
 ];
 
 export function Footer() {
+  const showFooterAd = shouldShowAdForPlacement("footer");
+  const footerAd = showFooterAd ? getAdForPlacement("footer") : null;
+
   return (
     <footer className="border-t border-border bg-card mt-auto">
+      {/* Footer Ad Banner */}
+      {footerAd && (
+        <div className="container px-4 py-4 border-b border-border">
+          <RankMargAd ad={footerAd} />
+        </div>
+      )}
+
       {/* Desktop Footer */}
       <div className="hidden md:block container py-8 px-4">
         <div className="grid grid-cols-4 gap-8">

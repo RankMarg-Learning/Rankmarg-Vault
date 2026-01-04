@@ -242,6 +242,7 @@ export function ContentViewer({
       toast({
         title: "Removed from saved",
         description: currentItem.title,
+        duration: 200,
       });
     } else {
       saveItem({

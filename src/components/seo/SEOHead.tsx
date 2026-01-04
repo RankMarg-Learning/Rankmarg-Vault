@@ -1,57 +1,115 @@
-import { useEffect } from 'react';
+import { useEffect } from "react";
 
 interface SEOHeadProps {
   title: string;
   description: string;
   keywords?: string;
   canonicalPath?: string;
+  ogImage?: string;
+  ogType?: string;
 }
 
-export function SEOHead({ title, description, keywords, canonicalPath }: SEOHeadProps) {
+// Helper function to get or create meta element by name
+const getOrCreateMetaByName = (name: string, content: string) => {
+  let element = document.querySelector(
+    `meta[name="${name}"]`
+  ) as HTMLMetaElement;
+  if (!element) {
+    element = document.createElement("meta");
+    element.setAttribute("name", name);
+    document.head.appendChild(element);
+  }
+  element.setAttribute("content", content);
+  return element;
+};
+
+// Helper function to get or create meta element by property
+const getOrCreateMetaByProperty = (property: string, content: string) => {
+  let element = document.querySelector(
+    `meta[property="${property}"]`
+  ) as HTMLMetaElement;
+  if (!element) {
+    element = document.createElement("meta");
+    element.setAttribute("property", property);
+    document.head.appendChild(element);
+  }
+  element.setAttribute("content", content);
+  return element;
+};
+
+// Helper function to get or create link element
+const getOrCreateLink = (rel: string, href: string) => {
+  let element = document.querySelector(`link[rel="${rel}"]`);
+  if (!element) {
+    element = document.createElement("link");
+    element.setAttribute("rel", rel);
+    document.head.appendChild(element);
+  }
+  element.setAttribute("href", href);
+  return element;
+};
+
+export function SEOHead({
+  title,
+  description,
+  keywords,
+  canonicalPath,
+  ogImage = "https://lovable.dev/opengraph-image-p98pqg.png",
+  ogType = "website",
+}: SEOHeadProps) {
   useEffect(() => {
+    const fullTitle = `${title} | RankVault`;
+    const baseUrl = window.location.origin;
+    const fullUrl = canonicalPath ? `${baseUrl}${canonicalPath}` : baseUrl;
+
     // Update document title
-    document.title = `${title} | RankVault`;
-    
+    document.title = fullTitle;
+
     // Update meta description
-    const metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) {
-      metaDescription.setAttribute('content', description);
-    }
-    
+    getOrCreateMetaByName("description", description);
+
     // Update or create keywords meta
-    let metaKeywords = document.querySelector('meta[name="keywords"]');
     if (keywords) {
-      if (!metaKeywords) {
-        metaKeywords = document.createElement('meta');
-        metaKeywords.setAttribute('name', 'keywords');
-        document.head.appendChild(metaKeywords);
-      }
-      metaKeywords.setAttribute('content', keywords);
+      getOrCreateMetaByName("keywords", keywords);
     }
-    
+
+    // Update author meta
+    getOrCreateMetaByName("author", "RankVault");
+
+    // Update robots meta
+    getOrCreateMetaByName(
+      "robots",
+      "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+    );
+
     // Update Open Graph tags
-    const ogTitle = document.querySelector('meta[property="og:title"]');
-    if (ogTitle) ogTitle.setAttribute('content', `${title} | RankVault`);
-    
-    const ogDescription = document.querySelector('meta[property="og:description"]');
-    if (ogDescription) ogDescription.setAttribute('content', description);
-    
+    getOrCreateMetaByProperty("og:title", fullTitle);
+    getOrCreateMetaByProperty("og:description", description);
+    getOrCreateMetaByProperty("og:type", ogType);
+    getOrCreateMetaByProperty("og:url", fullUrl);
+    getOrCreateMetaByProperty("og:image", ogImage);
+    getOrCreateMetaByProperty("og:site_name", "RankVault");
+    getOrCreateMetaByProperty("og:locale", "en_US");
+
+    // Update Twitter Card tags
+    getOrCreateMetaByName("twitter:card", "summary_large_image");
+    getOrCreateMetaByName("twitter:title", fullTitle);
+    getOrCreateMetaByName("twitter:description", description);
+    getOrCreateMetaByName("twitter:image", ogImage);
+
     // Update canonical URL
-    let canonicalLink = document.querySelector('link[rel="canonical"]');
     if (canonicalPath) {
-      if (!canonicalLink) {
-        canonicalLink = document.createElement('link');
-        canonicalLink.setAttribute('rel', 'canonical');
-        document.head.appendChild(canonicalLink);
-      }
-      canonicalLink.setAttribute('href', `${window.location.origin}${canonicalPath}`);
+      getOrCreateLink("canonical", fullUrl);
     }
-    
+
+    // Add alternate language links (if needed in future)
+    // getOrCreateLink('alternate', `${fullUrl}?lang=hi`, 'hreflang', 'hi');
+
     return () => {
       // Reset to default on unmount
-      document.title = 'RankVault - Your Exam Recall Vault';
+      document.title = "RankVault - Your Exam Recall Vault";
     };
-  }, [title, description, keywords, canonicalPath]);
-  
+  }, [title, description, keywords, canonicalPath, ogImage, ogType]);
+
   return null;
 }

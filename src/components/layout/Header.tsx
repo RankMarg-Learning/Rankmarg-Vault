@@ -31,22 +31,26 @@ export function Header({ onMenuClick }: HeaderProps) {
     <header className="sticky top-0 z-50 w-full border-b border-border bg-card/95 backdrop-blur supports-[backdrop-filter]:bg-card/80">
       <div className="container flex h-16 items-center justify-between px-4">
         {/* Left: Logo + Menu */}
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2 sm:gap-3">
           <Button
             variant="ghost"
             size="icon"
-            className="md:hidden"
+            className="md:hidden h-9 w-9"
             onClick={onMenuClick}
           >
             <Menu className="h-5 w-5" />
           </Button>
 
-          <div className="flex items-center gap-2">
-            <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary">
-              <img src="/logo.png" alt="RankVault" className="h-8 w-8" />
+          <div className="flex items-center gap-1.5 sm:gap-2">
+            <div className="flex h-8 w-8 sm:h-10 sm:w-10 items-center justify-center rounded-lg bg-primary shrink-0">
+              <img
+                src="/logo.png"
+                alt="RankVault"
+                className="h-6 w-6 sm:h-8 sm:w-8 object-contain"
+              />
             </div>
-            <div className="flex flex-col">
-              <span className="font-bold text-lg leading-none text-foreground">
+            <div className="flex flex-col min-w-0">
+              <span className="font-bold text-base sm:text-lg leading-none text-foreground truncate">
                 RankVault
               </span>
               <span className="text-xs text-muted-foreground hidden sm:block">

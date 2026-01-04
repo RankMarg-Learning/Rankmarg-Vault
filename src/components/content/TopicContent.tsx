@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
@@ -8,6 +9,8 @@ import { ContentList } from './ContentList';
 import { ContentViewer } from './ContentViewer';
 
 export function TopicContent() {
+  const navigate = useNavigate();
+  const location = useLocation();
   const { getSelectedTopicData, setSelectedTopicId, trackView, selectedExam, selectedTopicId } = useApp();
   const topicData = getSelectedTopicData();
 
@@ -19,6 +22,19 @@ export function TopicContent() {
 
   const { topic, subject } = topicData;
   const allowedTypes = topic.allowedTypes;
+  
+  // Check if we're on a URL-based route (pattern: /subjectSlug/topicSlug)
+  const pathParts = location.pathname.split('/').filter(Boolean);
+  const isUrlBasedRoute = pathParts.length === 2 && 
+    !['saved', 'privacy-policy', 'about', 'contact'].includes(pathParts[0]);
+  
+  const handleBack = () => {
+    if (isUrlBasedRoute) {
+      navigate('/');
+    } else {
+      setSelectedTopicId(null);
+    }
+  };
 
   // Set initial tab if not set
   if (!activeTab && allowedTypes.length > 0) {
@@ -42,7 +58,7 @@ export function TopicContent() {
         <Button
           variant="ghost"
           size="icon"
-          onClick={() => setSelectedTopicId(null)}
+          onClick={handleBack}
           className="shrink-0 h-8 w-8 sm:h-10 sm:w-10"
         >
           <ArrowLeft className="h-4 w-4 sm:h-5 sm:w-5" />

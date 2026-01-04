@@ -1,5 +1,5 @@
 import { useEffect, useMemo } from "react";
-import { useSearchParams } from "react-router-dom";
+import { useSearchParams, useNavigate } from "react-router-dom";
 import {
   BookOpen,
   Target,
@@ -50,6 +50,7 @@ const features = [
 
 export default function Index() {
   const [searchParams] = useSearchParams();
+  const navigate = useNavigate();
   const {
     selectedExam,
     setSelectedExam,
@@ -172,8 +173,8 @@ export default function Index() {
               <div key={topic.id}>
                 <TopicCard
                   topic={topic}
+                  subjectSlug={subjectData.slug}
                   isSelected={false}
-                  onClick={() => setSelectedTopicId(topic.id)}
                 />
                 {/* Show ad after this topic if position matches */}
                 {topicAdPosition !== null &&
@@ -225,11 +226,8 @@ export default function Index() {
                   key={subject.id}
                   className="cursor-pointer transition-all hover:shadow-md hover:border-primary/50"
                   onClick={() => {
-                    // Trigger subject selection in sidebar
-                    const event = new CustomEvent("select-subject", {
-                      detail: subject.id,
-                    });
-                    window.dispatchEvent(event);
+                    // Navigate to subject page using slug
+                    navigate(`/${subject.slug}`);
                   }}
                 >
                   <CardHeader>

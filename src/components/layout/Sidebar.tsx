@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { ChevronRight, Library } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
@@ -12,6 +13,7 @@ interface SidebarProps {
 }
 
 export function Sidebar({ isOpen, onClose }: SidebarProps) {
+  const navigate = useNavigate();
   const {
     selectedExam,
     selectedSubjectId,
@@ -42,17 +44,13 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
     };
   }, [setSelectedSubjectId, setSelectedTopicId]);
 
-  const handleSubjectClick = (subjectId: string) => {
-    if (selectedSubjectId === subjectId) {
-      setSelectedSubjectId(null);
-    } else {
-      setSelectedSubjectId(subjectId);
-      setSelectedTopicId(null);
-    }
+  const handleSubjectClick = (subjectSlug: string) => {
+    navigate(`/${subjectSlug}`);
+    onClose();
   };
 
-  const handleTopicClick = (topicId: string) => {
-    setSelectedTopicId(topicId);
+  const handleTopicClick = (subjectSlug: string, topicSlug: string) => {
+    navigate(`/${subjectSlug}/${topicSlug}`);
     onClose();
   };
 
@@ -95,7 +93,7 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
                     selectedSubjectId === subject.id && "bg-secondary",
                     "hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"
                   )}
-                  onClick={() => handleSubjectClick(subject.id)}
+                  onClick={() => handleSubjectClick(subject.slug)}
                 >
                   <div className="flex items-center gap-2 sm:gap-3">
                     <span className="w-6 h-6 sm:w-8 sm:h-8 rounded-lg bg-primary/10 text-primary flex items-center justify-center text-xs sm:text-sm font-bold">
@@ -127,7 +125,9 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
                           selectedTopicId !== topic.id &&
                             "hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"
                         )}
-                        onClick={() => handleTopicClick(topic.id)}
+                        onClick={() =>
+                          handleTopicClick(subject.slug, topic.slug)
+                        }
                       >
                         <div className="flex flex-col items-start gap-1 w-full">
                           <div className="flex items-center gap-2">

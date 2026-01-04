@@ -69,106 +69,111 @@ export const contentTypeLabels: Record<
   },
 };
 
+// Shared subjects - Physics and Chemistry are common to both JEE and NEET
+const sharedPhysicsSubject: SubjectConfig = {
+  id: "physics",
+  name: "Physics",
+  icon: "P",
+  topics: [
+    {
+      id: "kinematics",
+      name: "Kinematics",
+      allowedTypes: ["formulas", "short_tricks"],
+      icon: "K",
+    },
+    {
+      id: "thermodynamics",
+      name: "Thermodynamics",
+      allowedTypes: ["formulas", "short_tricks", "constants"],
+      icon: "T",
+    },
+    {
+      id: "electromagnetism",
+      name: "Electromagnetism",
+      allowedTypes: ["formulas", "short_tricks", "constants"],
+      icon: "E",
+    },
+    {
+      id: "optics",
+      name: "Optics",
+      allowedTypes: ["formulas", "short_tricks"],
+      icon: "O",
+    },
+    {
+      id: "modern-physics",
+      name: "Modern Physics",
+      allowedTypes: ["formulas", "constants"],
+      icon: "M",
+    },
+    {
+      id: "rotational-mechanics",
+      name: "Rotational Mechanics",
+      allowedTypes: ["formulas", "short_tricks"],
+      icon: "R",
+    },
+    {
+      id: "waves",
+      name: "Waves & Sound",
+      allowedTypes: ["formulas", "short_tricks"],
+      icon: "W",
+    },
+  ],
+};
+
+const sharedChemistrySubject: SubjectConfig = {
+  id: "chemistry",
+  name: "Chemistry",
+  icon: "C",
+  topics: [
+    {
+      id: "organic-reactions",
+      name: "Organic Reactions",
+      allowedTypes: ["reactions", "short_tricks", "exceptions"],
+      icon: "O",
+    },
+    {
+      id: "inorganic-chemistry",
+      name: "Inorganic Chemistry",
+      allowedTypes: ["reactions", "exceptions", "short_tricks"],
+      icon: "I",
+    },
+    {
+      id: "physical-chemistry",
+      name: "Physical Chemistry",
+      allowedTypes: ["formulas", "short_tricks", "constants"],
+      icon: "P",
+    },
+    {
+      id: "chemical-bonding",
+      name: "Chemical Bonding",
+      allowedTypes: ["formulas", "exceptions"],
+      icon: "B",
+    },
+    {
+      id: "electrochemistry",
+      name: "Electrochemistry",
+      allowedTypes: ["formulas", "short_tricks", "constants"],
+      icon: "E",
+    },
+    {
+      id: "chemical-kinetics",
+      name: "Chemical Kinetics",
+      allowedTypes: ["formulas", "short_tricks"],
+      icon: "K",
+    },
+  ],
+};
+
 export const examsData: ExamConfig[] = [
   {
     id: "JEE",
     name: "JEE",
     fullName: "Joint Entrance Examination",
     subjects: [
+      sharedPhysicsSubject,
+      sharedChemistrySubject,
       {
-        id: "physics-jee",
-        name: "Physics",
-        icon: "P",
-        topics: [
-          {
-            id: "kinematics",
-            name: "Kinematics",
-            allowedTypes: ["formulas", "short_tricks"],
-            icon: "K",
-          },
-          {
-            id: "thermodynamics",
-            name: "Thermodynamics",
-            allowedTypes: ["formulas", "short_tricks", "constants"],
-            icon: "T",
-          },
-          {
-            id: "electromagnetism",
-            name: "Electromagnetism",
-            allowedTypes: ["formulas", "short_tricks", "constants"],
-            icon: "E",
-          },
-          {
-            id: "optics",
-            name: "Optics",
-            allowedTypes: ["formulas", "short_tricks"],
-            icon: "O",
-          },
-          {
-            id: "modern-physics",
-            name: "Modern Physics",
-            allowedTypes: ["formulas", "constants"],
-            icon: "M",
-          },
-          {
-            id: "rotational-mechanics",
-            name: "Rotational Mechanics",
-            allowedTypes: ["formulas", "short_tricks"],
-            icon: "R",
-          },
-          {
-            id: "waves",
-            name: "Waves & Sound",
-            allowedTypes: ["formulas", "short_tricks"],
-            icon: "W",
-          },
-        ],
-      },
-      {
-        id: "chemistry-jee",
-        name: "Chemistry",
-        icon: "C",
-        topics: [
-          {
-            id: "organic-reactions",
-            name: "Organic Reactions",
-            allowedTypes: ["reactions", "short_tricks", "exceptions"],
-            icon: "O",
-          },
-          {
-            id: "inorganic-chemistry",
-            name: "Inorganic Chemistry",
-            allowedTypes: ["reactions", "exceptions", "short_tricks"],
-            icon: "I",
-          },
-          {
-            id: "physical-chemistry",
-            name: "Physical Chemistry",
-            allowedTypes: ["formulas", "short_tricks", "constants"],
-            icon: "P",
-          },
-          {
-            id: "chemical-bonding",
-            name: "Chemical Bonding",
-            allowedTypes: ["formulas", "exceptions"],
-            icon: "B",
-          },
-          {
-            id: "electrochemistry",
-            name: "Electrochemistry",
-            allowedTypes: ["formulas", "short_tricks", "constants"],
-            icon: "E",
-          },
-          {
-            id: "chemical-kinetics",
-            name: "Chemical Kinetics",
-            allowedTypes: ["formulas", "short_tricks"],
-            icon: "K",
-          },
-        ],
-      },
-      {
-        id: "mathematics-jee",
+        id: "mathematics",
         name: "Mathematics",
         icon: "M",
         topics: [
@@ -223,76 +228,10 @@ export const examsData: ExamConfig[] = [
     name: "NEET",
     fullName: "National Eligibility cum Entrance Test",
     subjects: [
+      sharedPhysicsSubject,
+      sharedChemistrySubject,
       {
-        id: "physics-neet",
-        name: "Physics",
-        icon: "P",
-        topics: [
-          {
-            id: "mechanics-neet",
-            name: "Mechanics",
-            allowedTypes: ["formulas", "short_tricks"],
-            icon: "M",
-          },
-          {
-            id: "waves-neet",
-            name: "Waves & Oscillations",
-            allowedTypes: ["formulas", "short_tricks"],
-            icon: "W",
-          },
-          {
-            id: "thermodynamics-neet",
-            name: "Thermodynamics",
-            allowedTypes: ["formulas", "constants"],
-            icon: "T",
-          },
-          {
-            id: "electrostatics-neet",
-            name: "Electrostatics",
-            allowedTypes: ["formulas", "short_tricks"],
-            icon: "E",
-          },
-          {
-            id: "current-electricity",
-            name: "Current Electricity",
-            allowedTypes: ["formulas", "short_tricks", "constants"],
-            icon: "C",
-          },
-        ],
-      },
-      {
-        id: "chemistry-neet",
-        name: "Chemistry",
-        icon: "C",
-        topics: [
-          {
-            id: "organic-neet",
-            name: "Organic Chemistry",
-            allowedTypes: ["reactions", "short_tricks", "exceptions"],
-            icon: "O",
-          },
-          {
-            id: "inorganic-neet",
-            name: "Inorganic Chemistry",
-            allowedTypes: ["reactions", "exceptions"],
-            icon: "I",
-          },
-          {
-            id: "physical-neet",
-            name: "Physical Chemistry",
-            allowedTypes: ["formulas", "constants"],
-            icon: "P",
-          },
-          {
-            id: "biomolecules",
-            name: "Biomolecules",
-            allowedTypes: ["short_tricks", "reactions"],
-            icon: "B",
-          },
-        ],
-      },
-      {
-        id: "biology-neet",
+        id: "biology",
         name: "Biology",
         icon: "B",
         topics: [

@@ -105,10 +105,25 @@ export function AppProvider({ children }: { children: ReactNode }) {
     return undefined;
   };
   
-  // Reset selections when exam changes
+  // Reset selections when exam changes, but preserve Physics and Chemistry since they're shared
   useEffect(() => {
-    setSelectedSubjectId(null);
-    setSelectedTopicId(null);
+    const exam = examsData.find(e => e.id === selectedExam);
+    if (!exam) {
+      setSelectedSubjectId(null);
+      setSelectedTopicId(null);
+      return;
+    }
+    
+    // Check if current subject exists in new exam
+    if (selectedSubjectId) {
+      const subjectExists = exam.subjects.some(s => s.id === selectedSubjectId);
+      if (!subjectExists) {
+        // Subject doesn't exist in new exam (e.g., Mathematics when switching to NEET, or Biology when switching to JEE)
+        setSelectedSubjectId(null);
+        setSelectedTopicId(null);
+      }
+      // If subject exists (Physics/Chemistry), keep it selected and topic selection
+    }
   }, [selectedExam]);
   
   return (

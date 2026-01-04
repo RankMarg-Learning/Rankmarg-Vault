@@ -8,7 +8,7 @@ import { ContentList } from './ContentList';
 import { ContentViewer } from './ContentViewer';
 
 export function TopicContent() {
-  const { getSelectedTopicData, setSelectedTopicId, trackView, selectedExam } = useApp();
+  const { getSelectedTopicData, setSelectedTopicId, trackView, selectedExam, selectedTopicId } = useApp();
   const topicData = getSelectedTopicData();
 
   const [activeTab, setActiveTab] = useState<ContentType | null>(null);
@@ -54,11 +54,8 @@ export function TopicContent() {
             <span>/</span>
             <span className="truncate">{subject.name}</span>
           </div>
-          <h1 className="text-lg sm:text-2xl font-bold text-foreground flex items-center gap-2">
-            <span className="w-6 h-6 sm:w-8 sm:h-8 rounded-lg bg-primary/10 text-primary flex items-center justify-center text-xs sm:text-sm font-bold">
-              {topic.icon}
-            </span>
-            <span className="truncate">{topic.name}</span>
+          <h1 className="text-lg sm:text-2xl font-bold text-foreground">
+            {topic.name}
           </h1>
         </div>
       </div>
@@ -102,12 +99,14 @@ export function TopicContent() {
       </Tabs>
 
       {/* Content Viewer */}
-      {viewerOpen && activeTab && currentContent.length > 0 && (
+      {viewerOpen && activeTab && currentContent.length > 0 && selectedTopicId && (
         <ContentViewer
           items={currentContent}
           contentType={activeTab}
           topicName={topic.name}
           subjectName={subject.name}
+          subjectId={subject.id}
+          topicId={selectedTopicId}
           currentIndex={viewerIndex}
           onIndexChange={setViewerIndex}
           onClose={() => setViewerOpen(false)}

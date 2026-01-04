@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useCallback } from 'react';
 import { Star, Copy, Share2, X, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -15,6 +15,8 @@ interface ContentViewerProps {
   contentType: ContentType;
   topicName: string;
   subjectName: string;
+  subjectId: string;
+  topicId: string;
   currentIndex: number;
   onIndexChange: (index: number) => void;
   onClose: () => void;
@@ -25,39 +27,45 @@ export function ContentViewer({
   contentType,
   topicName,
   subjectName,
+  subjectId,
+  topicId,
   currentIndex,
   onIndexChange,
   onClose,
 }: ContentViewerProps) {
   const { toast } = useToast();
-  const { saveItem, unsaveItem, isItemSaved, selectedExam, selectedTopicId, trackView } = useApp();
-  const [swipeDirection, setSwipeDirection] = useState<'left' | 'right' | null>(null);
+  const { saveItem, unsaveItem, isItemSaved, selectedExam, trackView } = useApp();
+  const [animationState, setAnimationState] = useState<'idle' | 'exit-left' | 'exit-right' | 'enter'>('idle');
 
   const currentItem = items[currentIndex];
   const isSaved = isItemSaved(currentItem.id);
   const typeInfo = contentTypeLabels[contentType];
 
-  const goToPrevious = () => {
-    if (currentIndex > 0) {
-      setSwipeDirection('right');
+  const animateTransition = useCallback((direction: 'left' | 'right', newIndex: number) => {
+    setAnimationState(direction === 'left' ? 'exit-left' : 'exit-right');
+    
+    setTimeout(() => {
+      onIndexChange(newIndex);
+      trackView(items[newIndex].id);
+      setAnimationState('enter');
+      
       setTimeout(() => {
-        onIndexChange(currentIndex - 1);
-        trackView(items[currentIndex - 1].id);
-        setSwipeDirection(null);
-      }, 150);
-    }
-  };
+        setAnimationState('idle');
+      }, 300);
+    }, 200);
+  }, [onIndexChange, trackView, items]);
 
-  const goToNext = () => {
-    if (currentIndex < items.length - 1) {
-      setSwipeDirection('left');
-      setTimeout(() => {
-        onIndexChange(currentIndex + 1);
-        trackView(items[currentIndex + 1].id);
-        setSwipeDirection(null);
-      }, 150);
+  const goToPrevious = useCallback(() => {
+    if (currentIndex > 0 && animationState === 'idle') {
+      animateTransition('right', currentIndex - 1);
     }
-  };
+  }, [currentIndex, animationState, animateTransition]);
+
+  const goToNext = useCallback(() => {
+    if (currentIndex < items.length - 1 && animationState === 'idle') {
+      animateTransition('left', currentIndex + 1);
+    }
+  }, [currentIndex, items.length, animationState, animateTransition]);
 
   const swipeHandlers = useSwipe({
     onSwipeLeft: goToNext,
@@ -75,12 +83,14 @@ export function ContentViewer({
     } else {
       saveItem({
         id: currentItem.id,
-        topicId: selectedTopicId!,
+        topicId: topicId,
         topicName,
+        subjectId,
         subjectName,
         examId: selectedExam,
         contentType,
         title: currentItem.title,
+        itemIndex: currentIndex,
       });
       toast({
         title: 'Saved successfully',
@@ -105,17 +115,36 @@ export function ContentViewer({
   };
 
   const handleShare = async () => {
+    const shareUrl = `${window.location.origin}/?exam=${selectedExam}&subject=${subjectId}&topic=${topicId}&type=${contentType}&index=${currentIndex}`;
+    
     if (navigator.share) {
       try {
         await navigator.share({
-          title: currentItem.title,
-          text: currentItem.content,
+          title: `${currentItem.title} - RankVault`,
+          text: `Check out this ${typeInfo.label}: ${currentItem.title}`,
+          url: shareUrl,
         });
       } catch (error) {
-        // User cancelled or share failed
+        // User cancelled or share failed, fallback to copy
+        await copyShareUrl(shareUrl);
       }
     } else {
-      handleCopy();
+      await copyShareUrl(shareUrl);
+    }
+  };
+
+  const copyShareUrl = async (url: string) => {
+    try {
+      await navigator.clipboard.writeText(url);
+      toast({
+        title: 'Link copied to clipboard',
+        description: 'Share this link with others',
+      });
+    } catch (error) {
+      toast({
+        title: 'Failed to copy link',
+        variant: 'destructive',
+      });
     }
   };
 
@@ -123,6 +152,19 @@ export function ContentViewer({
     high: 'bg-destructive/10 text-destructive border-destructive/20',
     medium: 'bg-warning/10 text-warning border-warning/20',
     low: 'bg-muted text-muted-foreground border-muted',
+  };
+
+  const getCardAnimation = () => {
+    switch (animationState) {
+      case 'exit-left':
+        return 'translate-x-[-100%] rotate-[-8deg] opacity-0 scale-95';
+      case 'exit-right':
+        return 'translate-x-[100%] rotate-[8deg] opacity-0 scale-95';
+      case 'enter':
+        return 'translate-x-0 rotate-0 opacity-100 scale-100';
+      default:
+        return 'translate-x-0 rotate-0 opacity-100 scale-100';
+    }
   };
 
   return (
@@ -169,14 +211,13 @@ export function ContentViewer({
 
         {/* Content with swipe */}
         <div
-          className="flex-1 overflow-auto relative"
+          className="flex-1 overflow-hidden relative flex items-center justify-center"
           {...swipeHandlers}
         >
           <Card
             className={cn(
-              'max-w-3xl mx-auto transition-all duration-150',
-              swipeDirection === 'left' && 'translate-x-[-20px] opacity-50',
-              swipeDirection === 'right' && 'translate-x-[20px] opacity-50'
+              'max-w-3xl w-full mx-auto transition-all duration-300 ease-out origin-center overflow-auto max-h-full',
+              getCardAnimation()
             )}
           >
             <CardHeader className="pb-2 sm:pb-4">
@@ -202,74 +243,73 @@ export function ContentViewer({
               </div>
             </CardContent>
           </Card>
+
+          {/* Side swipe indicators */}
+          {currentIndex > 0 && (
+            <div className="absolute left-2 top-1/2 -translate-y-1/2 opacity-30 hidden sm:block">
+              <ChevronLeft className="h-8 w-8 text-muted-foreground" />
+            </div>
+          )}
+          {currentIndex < items.length - 1 && (
+            <div className="absolute right-2 top-1/2 -translate-y-1/2 opacity-30 hidden sm:block">
+              <ChevronRight className="h-8 w-8 text-muted-foreground" />
+            </div>
+          )}
         </div>
 
-        {/* Navigation - Desktop buttons + Progress */}
-        <div className="flex items-center justify-between mt-3 sm:mt-4 max-w-3xl mx-auto w-full gap-2">
-          <Button
-            variant="outline"
+        {/* Navigation - Progress dots only + tap zones */}
+        <div className="flex items-center justify-center mt-3 sm:mt-4 max-w-3xl mx-auto w-full gap-4">
+          {/* Tap zone for previous */}
+          <button
             onClick={goToPrevious}
-            disabled={currentIndex === 0}
-            size="sm"
-            className="hidden sm:flex"
+            disabled={currentIndex === 0 || animationState !== 'idle'}
+            className={cn(
+              'p-3 rounded-full transition-all',
+              currentIndex === 0 ? 'opacity-30' : 'hover:bg-muted active:scale-95'
+            )}
           >
-            <ChevronLeft className="h-4 w-4 mr-1" />
-            Previous
-          </Button>
-
-          {/* Mobile navigation buttons */}
-          <Button
-            variant="outline"
-            size="icon"
-            onClick={goToPrevious}
-            disabled={currentIndex === 0}
-            className="sm:hidden h-10 w-10"
-          >
-            <ChevronLeft className="h-5 w-5" />
-          </Button>
+            <ChevronLeft className="h-6 w-6" />
+          </button>
 
           {/* Progress indicator */}
           <div className="flex items-center gap-2">
-            <div className="flex gap-1">
-              {items.map((_, idx) => (
-                <div
-                  key={idx}
-                  className={cn(
-                    'h-1.5 rounded-full transition-all',
-                    idx === currentIndex
-                      ? 'w-4 sm:w-6 bg-primary'
-                      : 'w-1.5 bg-muted-foreground/30',
-                    items.length > 10 && 'hidden sm:block'
-                  )}
-                />
-              ))}
+            <div className="flex gap-1.5">
+              {items.length <= 10 ? (
+                items.map((_, idx) => (
+                  <button
+                    key={idx}
+                    onClick={() => {
+                      if (idx !== currentIndex && animationState === 'idle') {
+                        animateTransition(idx > currentIndex ? 'left' : 'right', idx);
+                      }
+                    }}
+                    className={cn(
+                      'h-2 rounded-full transition-all',
+                      idx === currentIndex
+                        ? 'w-6 bg-primary'
+                        : 'w-2 bg-muted-foreground/30 hover:bg-muted-foreground/50'
+                    )}
+                  />
+                ))
+              ) : (
+                <span className="text-sm text-muted-foreground">
+                  {currentIndex + 1} / {items.length}
+                </span>
+              )}
             </div>
-            <span className="text-xs sm:text-sm text-muted-foreground whitespace-nowrap">
-              {currentIndex + 1} / {items.length}
-            </span>
           </div>
 
-          <Button
-            variant="outline"
+          {/* Tap zone for next */}
+          <button
             onClick={goToNext}
-            disabled={currentIndex === items.length - 1}
-            size="sm"
-            className="hidden sm:flex"
+            disabled={currentIndex === items.length - 1 || animationState !== 'idle'}
+            className={cn(
+              'p-3 rounded-full transition-all',
+              currentIndex === items.length - 1 ? 'opacity-30' : 'hover:bg-muted active:scale-95'
+            )}
           >
-            Next
-            <ChevronRight className="h-4 w-4 ml-1" />
-          </Button>
-
-          {/* Mobile navigation buttons */}
-          <Button
-            variant="outline"
-            size="icon"
-            onClick={goToNext}
-            disabled={currentIndex === items.length - 1}
-            className="sm:hidden h-10 w-10"
-          >
-            <ChevronRight className="h-5 w-5" />
-          </Button>
+            <ChevronRight className="h-6 w-6" />
+          </button>
         </div>
       </div>
     </div>

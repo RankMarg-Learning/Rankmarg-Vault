@@ -1,4 +1,4 @@
-import { Library, Search, Bookmark, Sparkles } from 'lucide-react';
+import { Library, Search, Bookmark } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { useApp } from '@/contexts/AppContext';
 import { useNavigate, useLocation } from 'react-router-dom';
@@ -12,7 +12,6 @@ export function MobileNav() {
     { icon: Library, label: 'Vault', path: '/' },
     { icon: Search, label: 'Search', action: () => setIsSearchOpen(true) },
     { icon: Bookmark, label: 'Saved', path: '/saved' },
-    { icon: Sparkles, label: 'Daily', path: '/daily' },
   ];
 
   return (

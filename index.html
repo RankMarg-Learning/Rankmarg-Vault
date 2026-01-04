@@ -4,6 +4,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+    <!-- Google AdSense Verification - Must be early in head -->
+    <meta name="google-adsense-account" content="ca-pub-6631120605146752" />
+
     <!-- Favicon - Must be early in head for best compatibility -->
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
@@ -24,9 +27,6 @@
     <meta name="robots" content="index, follow" />
     <link rel="canonical" href="https://vault.rankmarg.in" />
     <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
-
-    <!-- Google AdSense Verification -->
-    <meta name="google-adsense-account" content="ca-pub-6631120605146752" />
 
     <!-- Google AdSense Script -->
     <script
@@ -87,6 +87,15 @@
   <body>
     <!-- Google AdSense Verification Code (if provided by Google) -->
     <!-- Add verification code here if Google provides one for body verification -->
+
+    <!-- Visible content for crawlers -->
+    <noscript>
+      <div style="padding: 20px; text-align: center">
+        <h1>RankVault - Your Exam Recall Vault</h1>
+        <p>JEE & NEET Preparation Platform</p>
+        <p>Please enable JavaScript to use this application.</p>
+      </div>
+    </noscript>
 
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>

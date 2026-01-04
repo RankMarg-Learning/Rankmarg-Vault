@@ -1,30 +1,30 @@
-import { Search, Moon, Sun, Menu, BookOpen } from 'lucide-react';
-import { Button } from '@/components/ui/button';
+import { Search, Moon, Sun, Menu, BookOpen } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu';
-import { useApp } from '@/contexts/AppContext';
-import { ExamType } from '@/data/content';
+} from "@/components/ui/dropdown-menu";
+import { useApp } from "@/contexts/AppContext";
+import { ExamType } from "@/data/content";
 
 interface HeaderProps {
   onMenuClick?: () => void;
 }
 
 export function Header({ onMenuClick }: HeaderProps) {
-  const { 
-    selectedExam, 
-    setSelectedExam, 
-    isDarkMode, 
+  const {
+    selectedExam,
+    setSelectedExam,
+    isDarkMode,
     toggleDarkMode,
-    setIsSearchOpen 
+    setIsSearchOpen,
   } = useApp();
 
   const exams: { id: ExamType; label: string }[] = [
-    { id: 'JEE', label: 'JEE' },
-    { id: 'NEET', label: 'NEET' },
+    { id: "JEE", label: "JEE" },
+    { id: "NEET", label: "NEET" },
   ];
 
   return (
@@ -40,14 +40,18 @@ export function Header({ onMenuClick }: HeaderProps) {
           >
             <Menu className="h-5 w-5" />
           </Button>
-          
+
           <div className="flex items-center gap-2">
-            <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary">
-              <BookOpen className="h-5 w-5 text-primary-foreground" />
+            <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary">
+              <img src="/logo.png" alt="RankVault" className="h-8 w-8" />
             </div>
             <div className="flex flex-col">
-              <span className="font-bold text-lg leading-none text-foreground">RankVault</span>
-              <span className="text-xs text-muted-foreground hidden sm:block">Your Exam Recall Vault</span>
+              <span className="font-bold text-lg leading-none text-foreground">
+                RankVault
+              </span>
+              <span className="text-xs text-muted-foreground hidden sm:block">
+                Your Exam Recall Vault
+              </span>
             </div>
           </div>
         </div>
@@ -57,7 +61,7 @@ export function Header({ onMenuClick }: HeaderProps) {
           {exams.map((exam) => (
             <Button
               key={exam.id}
-              variant={selectedExam === exam.id ? 'default' : 'ghost'}
+              variant={selectedExam === exam.id ? "default" : "ghost"}
               size="sm"
               onClick={() => setSelectedExam(exam.id)}
               className="min-w-[80px]"
@@ -81,7 +85,7 @@ export function Header({ onMenuClick }: HeaderProps) {
                 <DropdownMenuItem
                   key={exam.id}
                   onClick={() => setSelectedExam(exam.id)}
-                  className={selectedExam === exam.id ? 'bg-secondary' : ''}
+                  className={selectedExam === exam.id ? "bg-secondary" : ""}
                 >
                   {exam.label}
                 </DropdownMenuItem>
@@ -96,12 +100,8 @@ export function Header({ onMenuClick }: HeaderProps) {
           >
             <Search className="h-5 w-5" />
           </Button>
-          
-          <Button
-            variant="ghost"
-            size="icon"
-            onClick={toggleDarkMode}
-          >
+
+          <Button variant="ghost" size="icon" onClick={toggleDarkMode}>
             {isDarkMode ? (
               <Sun className="h-5 w-5" />
             ) : (

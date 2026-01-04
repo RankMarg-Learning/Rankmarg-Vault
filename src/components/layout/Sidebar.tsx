@@ -1,10 +1,10 @@
-import { useEffect } from 'react';
-import { ChevronRight, Library } from 'lucide-react';
-import { cn } from '@/lib/utils';
-import { Button } from '@/components/ui/button';
-import { ScrollArea } from '@/components/ui/scroll-area';
-import { useApp } from '@/contexts/AppContext';
-import { contentTypeLabels } from '@/data/content';
+import { useEffect } from "react";
+import { ChevronRight, Library } from "lucide-react";
+import { cn } from "@/lib/utils";
+import { Button } from "@/components/ui/button";
+import { ScrollArea } from "@/components/ui/scroll-area";
+import { useApp } from "@/contexts/AppContext";
+import { contentTypeLabels } from "@/data/content";
 
 interface SidebarProps {
   isOpen: boolean;
@@ -30,9 +30,15 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
       setSelectedTopicId(null);
     };
 
-    window.addEventListener('select-subject', handleSelectSubject as EventListener);
+    window.addEventListener(
+      "select-subject",
+      handleSelectSubject as EventListener
+    );
     return () => {
-      window.removeEventListener('select-subject', handleSelectSubject as EventListener);
+      window.removeEventListener(
+        "select-subject",
+        handleSelectSubject as EventListener
+      );
     };
   }, [setSelectedSubjectId, setSelectedTopicId]);
 
@@ -59,19 +65,21 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
           onClick={onClose}
         />
       )}
-      
+
       {/* Sidebar */}
       <aside
         className={cn(
-          'fixed left-0 top-16 z-40 h-[calc(100vh-4rem)] w-64 sm:w-72 border-r border-border bg-sidebar transition-transform duration-300 md:translate-x-0',
-          isOpen ? 'translate-x-0' : '-translate-x-full'
+          "fixed left-0 top-16 z-40 h-[calc(100vh-4rem)] w-64 sm:w-72 border-r border-border bg-sidebar transition-transform duration-300 md:translate-x-0",
+          isOpen ? "translate-x-0" : "-translate-x-full"
         )}
       >
         <ScrollArea className="h-full py-3 sm:py-4">
           <div className="px-2 sm:px-3 mb-3 sm:mb-4">
             <div className="flex items-center gap-2 px-2 sm:px-3 py-2 bg-primary/10 rounded-lg">
               <Library className="h-4 w-4 sm:h-5 sm:w-5 text-primary" />
-              <span className="font-semibold text-sm sm:text-base text-sidebar-foreground">{selectedExam} Vault</span>
+              <span className="font-semibold text-sm sm:text-base text-sidebar-foreground">
+                {selectedExam} Vault
+              </span>
             </div>
           </div>
 
@@ -79,10 +87,13 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
             {examData?.subjects.map((subject) => (
               <div key={subject.id}>
                 <Button
-                  variant={selectedSubjectId === subject.id ? 'secondary' : 'ghost'}
+                  variant={
+                    selectedSubjectId === subject.id ? "secondary" : "ghost"
+                  }
                   className={cn(
-                    'w-full justify-between h-auto py-2 sm:py-3 text-sm',
-                    selectedSubjectId === subject.id && 'bg-secondary'
+                    "w-full justify-between h-auto py-2 sm:py-3 text-sm",
+                    selectedSubjectId === subject.id && "bg-secondary",
+                    "hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"
                   )}
                   onClick={() => handleSubjectClick(subject.id)}
                 >
@@ -94,8 +105,8 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
                   </div>
                   <ChevronRight
                     className={cn(
-                      'h-4 w-4 text-muted-foreground transition-transform',
-                      selectedSubjectId === subject.id && 'rotate-90'
+                      "h-4 w-4 text-muted-foreground transition-transform",
+                      selectedSubjectId === subject.id && "rotate-90"
                     )}
                   />
                 </Button>
@@ -106,10 +117,15 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
                     {subject.topics.map((topic) => (
                       <Button
                         key={topic.id}
-                        variant={selectedTopicId === topic.id ? 'default' : 'ghost'}
+                        variant={
+                          selectedTopicId === topic.id ? "default" : "ghost"
+                        }
                         className={cn(
-                          'w-full justify-start h-auto py-2 text-left text-sm',
-                          selectedTopicId === topic.id && 'bg-primary text-primary-foreground'
+                          "w-full justify-start h-auto py-2 text-left text-sm",
+                          selectedTopicId === topic.id &&
+                            "bg-primary text-primary-foreground",
+                          selectedTopicId !== topic.id &&
+                            "hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"
                         )}
                         onClick={() => handleTopicClick(topic.id)}
                       >
@@ -118,17 +134,19 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
                             <span className="w-5 h-5 rounded bg-muted flex items-center justify-center text-xs font-medium">
                               {topic.icon}
                             </span>
-                            <span className="text-xs sm:text-sm truncate">{topic.name}</span>
+                            <span className="text-xs sm:text-sm truncate">
+                              {topic.name}
+                            </span>
                           </div>
                           <div className="flex flex-wrap gap-1 ml-7">
                             {topic.allowedTypes.map((type) => (
                               <span
                                 key={type}
                                 className={cn(
-                                  'text-xs px-1 sm:px-1.5 py-0.5 rounded',
+                                  "text-xs px-1 sm:px-1.5 py-0.5 rounded",
                                   selectedTopicId === topic.id
-                                    ? 'bg-primary-foreground/20 text-primary-foreground'
-                                    : 'bg-muted text-muted-foreground'
+                                    ? "bg-primary-foreground/20 text-primary-foreground"
+                                    : "bg-muted text-muted-foreground"
                                 )}
                               >
                                 {contentTypeLabels[type].icon}

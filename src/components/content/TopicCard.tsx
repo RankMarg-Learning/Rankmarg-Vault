@@ -18,16 +18,16 @@ export function TopicCard({ topic, isSelected, onClick }: TopicCardProps) {
       )}
       onClick={onClick}
     >
-      <CardContent className="p-4">
-        <div className="flex items-start gap-3">
-          <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-2xl shrink-0">
+      <CardContent className="p-3 sm:p-4">
+        <div className="flex items-start gap-2 sm:gap-3">
+          <div className="flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-lg bg-primary/10 text-sm sm:text-base font-bold text-primary shrink-0">
             {topic.icon}
           </div>
           
           <div className="flex-1 min-w-0">
-            <h3 className="font-semibold text-foreground mb-2">{topic.name}</h3>
+            <h3 className="font-semibold text-foreground mb-2 text-sm sm:text-base">{topic.name}</h3>
             
-            <div className="flex flex-wrap gap-1.5">
+            <div className="flex flex-wrap gap-1 sm:gap-1.5">
               {topic.allowedTypes.map((type) => {
                 const typeInfo = contentTypeLabels[type];
                 return (

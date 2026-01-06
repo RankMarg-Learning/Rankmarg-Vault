@@ -7,56 +7,189 @@ export const physicsSubject: SubjectConfig = {
   slug: "physics",
   icon: "P",
   topics: [
-    {
-      id: "kinematics",
-      name: "Kinematics",
-      slug: "kinematics",
-      allowedTypes: ["formulas", "short_tricks"],
-      icon: "K",
-    },
-    {
-      id: "thermodynamics",
-      name: "Thermodynamics",
-      slug: "thermodynamics",
-      allowedTypes: ["formulas", "short_tricks", "constants"],
-      icon: "T",
-    },
-    {
-      id: "electromagnetism",
-      name: "Electromagnetism",
-      slug: "electromagnetism",
-      allowedTypes: ["formulas", "short_tricks", "constants"],
-      icon: "E",
-    },
-    {
-      id: "optics",
-      name: "Optics",
-      slug: "optics",
-      allowedTypes: ["formulas", "short_tricks"],
-      icon: "O",
-    },
-    {
-      id: "modern-physics",
-      name: "Modern Physics",
-      slug: "modern-physics",
-      allowedTypes: ["formulas", "constants"],
-      icon: "M",
-    },
-    {
-      id: "rotational-mechanics",
-      name: "Rotational Mechanics",
-      slug: "rotational-mechanics",
-      allowedTypes: ["formulas", "short_tricks"],
-      icon: "R",
-    },
-    {
-      id: "waves",
-      name: "Waves & Sound",
-      slug: "waves",
-      allowedTypes: ["formulas", "short_tricks"],
-      icon: "W",
-    },
-  ],
+  {
+    "id": "units_measurements",
+    "name": "Units and Measurements",
+    "slug": "units-and-measurements",
+    "allowedTypes": ["formulas", "short_tricks", "constants"],
+    "icon": "UM"
+  },
+  {
+    "id": "motion_straight_line",
+    "name": "Motion in a Straight Line",
+    "slug": "motion-in-a-straight-line",
+    "allowedTypes": ["formulas", "short_tricks"],
+    "icon": "MSL"
+  },
+  {
+    "id": "motion_plane",
+    "name": "Motion in a Plane",
+    "slug": "motion-in-a-plane",
+    "allowedTypes": ["formulas", "short_tricks"],
+    "icon": "MP"
+  },
+  {
+    "id": "laws_of_motion",
+    "name": "Laws of Motion",
+    "slug": "laws-of-motion",
+    "allowedTypes": ["formulas", "short_tricks"],
+    "icon": "LM"
+  },
+  {
+    "id": "friction",
+    "name": "Friction",
+    "slug": "friction",
+    "allowedTypes": ["formulas", "short_tricks"],
+    "icon": "F"
+  },
+  {
+    "id": "work_energy_power",
+    "name": "Work, Energy and Power",
+    "slug": "work-energy-power",
+    "allowedTypes": ["formulas", "short_tricks"],
+    "icon": "WEP"
+  },
+  {
+    "id": "circular_motion",
+    "name": "Circular Motion",
+    "slug": "circular-motion",
+    "allowedTypes": ["formulas", "short_tricks"],
+    "icon": "CM"
+  },
+  {
+    "id": "com_linear_momentum",
+    "name": "Center of Mass & Linear Momentum",
+    "slug": "center-of-mass-linear-momentum",
+    "allowedTypes": ["formulas", "short_tricks"],
+    "icon": "CMLM"
+  },
+  {
+    "id": "rotational_motion",
+    "name": "Rotational Motion",
+    "slug": "rotational-motion",
+    "allowedTypes": ["formulas", "short_tricks"],
+    "icon": "RM"
+  },
+  {
+    "id": "gravitation",
+    "name": "Gravitation",
+    "slug": "gravitation",
+    "allowedTypes": ["formulas", "short_tricks", "constants"],
+    "icon": "G"
+  },
+  {
+    "id": "properties_solids_liquids",
+    "name": "Properties of Solids and Liquids",
+    "slug": "properties-of-solids-and-liquids",
+    "allowedTypes": ["formulas", "short_tricks", "constants"],
+    "icon": "PSL"
+  },
+  {
+    "id": "thermal_properties",
+    "name": "Thermal Properties of Matter",
+    "slug": "thermal-properties-of-matter",
+    "allowedTypes": ["formulas", "short_tricks", "constants"],
+    "icon": "TPM"
+  },
+  {
+    "id": "thermodynamics",
+    "name": "Thermodynamics",
+    "slug": "thermodynamics",
+    "allowedTypes": ["formulas", "short_tricks", "constants"],
+    "icon": "TD"
+  },
+  {
+    "id": "ktg",
+    "name": "Kinetic Theory of Gases",
+    "slug": "kinetic-theory-of-gases",
+    "allowedTypes": ["formulas", "short_tricks", "constants"],
+    "icon": "KTG"
+  },
+  {
+    "id": "oscillations",
+    "name": "Oscillations",
+    "slug": "oscillations",
+    "allowedTypes": ["formulas", "short_tricks"],
+    "icon": "O"
+  },
+  {
+    "id": "wave_optics",
+    "name": "Wave Optics",
+    "slug": "wave-optics",
+    "allowedTypes": ["formulas", "short_tricks", "constants"],
+    "icon": "WO"
+  },
+  {
+    "id": "ray_optics",
+    "name": "Ray Optics",
+    "slug": "ray-optics",
+    "allowedTypes": ["formulas", "short_tricks"],
+    "icon": "RO"
+  },
+  {
+    "id": "electrostatics",
+    "name": "Electrostatics",
+    "slug": "electrostatics",
+    "allowedTypes": ["formulas", "short_tricks", "constants"],
+    "icon": "ES"
+  },
+  {
+    "id": "current_electricity",
+    "name": "Current Electricity",
+    "slug": "current-electricity",
+    "allowedTypes": ["formulas", "short_tricks"],
+    "icon": "CE"
+  },
+  {
+    "id": "magnetism",
+    "name": "Magnetic Effects of Current and Magnetism",
+    "slug": "magnetic-effects-of-current-and-magnetism",
+    "allowedTypes": ["formulas", "short_tricks", "constants"],
+    "icon": "M"
+  },
+  {
+    "id": "emi",
+    "name": "Electromagnetic Induction",
+    "slug": "electromagnetic-induction",
+    "allowedTypes": ["formulas", "short_tricks"],
+    "icon": "EMI"
+  },
+  {
+    "id": "ac",
+    "name": "Alternating Current",
+    "slug": "alternating-current",
+    "allowedTypes": ["formulas", "short_tricks"],
+    "icon": "AC"
+  },
+  {
+    "id": "em_waves",
+    "name": "Electromagnetic Waves",
+    "slug": "electromagnetic-waves",
+    "allowedTypes": ["formulas", "constants"],
+    "icon": "EMW"
+  },
+  {
+    "id": "dual_nature",
+    "name": "Dual Nature of Radiation and Matter",
+    "slug": "dual-nature-of-radiation-and-matter",
+    "allowedTypes": ["formulas", "constants"],
+    "icon": "DN"
+  },
+  {
+    "id": "atoms_nuclei",
+    "name": "Atoms and Nuclei",
+    "slug": "atoms-and-nuclei",
+    "allowedTypes": ["formulas", "constants"],
+    "icon": "AN"
+  },
+  {
+    "id": "semiconductors",
+    "name": "Semiconductor Electronics",
+    "slug": "semiconductor-electronics",
+    "allowedTypes": ["formulas", "short_tricks", "constants"],
+    "icon": "SE"
+  }
+],
 };
 
 // Physics content organized by topic
@@ -534,3 +667,4 @@ export const physicsContent: Record<
     exceptions: [],
   },
 };
+

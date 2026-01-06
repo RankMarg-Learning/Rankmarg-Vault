@@ -8,6 +8,8 @@ import {
   ChevronRight,
   ExternalLink,
   Sparkles,
+  CheckCircle2,
+  BookOpen,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -15,7 +17,7 @@ import { Badge } from "@/components/ui/badge";
 import { useToast } from "@/hooks/use-toast";
 import { useApp } from "@/contexts/AppContext";
 import { ContentItem, contentTypeLabels, ContentType } from "@/data/content";
-import { useSwipe } from "@/hooks/useSwipe";
+import { useDragToSwipe } from "@/hooks/useDragToSwipe";
 import { Latex } from "@/components/ui/latex";
 import { cn } from "@/lib/utils";
 import {
@@ -189,7 +191,7 @@ export function ContentViewer({
           setAnimationState("enter");
           setTimeout(() => {
             setAnimationState("idle");
-          }, 350);
+          }, 200);
         } else {
           // Regular item, update parent and reset local index
           setLocalDisplayIndex(null);
@@ -200,11 +202,11 @@ export function ContentViewer({
           setAnimationState("enter");
           setTimeout(() => {
             setAnimationState("idle");
-          }, 350);
+          }, 200);
         }
-      }, 250);
+      }, 300);
     },
-    [onIndexChange, trackView, items, getActualIndex, setLocalDisplayIndex]
+    [onIndexChange, trackView, items, getActualIndex]
   );
 
   const goToPrevious = useCallback(() => {
@@ -229,11 +231,38 @@ export function ContentViewer({
     animateTransition,
   ]);
 
-  const swipeHandlers = useSwipe({
+  // Drag to swipe handlers
+  const { dragState, handlers: dragHandlers } = useDragToSwipe({
     onSwipeLeft: goToNext,
     onSwipeRight: goToPrevious,
-    threshold: 50,
+    threshold: 100,
+    disabled: animationState !== "idle",
   });
+
+  // Calculate card transform based on drag
+  const getCardTransform = useCallback(() => {
+    if (!dragState.isDragging) return "";
+    const { deltaX, deltaY } = dragState;
+    const rotation = deltaX * 0.1; // Rotation based on horizontal drag
+    const opacity = Math.max(0.3, 1 - Math.abs(deltaX) / 300);
+    return `translate(${deltaX}px, ${deltaY}px) rotate(${rotation}deg)`;
+  }, [dragState]);
+
+  // Calculate swipe indicator opacity
+  const getSwipeIndicatorOpacity = useCallback(
+    (direction: "left" | "right") => {
+      if (!dragState.isDragging) return 0;
+      const { deltaX } = dragState;
+      if (direction === "right" && deltaX > 0) {
+        return Math.min(1, deltaX / 150);
+      }
+      if (direction === "left" && deltaX < 0) {
+        return Math.min(1, Math.abs(deltaX) / 150);
+      }
+      return 0;
+    },
+    [dragState]
+  );
 
   const handleSave = () => {
     if (!currentItem) return;
@@ -383,151 +412,272 @@ export function ContentViewer({
 
         {/* Swipe indicator */}
         <div className="text-center text-xs text-muted-foreground mb-2 sm:hidden">
-          Swipe left or right to navigate
+          Drag or swipe to navigate
         </div>
 
-        {/* Content with swipe */}
-        <div
-          className="flex-1 overflow-hidden relative flex items-center justify-center"
-          {...swipeHandlers}
-        >
-          {isAd ? (
+        {/* Flashcard Stack Container */}
+        <div className="flex-1 overflow-hidden relative flex items-center justify-center py-4">
+          <div
+            className="relative w-full max-w-lg mx-auto h-full flex items-center justify-center"
+            style={{ perspective: "1000px" }}
+          >
+            {/* Next card (peeking behind) - Fixed dimensions */}
+            {effectiveDisplayIndex < displayItems.length - 1 && (
+              <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                {(() => {
+                  const nextItem = displayItems[effectiveDisplayIndex + 1];
+                  const isNextAd =
+                    nextItem && "type" in nextItem && nextItem.type === "ad";
+                  const nextContentItem = isNextAd
+                    ? null
+                    : (nextItem as ContentItem);
+
+                  return isNextAd ? (
+                    <div className="w-full h-[70vh] max-h-[600px] scale-95 opacity-40">
+                      {nextItem && "type" in nextItem && (
+                        <RankMargAd
+                          ad={nextItem as AdContent}
+                          onClick={() => {}}
+                        />
+                      )}
+                    </div>
+                  ) : nextContentItem ? (
+                    <Card className="w-full h-[70vh] max-h-[600px] scale-95 opacity-40 pointer-events-none overflow-hidden">
+                      <CardHeader className="pb-2 sm:pb-4">
+                        <CardTitle className="text-lg sm:text-xl line-clamp-2">
+                          {nextContentItem.title}
+                        </CardTitle>
+                      </CardHeader>
+                    </Card>
+                  ) : null;
+                })()}
+              </div>
+            )}
+
+            {/* Current card (draggable) - Fixed dimensions */}
             <div
               className={cn(
-                "max-w-3xl w-full mx-auto transition-all duration-500 ease-in-out origin-center",
-                getCardAnimation()
+                "relative w-full h-[70vh] max-h-[600px] mx-auto transition-all duration-300 ease-out",
+                dragState.isDragging
+                  ? "cursor-grabbing select-none"
+                  : "cursor-grab",
+                !dragState.isDragging && animationState === "idle"
+                  ? "transition-transform duration-300"
+                  : ""
               )}
+              style={{
+                transform: dragState.isDragging
+                  ? getCardTransform()
+                  : animationState === "exit-left"
+                  ? "translateX(-120%) rotate(-30deg)"
+                  : animationState === "exit-right"
+                  ? "translateX(120%) rotate(30deg)"
+                  : animationState === "enter"
+                  ? "translate(0, 0) rotate(0deg) scale(0.95)"
+                  : "translate(0, 0) rotate(0deg) scale(1)",
+                opacity: dragState.isDragging
+                  ? Math.max(0.3, 1 - Math.abs(dragState.deltaX) / 300)
+                  : animationState === "exit-left" ||
+                    animationState === "exit-right"
+                  ? 0
+                  : animationState === "enter"
+                  ? 0.8
+                  : 1,
+                transition: dragState.isDragging
+                  ? "none"
+                  : animationState === "idle"
+                  ? "transform 0.3s ease-out, opacity 0.3s ease-out"
+                  : "transform 0.3s ease-in, opacity 0.3s ease-in",
+                zIndex: dragState.isDragging ? 50 : 10,
+                userSelect: dragState.isDragging ? "none" : "auto",
+                WebkitUserSelect: dragState.isDragging ? "none" : "auto",
+              }}
+              {...dragHandlers}
             >
-              {currentDisplayItem && "type" in currentDisplayItem && (
-                <RankMargAd
-                  ad={currentDisplayItem as AdContent}
-                  onClick={handleAdClick}
-                />
-              )}
-            </div>
-          ) : currentItem ? (
-            <Card
-              className={cn(
-                "max-w-3xl w-full mx-auto transition-all duration-500 ease-in-out origin-center overflow-auto max-h-full",
-                getCardAnimation()
-              )}
-            >
-              <CardHeader className="pb-2 sm:pb-4">
-                <div className="flex items-start justify-between gap-3 sm:gap-4">
-                  <CardTitle className="text-lg sm:text-xl">
-                    {currentItem.title}
-                  </CardTitle>
-                  <Badge
-                    variant="outline"
-                    className={cn(
-                      "shrink-0 text-xs",
-                      importanceColors[currentItem.importance]
-                    )}
-                  >
-                    {currentItem.importance.charAt(0).toUpperCase() +
-                      currentItem.importance.slice(1)}
-                  </Badge>
+              {/* Educational swipe indicators overlay */}
+              <div className="absolute inset-0 pointer-events-none flex items-center justify-between p-4 sm:p-6 z-10">
+                {/* Mastered indicator (swipe right) */}
+                <div
+                  className={cn(
+                    "flex flex-col items-center justify-center gap-2 w-24 h-24 sm:w-28 sm:h-28 rounded-2xl border-4 transition-all duration-200 shadow-lg",
+                    "border-green-500 bg-green-500/90 backdrop-blur-sm"
+                  )}
+                  style={{
+                    opacity: getSwipeIndicatorOpacity("right"),
+                    transform: `scale(${getSwipeIndicatorOpacity("right")})`,
+                  }}
+                >
+                  <CheckCircle2 className="h-10 w-10 sm:h-12 sm:w-12 text-white" />
+                  <span className="text-white font-semibold text-xs sm:text-sm">
+                    Mastered
+                  </span>
                 </div>
-                <p className="text-xs sm:text-sm text-muted-foreground">
-                  {currentItem.examFrequency}
-                </p>
-              </CardHeader>
-              <CardContent>
-                <div className="bg-muted/50 p-3 sm:p-4 rounded-lg">
-                  <Latex
-                    content={currentItem.content}
-                    className="text-sm sm:text-base leading-relaxed"
-                  />
+
+                {/* Review indicator (swipe left) */}
+                <div
+                  className={cn(
+                    "flex flex-col items-center justify-center gap-2 w-24 h-24 sm:w-28 sm:h-28 rounded-2xl border-4 transition-all duration-200 shadow-lg",
+                    "border-blue-500 bg-blue-500/90 backdrop-blur-sm"
+                  )}
+                  style={{
+                    opacity: getSwipeIndicatorOpacity("left"),
+                    transform: `scale(${getSwipeIndicatorOpacity("left")})`,
+                  }}
+                >
+                  <BookOpen className="h-10 w-10 sm:h-12 sm:w-12 text-white" />
+                  <span className="text-white font-semibold text-xs sm:text-sm">
+                    Review
+                  </span>
                 </div>
-              </CardContent>
-            </Card>
-          ) : null}
+              </div>
 
-          {/* Side swipe indicators */}
-          {effectiveDisplayIndex > 0 && (
-            <div className="absolute left-2 top-1/2 -translate-y-1/2 opacity-30 hidden sm:block animate-pulse">
-              <ChevronLeft className="h-8 w-8 text-muted-foreground" />
-            </div>
-          )}
-          {effectiveDisplayIndex < displayItems.length - 1 && (
-            <div className="absolute right-2 top-1/2 -translate-y-1/2 opacity-30 hidden sm:block animate-pulse">
-              <ChevronRight className="h-8 w-8 text-muted-foreground" />
-            </div>
-          )}
-        </div>
-
-        {/* Navigation - Progress dots only + tap zones */}
-        <div className="flex items-center justify-center mt-3 sm:mt-4 max-w-3xl mx-auto w-full gap-4">
-          {/* Tap zone for previous */}
-          <button
-            onClick={goToPrevious}
-            disabled={effectiveDisplayIndex === 0 || animationState !== "idle"}
-            className={cn(
-              "p-3 rounded-full transition-all",
-              effectiveDisplayIndex === 0
-                ? "opacity-30"
-                : "hover:bg-muted active:scale-95"
-            )}
-          >
-            <ChevronLeft className="h-6 w-6" />
-          </button>
-
-          {/* Progress indicator */}
-          <div className="flex items-center gap-2">
-            <div className="flex gap-1.5">
-              {displayItems.length <= 10 ? (
-                displayItems.map((item, idx) => {
-                  const isAdItem = "type" in item && item.type === "ad";
-                  return (
-                    <button
-                      key={idx}
-                      onClick={() => {
-                        if (
-                          idx !== effectiveDisplayIndex &&
-                          animationState === "idle"
-                        ) {
-                          animateTransition(
-                            idx > effectiveDisplayIndex ? "left" : "right",
-                            idx
-                          );
-                        }
-                      }}
-                      className={cn(
-                        "h-2 rounded-full transition-all",
-                        idx === effectiveDisplayIndex
-                          ? "w-6 bg-primary"
-                          : isAdItem
-                          ? "w-2 bg-primary/50 hover:bg-primary/70"
-                          : "w-2 bg-muted-foreground/30 hover:bg-muted-foreground/50"
-                      )}
-                      title={isAdItem ? "Advertisement" : undefined}
+              {/* Card content - Fixed height with scrollable content */}
+              {isAd ? (
+                <div className="w-full h-full">
+                  {currentDisplayItem && "type" in currentDisplayItem && (
+                    <RankMargAd
+                      ad={currentDisplayItem as AdContent}
+                      onClick={handleAdClick}
                     />
-                  );
-                })
-              ) : (
-                <span className="text-sm text-muted-foreground">
-                  {effectiveDisplayIndex + 1} / {displayItems.length}
-                </span>
-              )}
+                  )}
+                </div>
+              ) : currentItem ? (
+                <Card className="w-full h-full shadow-xl overflow-hidden bg-card flex flex-col">
+                  <CardHeader className="pb-2 sm:pb-4 flex-shrink-0 border-b">
+                    <div className="flex items-start justify-between gap-3 sm:gap-4">
+                      <CardTitle className="text-lg sm:text-xl flex-1 line-clamp-2">
+                        {currentItem.title}
+                      </CardTitle>
+                      <Badge
+                        variant="outline"
+                        className={cn(
+                          "shrink-0 text-xs",
+                          importanceColors[currentItem.importance]
+                        )}
+                      >
+                        {currentItem.importance.charAt(0).toUpperCase() +
+                          currentItem.importance.slice(1)}
+                      </Badge>
+                    </div>
+                    <p className="text-xs sm:text-sm text-muted-foreground mt-1">
+                      {currentItem.examFrequency}
+                    </p>
+                  </CardHeader>
+                  <CardContent
+                    className="flex-1 overflow-y-auto overflow-x-hidden p-4 sm:p-6 [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar-thumb]:bg-muted-foreground/30 [&::-webkit-scrollbar-thumb]:rounded-full hover:[&::-webkit-scrollbar-thumb]:bg-muted-foreground/50"
+                    style={{
+                      scrollbarWidth: "thin",
+                      scrollbarColor:
+                        "hsl(var(--muted-foreground) / 0.3) transparent",
+                    }}
+                    onTouchStart={(e) => {
+                      // Allow scrolling if not dragging
+                      if (!dragState.isDragging) {
+                        e.stopPropagation();
+                      }
+                    }}
+                    onMouseDown={(e) => {
+                      // Allow text selection if not dragging
+                      if (!dragState.isDragging) {
+                        e.stopPropagation();
+                      }
+                    }}
+                  >
+                    <div className="bg-muted/50 p-3 sm:p-4 rounded-lg min-h-full">
+                      <Latex
+                        content={currentItem.content}
+                        className="text-sm sm:text-base leading-relaxed"
+                      />
+                    </div>
+                  </CardContent>
+                </Card>
+              ) : null}
             </div>
           </div>
+        </div>
 
-          {/* Tap zone for next */}
-          <button
-            onClick={goToNext}
-            disabled={
-              effectiveDisplayIndex === displayItems.length - 1 ||
-              animationState !== "idle"
-            }
-            className={cn(
-              "p-3 rounded-full transition-all",
-              effectiveDisplayIndex === displayItems.length - 1
-                ? "opacity-30"
-                : "hover:bg-muted active:scale-95"
-            )}
-          >
-            <ChevronRight className="h-6 w-6" />
-          </button>
+        {/* Navigation - Action buttons + Progress */}
+        <div className="flex flex-col items-center justify-center mt-3 sm:mt-4 max-w-3xl mx-auto w-full gap-3">
+          {/* Action buttons (like dating app style) */}
+          <div className="flex items-center justify-center gap-4">
+            {/* Previous button */}
+            <button
+              onClick={goToPrevious}
+              disabled={
+                effectiveDisplayIndex === 0 || animationState !== "idle"
+              }
+              className={cn(
+                "p-4 rounded-full transition-all shadow-lg",
+                effectiveDisplayIndex === 0
+                  ? "opacity-30 cursor-not-allowed"
+                  : "hover:bg-muted active:scale-95 bg-background border-2 border-border hover:border-primary/50"
+              )}
+            >
+              <ChevronLeft className="h-6 w-6" />
+            </button>
+
+            {/* Progress indicator */}
+            <div className="flex items-center gap-2 px-4">
+              <div className="flex gap-1.5">
+                {displayItems.length <= 10 ? (
+                  displayItems.map((item, idx) => {
+                    const isAdItem = "type" in item && item.type === "ad";
+                    return (
+                      <button
+                        key={idx}
+                        onClick={() => {
+                          if (
+                            idx !== effectiveDisplayIndex &&
+                            animationState === "idle"
+                          ) {
+                            animateTransition(
+                              idx > effectiveDisplayIndex ? "left" : "right",
+                              idx
+                            );
+                          }
+                        }}
+                        className={cn(
+                          "h-2 rounded-full transition-all",
+                          idx === effectiveDisplayIndex
+                            ? "w-6 bg-primary"
+                            : isAdItem
+                            ? "w-2 bg-primary/50 hover:bg-primary/70"
+                            : "w-2 bg-muted-foreground/30 hover:bg-muted-foreground/50"
+                        )}
+                        title={isAdItem ? "Advertisement" : undefined}
+                      />
+                    );
+                  })
+                ) : (
+                  <span className="text-sm text-muted-foreground">
+                    {effectiveDisplayIndex + 1} / {displayItems.length}
+                  </span>
+                )}
+              </div>
+            </div>
+
+            {/* Next button */}
+            <button
+              onClick={goToNext}
+              disabled={
+                effectiveDisplayIndex === displayItems.length - 1 ||
+                animationState !== "idle"
+              }
+              className={cn(
+                "p-4 rounded-full transition-all shadow-lg",
+                effectiveDisplayIndex === displayItems.length - 1
+                  ? "opacity-30 cursor-not-allowed"
+                  : "hover:bg-muted active:scale-95 bg-background border-2 border-border hover:border-primary/50"
+              )}
+            >
+              <ChevronRight className="h-6 w-6" />
+            </button>
+          </div>
+
+          {/* Hint text */}
+          <p className="text-xs text-muted-foreground text-center">
+            Drag the card or use buttons to navigate
+          </p>
         </div>
       </div>
     </div>

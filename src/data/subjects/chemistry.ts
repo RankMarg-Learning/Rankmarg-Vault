@@ -7,49 +7,154 @@ export const chemistrySubject: SubjectConfig = {
   slug: "chemistry",
   icon: "C",
   topics: [
-    {
-      id: "organic-reactions",
-      name: "Organic Reactions",
-      slug: "organic",
-      allowedTypes: ["reactions", "short_tricks", "exceptions"],
-      icon: "O",
-    },
-    {
-      id: "inorganic-chemistry",
-      name: "Inorganic Chemistry",
-      slug: "inorganic",
-      allowedTypes: ["reactions", "exceptions", "short_tricks"],
-      icon: "I",
-    },
-    {
-      id: "physical-chemistry",
-      name: "Physical Chemistry",
-      slug: "physical-chemistry",
-      allowedTypes: ["formulas", "short_tricks", "constants"],
-      icon: "P",
-    },
-    {
-      id: "chemical-bonding",
-      name: "Chemical Bonding",
-      slug: "chemical-bonding",
-      allowedTypes: ["formulas", "exceptions"],
-      icon: "B",
-    },
-    {
-      id: "electrochemistry",
-      name: "Electrochemistry",
-      slug: "electrochemistry",
-      allowedTypes: ["formulas", "short_tricks", "constants"],
-      icon: "E",
-    },
-    {
-      id: "chemical-kinetics",
-      name: "Chemical Kinetics",
-      slug: "chemical-kinetics",
-      allowedTypes: ["formulas", "short_tricks"],
-      icon: "K",
-    },
-  ],
+  {
+    "id": "basic_concepts_chemistry",
+    "name": "Some Basic Concepts in Chemistry",
+    "slug": "some-basic-concepts-in-chemistry",
+    "allowedTypes": ["formulas", "short_tricks", "constants"],
+    "icon": "SBC"
+  },
+  {
+    "id": "structure_atom",
+    "name": "Structure of Atom",
+    "slug": "structure-of-atom",
+    "allowedTypes": ["formulas", "short_tricks", "constants", "exceptions"],
+    "icon": "SA"
+  },
+  {
+    "id": "periodicity",
+    "name": "Classification of Elements and Periodicity",
+    "slug": "classification-of-elements-and-periodicity",
+    "allowedTypes": ["short_tricks", "constants", "exceptions"],
+    "icon": "P"
+  },
+  {
+    "id": "chemical_bonding",
+    "name": "Chemical Bonding and Molecular Structure",
+    "slug": "chemical-bonding-and-molecular-structure",
+    "allowedTypes": ["formulas", "short_tricks", "constants", "exceptions"],
+    "icon": "CB"
+  },
+  {
+    "id": "thermodynamics_chem",
+    "name": "Thermodynamics",
+    "slug": "thermodynamics-chemistry",
+    "allowedTypes": ["formulas", "short_tricks", "constants"],
+    "icon": "TD"
+  },
+  {
+    "id": "ionic_equilibrium",
+    "name": "Ionic Equilibrium",
+    "slug": "ionic-equilibrium",
+    "allowedTypes": ["formulas", "short_tricks", "constants", "exceptions"],
+    "icon": "IE"
+  },
+  {
+    "id": "chemical_equilibrium",
+    "name": "Chemical Equilibrium",
+    "slug": "chemical-equilibrium",
+    "allowedTypes": ["formulas", "short_tricks"],
+    "icon": "CEQ"
+  },
+  {
+    "id": "redox",
+    "name": "Redox Reactions",
+    "slug": "redox-reactions",
+    "allowedTypes": ["reactions", "short_tricks"],
+    "icon": "R"
+  },
+  {
+    "id": "electrochemistry",
+    "name": "Electrochemistry",
+    "slug": "electrochemistry",
+    "allowedTypes": ["formulas", "short_tricks", "constants", "exceptions"],
+    "icon": "EC"
+  },
+  {
+    "id": "chemical_kinetics",
+    "name": "Chemical Kinetics",
+    "slug": "chemical-kinetics",
+    "allowedTypes": ["formulas", "short_tricks", "exceptions"],
+    "icon": "CK"
+  },
+  {
+    "id": "solutions",
+    "name": "Solutions",
+    "slug": "solutions",
+    "allowedTypes": ["formulas", "short_tricks", "constants"],
+    "icon": "S"
+  },
+  {
+    "id": "p_block",
+    "name": "The p-Block Elements",
+    "slug": "p-block-elements",
+    "allowedTypes": ["reactions", "constants", "exceptions", "short_tricks"],
+    "icon": "PB"
+  },
+  {
+    "id": "d_f_block",
+    "name": "The d- and f-Block Elements",
+    "slug": "d-and-f-block-elements",
+    "allowedTypes": ["constants", "exceptions", "short_tricks"],
+    "icon": "DF"
+  },
+  {
+    "id": "coordination_compounds",
+    "name": "Coordination Compounds",
+    "slug": "coordination-compounds",
+    "allowedTypes": ["formulas", "constants", "exceptions", "short_tricks"],
+    "icon": "CC"
+  },
+  {
+    "id": "goc",
+    "name": "General Organic Chemistry (GOC)",
+    "slug": "general-organic-chemistry",
+    "allowedTypes": ["reactions", "short_tricks", "exceptions"],
+    "icon": "GOC"
+  },
+  {
+    "id": "hydrocarbons",
+    "name": "Hydrocarbons",
+    "slug": "hydrocarbons",
+    "allowedTypes": ["reactions", "short_tricks", "exceptions"],
+    "icon": "HC"
+  },
+  {
+    "id": "haloalkanes",
+    "name": "Haloalkanes and Haloarenes",
+    "slug": "haloalkanes-and-haloarenes",
+    "allowedTypes": ["reactions", "short_tricks", "exceptions"],
+    "icon": "HX"
+  },
+  {
+    "id": "alcohols",
+    "name": "Alcohols, Phenols and Ethers",
+    "slug": "alcohols-phenols-ethers",
+    "allowedTypes": ["reactions", "short_tricks", "exceptions"],
+    "icon": "APE"
+  },
+  {
+    "id": "carbonyls",
+    "name": "Aldehydes, Ketones, and Carboxylic Acids",
+    "slug": "aldehydes-ketones-carboxylic-acids",
+    "allowedTypes": ["reactions", "short_tricks", "exceptions"],
+    "icon": "AKC"
+  },
+  {
+    "id": "amines",
+    "name": "Amines",
+    "slug": "amines",
+    "allowedTypes": ["reactions", "short_tricks", "exceptions"],
+    "icon": "AM"
+  },
+  {
+    "id": "biomolecules",
+    "name": "Biomolecules",
+    "slug": "biomolecules",
+    "allowedTypes": ["constants", "exceptions", "short_tricks"],
+    "icon": "BM"
+  }
+],
 };
 
 // Chemistry content organized by topic
@@ -354,4 +459,5 @@ export const chemistryContent: Record<string, Record<ContentType, ContentItem[]>
     exceptions: [],
   },
 };
+
 

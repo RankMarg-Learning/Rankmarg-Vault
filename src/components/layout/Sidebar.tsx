@@ -131,28 +131,12 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
                       >
                         <div className="flex flex-col items-start gap-1 w-full">
                           <div className="flex items-center gap-2">
-                            <span className="w-5 h-5 rounded bg-muted flex items-center justify-center text-xs font-medium">
-                              {topic.icon}
-                            </span>
+                            
                             <span className="text-xs sm:text-sm truncate">
                               {topic.name}
                             </span>
                           </div>
-                          <div className="flex flex-wrap gap-1 ml-7">
-                            {topic.allowedTypes.map((type) => (
-                              <span
-                                key={type}
-                                className={cn(
-                                  "text-xs px-1 sm:px-1.5 py-0.5 rounded",
-                                  selectedTopicId === topic.id
-                                    ? "bg-primary-foreground/20 text-primary-foreground"
-                                    : "bg-muted text-muted-foreground"
-                                )}
-                              >
-                                {contentTypeLabels[type].icon}
-                              </span>
-                            ))}
-                          </div>
+                          
                         </div>
                       </Button>
                     ))}

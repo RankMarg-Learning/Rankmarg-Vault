@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">RankVault</string>
+    <string name="title_activity_main">RankVault</string>
+    <string name="package_name">in.rankmarg.app</string>
+    <string name="custom_url_scheme">in.rankmarg.app</string>
+</resources>

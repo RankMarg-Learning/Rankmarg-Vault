@@ -7,56 +7,172 @@ export const mathematicsSubject: SubjectConfig = {
   slug: "mathematics",
   icon: "M",
   topics: [
-    {
-      id: "calculus",
-      name: "Calculus",
-      slug: "calculus",
-      allowedTypes: ["formulas", "short_tricks"],
-      icon: "C",
-    },
-    {
-      id: "algebra",
-      name: "Algebra",
-      slug: "algebra",
-      allowedTypes: ["formulas", "short_tricks"],
-      icon: "A",
-    },
-    {
-      id: "coordinate-geometry",
-      name: "Coordinate Geometry",
-      slug: "coordinate-geometry",
-      allowedTypes: ["formulas", "short_tricks"],
-      icon: "G",
-    },
-    {
-      id: "trigonometry",
-      name: "Trigonometry",
-      slug: "trigonometry",
-      allowedTypes: ["formulas", "short_tricks"],
-      icon: "T",
-    },
-    {
-      id: "probability",
-      name: "Probability & Statistics",
-      slug: "probability",
-      allowedTypes: ["formulas", "short_tricks"],
-      icon: "P",
-    },
-    {
-      id: "vectors",
-      name: "Vectors & 3D",
-      slug: "vectors",
-      allowedTypes: ["formulas", "short_tricks"],
-      icon: "V",
-    },
-    {
-      id: "matrices",
-      name: "Matrices & Determinants",
-      slug: "matrices",
-      allowedTypes: ["formulas", "short_tricks"],
-      icon: "M",
-    },
-  ],
+  {
+    "id": "basic_mathematics",
+    "name": "Basic Mathematics",
+    "slug": "basic-mathematics",
+    "allowedTypes": ["formulas", "short_tricks", "exceptions"],
+    "icon": "BM"
+  },
+  {
+    "id": "sets_relations_functions",
+    "name": "Sets, Relations & Functions",
+    "slug": "sets-relations-functions",
+    "allowedTypes": ["formulas", "short_tricks", "exceptions"],
+    "icon": "SRF"
+  },
+  {
+    "id": "complex_numbers",
+    "name": "Complex Numbers & Quadratic Equations",
+    "slug": "complex-numbers-quadratic-equations",
+    "allowedTypes": ["formulas", "short_tricks", "exceptions"],
+    "icon": "CN"
+  },
+  {
+    "id": "sequences_series",
+    "name": "Sequences and Series",
+    "slug": "sequences-and-series",
+    "allowedTypes": ["formulas", "short_tricks", "exceptions"],
+    "icon": "SS"
+  },
+  {
+    "id": "binomial_theorem",
+    "name": "Binomial Theorem",
+    "slug": "binomial-theorem",
+    "allowedTypes": ["formulas", "short_tricks", "exceptions"],
+    "icon": "BT"
+  },
+  {
+    "id": "permutations_combinations",
+    "name": "Permutations and Combinations",
+    "slug": "permutations-and-combinations",
+    "allowedTypes": ["formulas", "short_tricks", "exceptions"],
+    "icon": "PC"
+  },
+  {
+    "id": "trigonometric_functions",
+    "name": "Trigonometric Functions",
+    "slug": "trigonometric-functions",
+    "allowedTypes": ["formulas", "short_tricks", "exceptions", "constants"],
+    "icon": "TRIG"
+  },
+  {
+    "id": "inverse_trigonometric",
+    "name": "Inverse Trigonometric Functions",
+    "slug": "inverse-trigonometric-functions",
+    "allowedTypes": ["formulas", "short_tricks", "exceptions"],
+    "icon": "ITF"
+  },
+
+  {
+    "id": "straight_line",
+    "name": "Coordinate Geometry – Straight Line",
+    "slug": "coordinate-geometry-straight-line",
+    "allowedTypes": ["formulas", "short_tricks", "exceptions"],
+    "icon": "SL"
+  },
+  {
+    "id": "circle",
+    "name": "Coordinate Geometry – Circle",
+    "slug": "coordinate-geometry-circle",
+    "allowedTypes": ["formulas", "short_tricks", "exceptions"],
+    "icon": "CIR"
+  },
+  {
+    "id": "conic_sections",
+    "name": "Coordinate Geometry – Conic Sections",
+    "slug": "coordinate-geometry-conic-sections",
+    "allowedTypes": ["formulas", "short_tricks", "exceptions"],
+    "icon": "CS"
+  },
+
+  {
+    "id": "limits_continuity",
+    "name": "Limits, Continuity & Differentiability",
+    "slug": "limits-continuity-differentiability",
+    "allowedTypes": ["formulas", "short_tricks", "exceptions"],
+    "icon": "LCD"
+  },
+  {
+    "id": "differentiation",
+    "name": "Differentiation",
+    "slug": "differentiation",
+    "allowedTypes": ["formulas", "short_tricks", "exceptions"],
+    "icon": "DIFF"
+  },
+  {
+    "id": "application_derivatives",
+    "name": "Application of Derivatives",
+    "slug": "application-of-derivatives",
+    "allowedTypes": ["formulas", "short_tricks", "exceptions"],
+    "icon": "AOD"
+  },
+  {
+    "id": "area_under_curve",
+    "name": "Area Under the Curves",
+    "slug": "area-under-the-curves",
+    "allowedTypes": ["formulas", "short_tricks", "exceptions"],
+    "icon": "AUC"
+  },
+  {
+    "id": "indefinite_integrals",
+    "name": "Indefinite Integrals",
+    "slug": "indefinite-integrals",
+    "allowedTypes": ["formulas", "short_tricks", "exceptions"],
+    "icon": "II"
+  },
+  {
+    "id": "definite_integrals",
+    "name": "Definite Integration",
+    "slug": "definite-integration",
+    "allowedTypes": ["formulas", "short_tricks", "exceptions"],
+    "icon": "DI"
+  },
+  {
+    "id": "differential_equations",
+    "name": "Differential Equations",
+    "slug": "differential-equations",
+    "allowedTypes": ["formulas", "short_tricks", "exceptions"],
+    "icon": "DE"
+  },
+
+  {
+    "id": "vectors",
+    "name": "Vectors",
+    "slug": "vectors",
+    "allowedTypes": ["formulas", "short_tricks", "exceptions"],
+    "icon": "VEC"
+  },
+  {
+    "id": "three_d_geometry",
+    "name": "Three-Dimensional Geometry",
+    "slug": "three-dimensional-geometry",
+    "allowedTypes": ["formulas", "short_tricks", "exceptions"],
+    "icon": "3D"
+  },
+
+  {
+    "id": "matrices_determinants",
+    "name": "Matrices & Determinants",
+    "slug": "matrices-and-determinants",
+    "allowedTypes": ["formulas", "short_tricks", "exceptions"],
+    "icon": "MD"
+  },
+  {
+    "id": "probability",
+    "name": "Probability",
+    "slug": "probability",
+    "allowedTypes": ["formulas", "short_tricks", "exceptions", "constants"],
+    "icon": "PROB"
+  },
+  {
+    "id": "statistics",
+    "name": "Statistics",
+    "slug": "statistics",
+    "allowedTypes": ["formulas", "constants", "short_tricks"],
+    "icon": "STAT"
+  }
+],
 };
 
 // Mathematics content organized by topic
@@ -317,4 +433,5 @@ export const mathematicsContent: Record<string, Record<ContentType, ContentItem[
     exceptions: [],
   },
 };
+
 

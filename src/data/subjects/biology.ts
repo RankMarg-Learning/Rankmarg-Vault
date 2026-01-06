@@ -7,49 +7,235 @@ export const biologySubject: SubjectConfig = {
   slug: "biology",
   icon: "B",
   topics: [
-    {
-      id: "human-physiology",
-      name: "Human Physiology",
-      slug: "human-physiology",
-      allowedTypes: ["short_tricks", "exceptions"],
-      icon: "H",
-    },
-    {
-      id: "plant-physiology",
-      name: "Plant Physiology",
-      slug: "plant-physiology",
-      allowedTypes: ["short_tricks", "reactions"],
-      icon: "P",
-    },
-    {
-      id: "genetics",
-      name: "Genetics",
-      slug: "genetics",
-      allowedTypes: ["formulas", "short_tricks", "exceptions"],
-      icon: "G",
-    },
-    {
-      id: "ecology",
-      name: "Ecology",
-      slug: "ecology",
-      allowedTypes: ["short_tricks", "exceptions"],
-      icon: "E",
-    },
-    {
-      id: "cell-biology",
-      name: "Cell Biology",
-      slug: "cell-biology",
-      allowedTypes: ["short_tricks", "exceptions"],
-      icon: "C",
-    },
-    {
-      id: "reproduction",
-      name: "Reproduction",
-      slug: "reproduction",
-      allowedTypes: ["short_tricks", "exceptions"],
-      icon: "R",
-    },
-  ],
+  {
+    "id": "living_world",
+    "name": "The Living World",
+    "slug": "the-living-world",
+    "allowedTypes": ["constants", "exceptions", "short_tricks"],
+    "icon": "LW"
+  },
+  {
+    "id": "biological_classification",
+    "name": "Biological Classification",
+    "slug": "biological-classification",
+    "allowedTypes": ["constants", "exceptions", "short_tricks"],
+    "icon": "BC"
+  },
+  {
+    "id": "plant_kingdom",
+    "name": "Plant Kingdom",
+    "slug": "plant-kingdom",
+    "allowedTypes": ["constants", "exceptions", "short_tricks"],
+    "icon": "PK"
+  },
+  {
+    "id": "animal_kingdom",
+    "name": "Animal Kingdom",
+    "slug": "animal-kingdom",
+    "allowedTypes": ["constants", "exceptions", "short_tricks"],
+    "icon": "AK"
+  },
+  {
+    "id": "morphology_flowering_plants",
+    "name": "Morphology of Flowering Plants",
+    "slug": "morphology-of-flowering-plants",
+    "allowedTypes": ["constants", "exceptions", "short_tricks"],
+    "icon": "MFP"
+  },
+  {
+    "id": "anatomy_flowering_plants",
+    "name": "Anatomy of Flowering Plants",
+    "slug": "anatomy-of-flowering-plants",
+    "allowedTypes": ["constants", "exceptions", "short_tricks"],
+    "icon": "AFP"
+  },
+  {
+    "id": "structural_organisation_animals",
+    "name": "Structural Organisation in Animals",
+    "slug": "structural-organisation-in-animals",
+    "allowedTypes": ["constants", "exceptions", "short_tricks"],
+    "icon": "SOA"
+  },
+  {
+    "id": "cell_unit_life",
+    "name": "Cell: The Unit of Life",
+    "slug": "cell-the-unit-of-life",
+    "allowedTypes": ["constants", "exceptions", "short_tricks"],
+    "icon": "CELL"
+  },
+  {
+    "id": "biomolecules_bio",
+    "name": "Biomolecules",
+    "slug": "biomolecules-biology",
+    "allowedTypes": ["constants", "exceptions", "short_tricks"],
+    "icon": "BM"
+  },
+  {
+    "id": "cell_cycle",
+    "name": "Cell Cycle and Cell Division",
+    "slug": "cell-cycle-and-cell-division",
+    "allowedTypes": ["constants", "exceptions", "short_tricks"],
+    "icon": "CCD"
+  },
+
+  {
+    "id": "photosynthesis",
+    "name": "Photosynthesis in Higher Plants",
+    "slug": "photosynthesis-in-higher-plants",
+    "allowedTypes": ["reactions", "constants", "exceptions", "short_tricks"],
+    "icon": "PH"
+  },
+  {
+    "id": "respiration_plants",
+    "name": "Respiration in Plants",
+    "slug": "respiration-in-plants",
+    "allowedTypes": ["reactions", "constants", "exceptions", "short_tricks"],
+    "icon": "RP"
+  },
+  {
+    "id": "plant_growth",
+    "name": "Plant Growth and Development",
+    "slug": "plant-growth-and-development",
+    "allowedTypes": ["constants", "exceptions", "short_tricks"],
+    "icon": "PGD"
+  },
+
+  {
+    "id": "breathing_exchange",
+    "name": "Breathing and Exchange of Gases",
+    "slug": "breathing-and-exchange-of-gases",
+    "allowedTypes": ["constants", "exceptions", "short_tricks"],
+    "icon": "BEG"
+  },
+  {
+    "id": "body_fluids",
+    "name": "Body Fluids and Circulation",
+    "slug": "body-fluids-and-circulation",
+    "allowedTypes": ["constants", "exceptions", "short_tricks"],
+    "icon": "BFC"
+  },
+  {
+    "id": "excretory_system",
+    "name": "Excretory Products and Their Elimination",
+    "slug": "excretory-products-and-their-elimination",
+    "allowedTypes": ["constants", "exceptions", "short_tricks"],
+    "icon": "EP"
+  },
+  {
+    "id": "locomotion",
+    "name": "Locomotion and Movement",
+    "slug": "locomotion-and-movement",
+    "allowedTypes": ["constants", "exceptions", "short_tricks"],
+    "icon": "LM"
+  },
+  {
+    "id": "neural_control",
+    "name": "Neural Control and Coordination",
+    "slug": "neural-control-and-coordination",
+    "allowedTypes": ["constants", "exceptions", "short_tricks"],
+    "icon": "NCC"
+  },
+  {
+    "id": "chemical_coordination",
+    "name": "Chemical Coordination and Integration",
+    "slug": "chemical-coordination-and-integration",
+    "allowedTypes": ["constants", "exceptions", "short_tricks"],
+    "icon": "CCI"
+  },
+
+  {
+    "id": "sexual_reproduction_plants",
+    "name": "Sexual Reproduction in Flowering Plants",
+    "slug": "sexual-reproduction-in-flowering-plants",
+    "allowedTypes": ["constants", "exceptions", "short_tricks"],
+    "icon": "SRP"
+  },
+  {
+    "id": "human_reproduction",
+    "name": "Human Reproduction",
+    "slug": "human-reproduction",
+    "allowedTypes": ["constants", "exceptions", "short_tricks"],
+    "icon": "HR"
+  },
+  {
+    "id": "reproductive_health",
+    "name": "Reproductive Health",
+    "slug": "reproductive-health",
+    "allowedTypes": ["constants", "exceptions", "short_tricks"],
+    "icon": "RH"
+  },
+  {
+    "id": "inheritance_variation",
+    "name": "Principles of Inheritance and Variation",
+    "slug": "principles-of-inheritance-and-variation",
+    "allowedTypes": ["constants", "exceptions", "short_tricks"],
+    "icon": "PIV"
+  },
+  {
+    "id": "molecular_basis",
+    "name": "Molecular Basis of Inheritance",
+    "slug": "molecular-basis-of-inheritance",
+    "allowedTypes": ["constants", "exceptions", "short_tricks"],
+    "icon": "MBI"
+  },
+  {
+    "id": "evolution",
+    "name": "Evolution",
+    "slug": "evolution",
+    "allowedTypes": ["constants", "exceptions", "short_tricks"],
+    "icon": "EV"
+  },
+  {
+    "id": "human_health",
+    "name": "Human Health and Disease",
+    "slug": "human-health-and-disease",
+    "allowedTypes": ["constants", "exceptions", "short_tricks"],
+    "icon": "HHD"
+  },
+
+  {
+    "id": "microbes",
+    "name": "Microbes in Human Welfare",
+    "slug": "microbes-in-human-welfare",
+    "allowedTypes": ["constants", "exceptions", "short_tricks"],
+    "icon": "MHW"
+  },
+  {
+    "id": "biotech_principles",
+    "name": "Biotechnology - Principles and Processes",
+    "slug": "biotechnology-principles-and-processes",
+    "allowedTypes": ["constants", "exceptions", "short_tricks"],
+    "icon": "BPP"
+  },
+  {
+    "id": "biotech_applications",
+    "name": "Biotechnology and Its Applications",
+    "slug": "biotechnology-and-its-applications",
+    "allowedTypes": ["constants", "exceptions", "short_tricks"],
+    "icon": "BTA"
+  },
+  {
+    "id": "organisms_population",
+    "name": "Organisms and Populations",
+    "slug": "organisms-and-populations",
+    "allowedTypes": ["constants", "exceptions", "short_tricks"],
+    "icon": "OP"
+  },
+  {
+    "id": "ecosystem",
+    "name": "Ecosystem",
+    "slug": "ecosystem",
+    "allowedTypes": ["constants", "exceptions", "short_tricks"],
+    "icon": "ECO"
+  },
+  {
+    "id": "biodiversity",
+    "name": "Biodiversity and Conservation",
+    "slug": "biodiversity-and-conservation",
+    "allowedTypes": ["constants", "exceptions", "short_tricks"],
+    "icon": "BCON"
+  }
+],
 };
 
 // Biology content organized by topic
@@ -274,4 +460,5 @@ export const biologyContent: Record<string, Record<ContentType, ContentItem[]>> 
     exceptions: [],
   },
 };
+
 

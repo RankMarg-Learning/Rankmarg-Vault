@@ -156,10 +156,10 @@ export default function Saved() {
                     <CardContent className="p-3 sm:p-4">
                       <div className="flex items-start justify-between gap-2 sm:gap-3">
                         <div
-                          className="flex-1 min-w-0"
+                          className="flex-1 min-w-0 cursor-pointer"
                           onClick={() => handleItemClick(item)}
                         >
-                          <h4 className="font-medium text-foreground truncate mb-1 text-sm sm:text-base">
+                          <h4 className="font-medium text-foreground break-words mb-1 text-sm sm:text-base line-clamp-2">
                             {item.title}
                           </h4>
                           <p className="text-xs sm:text-sm text-muted-foreground">

@@ -10,12 +10,12 @@ export default function PrivacyPolicy() {
         keywords="privacy policy, data protection, user privacy, RankVault privacy, RankMarg privacy, JEE NEET privacy, exam preparation privacy, student data protection, educational platform privacy"
         canonicalPath="/privacy-policy"
       />
-      <div className="max-w-4xl mx-auto space-y-6">
-        <div className="text-center py-6">
-          <h1 className="text-3xl font-bold text-foreground mb-2">
+      <div className="max-w-4xl mx-auto space-y-4 sm:space-y-6 px-3 sm:px-4">
+        <div className="text-center py-4 sm:py-6 px-4">
+          <h1 className="text-2xl sm:text-3xl font-bold text-foreground mb-2">
             Privacy Policy
           </h1>
-          <p className="text-muted-foreground">
+          <p className="text-sm sm:text-base text-muted-foreground">
             Last updated:{" "}
             {new Date().toLocaleDateString("en-US", {
               year: "numeric",
@@ -29,7 +29,7 @@ export default function PrivacyPolicy() {
           <CardHeader>
             <CardTitle>Introduction</CardTitle>
           </CardHeader>
-          <CardContent className="space-y-4 prose prose-sm max-w-none">
+          <CardContent className="space-y-4 prose prose-sm max-w-none px-4 sm:px-6">
             <p>
               Welcome to RankVault, a product of RankMarg ("we," "our," or "us"). 
               We are committed to protecting your privacy and ensuring the security 
@@ -49,7 +49,7 @@ export default function PrivacyPolicy() {
           <CardHeader>
             <CardTitle>Information We Collect</CardTitle>
           </CardHeader>
-          <CardContent className="space-y-4 prose prose-sm max-w-none">
+          <CardContent className="space-y-4 prose prose-sm max-w-none px-4 sm:px-6">
             <h3 className="font-semibold text-foreground">
               Personal Information
             </h3>
@@ -81,7 +81,7 @@ export default function PrivacyPolicy() {
           <CardHeader>
             <CardTitle>How We Use Your Information</CardTitle>
           </CardHeader>
-          <CardContent className="space-y-4 prose prose-sm max-w-none">
+          <CardContent className="space-y-4 prose prose-sm max-w-none px-4 sm:px-6">
             <p>We use the collected information for various purposes:</p>
             <ul className="list-disc pl-6 space-y-1">
               <li>To provide and maintain our educational services</li>
@@ -98,7 +98,7 @@ export default function PrivacyPolicy() {
           <CardHeader>
             <CardTitle>Data Storage and Security</CardTitle>
           </CardHeader>
-          <CardContent className="space-y-4 prose prose-sm max-w-none">
+          <CardContent className="space-y-4 prose prose-sm max-w-none px-4 sm:px-6">
             <p>
               Your data is primarily stored locally in your browser using
               localStorage. This means:
@@ -122,7 +122,7 @@ export default function PrivacyPolicy() {
           <CardHeader>
             <CardTitle>Cookies and Tracking Technologies</CardTitle>
           </CardHeader>
-          <CardContent className="space-y-4 prose prose-sm max-w-none">
+          <CardContent className="space-y-4 prose prose-sm max-w-none px-4 sm:px-6">
             <p>
               We use cookies and similar tracking technologies to track activity
               on our platform and store certain information. You can instruct
@@ -141,7 +141,7 @@ export default function PrivacyPolicy() {
           <CardHeader>
             <CardTitle>Third-Party Services</CardTitle>
           </CardHeader>
-          <CardContent className="space-y-4 prose prose-sm max-w-none">
+          <CardContent className="space-y-4 prose prose-sm max-w-none px-4 sm:px-6">
             <p>
               Our platform may contain links to third-party websites or
               services. We are not responsible for the privacy practices of
@@ -155,7 +155,7 @@ export default function PrivacyPolicy() {
           <CardHeader>
             <CardTitle>Your Rights</CardTitle>
           </CardHeader>
-          <CardContent className="space-y-4 prose prose-sm max-w-none">
+          <CardContent className="space-y-4 prose prose-sm max-w-none px-4 sm:px-6">
             <p>You have the right to:</p>
             <ul className="list-disc pl-6 space-y-1">
               <li>Access your personal information</li>
@@ -171,7 +171,7 @@ export default function PrivacyPolicy() {
           <CardHeader>
             <CardTitle>Children's Privacy</CardTitle>
           </CardHeader>
-          <CardContent className="space-y-4 prose prose-sm max-w-none">
+          <CardContent className="space-y-4 prose prose-sm max-w-none px-4 sm:px-6">
             <p>
               RankVault is designed for students preparing for JEE and NEET
               exams. We do not knowingly collect personal information from
@@ -186,7 +186,7 @@ export default function PrivacyPolicy() {
           <CardHeader>
             <CardTitle>Changes to This Privacy Policy</CardTitle>
           </CardHeader>
-          <CardContent className="space-y-4 prose prose-sm max-w-none">
+          <CardContent className="space-y-4 prose prose-sm max-w-none px-4 sm:px-6">
             <p>
               We may update our Privacy Policy from time to time. We will notify
               you of any changes by posting the new Privacy Policy on this page
@@ -200,7 +200,7 @@ export default function PrivacyPolicy() {
           <CardHeader>
             <CardTitle>Contact Us</CardTitle>
           </CardHeader>
-          <CardContent className="space-y-4 prose prose-sm max-w-none">
+          <CardContent className="space-y-4 prose prose-sm max-w-none px-4 sm:px-6">
             <p>
               If you have any questions about this Privacy Policy, please
               contact us:

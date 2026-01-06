@@ -120,20 +120,20 @@ export default function SubjectPage() {
   return (
     <>
       <SEOHead {...seoContent} />
-      <div className="space-y-6">
-        <div>
-          <p className="text-sm text-muted-foreground mb-1">
+      <div className="space-y-4 sm:space-y-6">
+        <div className="px-4 sm:px-0">
+          <p className="text-xs sm:text-sm text-muted-foreground mb-1">
             {selectedExam} - {subjectData.name}
           </p>
-          <h1 className="text-2xl font-bold text-foreground">
+          <h1 className="text-xl sm:text-2xl font-bold text-foreground">
             {subjectData.name} Topics
           </h1>
-          <p className="text-muted-foreground mt-2">
+          <p className="text-sm sm:text-base text-muted-foreground mt-2">
             Select a topic to explore formulas, reactions, and more
           </p>
         </div>
 
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-3 sm:gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
           {subjectData.topics.map((topic, index) => (
             <div key={topic.id}>
               <TopicCard

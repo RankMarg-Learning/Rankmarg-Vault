@@ -54,18 +54,26 @@ export function ContentList({ items, onItemClick }: ContentListProps) {
         return (
           <div key={item.id}>
             <Card
-              className="cursor-pointer transition-all hover:shadow-md hover:border-primary/30"
+              className="cursor-pointer transition-all hover:shadow-md hover:border-primary/30 active:scale-[0.98]"
               onClick={() => onItemClick(items.indexOf(item))}
+              role="button"
+              tabIndex={0}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  e.preventDefault();
+                  onItemClick(items.indexOf(item));
+                }
+              }}
             >
               <CardContent className="p-4 sm:p-5">
                 <div className="flex items-start justify-between gap-3 sm:gap-4">
                   <div className="flex-1 min-w-0 space-y-1.5">
-                    <div className="flex items-center gap-2.5">
-                      <h4 className="font-semibold text-foreground truncate text-base sm:text-lg leading-tight">
+                    <div className="flex items-start gap-2.5">
+                      <h4 className="font-semibold text-foreground text-base sm:text-lg leading-tight break-words flex-1 min-w-0">
                         {item.title}
                       </h4>
                       {saved && (
-                        <Star className="h-4 w-4 sm:h-5 sm:w-5 text-primary fill-primary shrink-0 drop-shadow-sm" />
+                        <Star className="h-4 w-4 sm:h-5 sm:w-5 text-primary fill-primary shrink-0 drop-shadow-sm mt-0.5" />
                       )}
                     </div>
                     <div className="flex items-center gap-2 sm:hidden">

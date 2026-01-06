@@ -21,19 +21,19 @@ export function Footer() {
         </div>
       )}
 
-      <div className="container px-4 py-8">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+      <div className="container px-4 py-6 sm:py-8">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-4 sm:gap-6">
           {/* Brand Section */}
-          <div className="flex items-center gap-3">
-            <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary">
+          <div className="flex items-center gap-2 sm:gap-3">
+            <div className="flex h-9 w-9 sm:h-10 sm:w-10 items-center justify-center rounded-lg bg-primary shrink-0">
               <img
                 src="/logo.png"
                 alt="RankVault"
-                className="h-7 w-7 object-contain"
+                className="h-6 w-6 sm:h-7 sm:w-7 object-contain"
               />
             </div>
             <div className="flex flex-col">
-              <span className="font-semibold text-foreground text-base">
+              <span className="font-semibold text-foreground text-sm sm:text-base">
                 RankVault
               </span>
               <span className="text-xs text-muted-foreground">
@@ -43,12 +43,12 @@ export function Footer() {
           </div>
 
           {/* Links Section */}
-          <nav className="flex flex-wrap items-center justify-center gap-4 md:gap-6">
+          <nav className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 md:gap-6">
             {footerLinks.map((link) => (
               <Link
                 key={link.label}
                 to={link.href}
-                className="text-sm text-muted-foreground hover:text-foreground transition-colors font-medium"
+                className="text-xs sm:text-sm text-muted-foreground hover:text-foreground transition-colors font-medium px-2 py-1"
               >
                 {link.label}
               </Link>
@@ -57,7 +57,7 @@ export function Footer() {
 
           {/* Copyright Section */}
           <div className="text-center md:text-right">
-            <p className="text-sm text-muted-foreground">
+            <p className="text-xs sm:text-sm text-muted-foreground">
               © {new Date().getFullYear()} RankMarg
             </p>
             <p className="text-xs text-muted-foreground mt-1">

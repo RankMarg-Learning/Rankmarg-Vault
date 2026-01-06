@@ -50,17 +50,17 @@ export default function About() {
         keywords="about RankVault, RankMarg, JEE preparation platform, NEET preparation tools, exam revision app, IIT JEE study resources, NEET UG formulas, competitive exam preparation, student learning platform"
         canonicalPath="/about"
       />
-      <div className="max-w-4xl mx-auto space-y-8">
-        <div className="text-center py-8">
-          <div className="flex justify-center mb-4">
-            <div className="flex h-20 w-20 items-center justify-center rounded-2xl bg-primary text-primary-foreground">
-              <BookOpen className="h-10 w-10" />
+      <div className="max-w-4xl mx-auto space-y-6 sm:space-y-8 px-3 sm:px-4">
+        <div className="text-center py-6 sm:py-8">
+          <div className="flex justify-center mb-3 sm:mb-4">
+            <div className="flex h-16 w-16 sm:h-20 sm:w-20 items-center justify-center rounded-2xl bg-primary text-primary-foreground">
+              <BookOpen className="h-8 w-8 sm:h-10 sm:w-10" />
             </div>
           </div>
-          <h1 className="text-4xl font-bold text-foreground mb-4">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground mb-3 sm:mb-4 px-4">
             About RankVault
           </h1>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto px-4">
             Your ultimate recall and revision vault for JEE and NEET
             preparation. We're on a mission to help students excel in
             competitive exams.
@@ -71,7 +71,7 @@ export default function About() {
           <CardHeader>
             <CardTitle>Our Mission</CardTitle>
           </CardHeader>
-          <CardContent className="space-y-4 prose prose-sm max-w-none">
+          <CardContent className="space-y-4 prose prose-sm max-w-none px-4 sm:px-6">
             <p>
               RankVault was created with a simple yet powerful mission: to make
               exam preparation more accessible, organized, and effective for
@@ -99,7 +99,7 @@ export default function About() {
             <CardTitle>What We Offer</CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 mt-4">
+            <div className="grid gap-3 sm:gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 mt-4">
               {features.map((feature) => {
                 const Icon = feature.icon;
                 return (
@@ -107,10 +107,10 @@ export default function About() {
                     <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10">
                       <Icon className="h-5 w-5 text-primary" />
                     </div>
-                    <h3 className="font-semibold text-foreground">
+                    <h3 className="font-semibold text-foreground break-words">
                       {feature.title}
                     </h3>
-                    <p className="text-sm text-muted-foreground">
+                    <p className="text-sm text-muted-foreground break-words">
                       {feature.description}
                     </p>
                   </div>
@@ -124,7 +124,7 @@ export default function About() {
           <CardHeader>
             <CardTitle>Why RankVault?</CardTitle>
           </CardHeader>
-          <CardContent className="space-y-4 prose prose-sm max-w-none">
+          <CardContent className="space-y-4 prose prose-sm max-w-none px-4 sm:px-6">
             <h3 className="font-semibold text-foreground">
               Organized by Importance
             </h3>
@@ -169,7 +169,7 @@ export default function About() {
           <CardHeader>
             <CardTitle>Our Commitment</CardTitle>
           </CardHeader>
-          <CardContent className="space-y-4 prose prose-sm max-w-none">
+          <CardContent className="space-y-4 prose prose-sm max-w-none px-4 sm:px-6">
             <p>At RankVault, we're committed to:</p>
             <ul className="list-disc pl-6 space-y-2">
               <li>
@@ -193,7 +193,7 @@ export default function About() {
           <CardHeader>
             <CardTitle>About RankMarg</CardTitle>
           </CardHeader>
-          <CardContent className="space-y-4 prose prose-sm max-w-none">
+          <CardContent className="space-y-4 prose prose-sm max-w-none px-4 sm:px-6">
             <p>
               RankVault is a product of RankMarg, a company dedicated to providing 
               quality educational resources for students preparing for competitive exams. 
@@ -218,7 +218,7 @@ export default function About() {
           <CardHeader>
             <CardTitle>Join Our Community</CardTitle>
           </CardHeader>
-          <CardContent className="space-y-4 prose prose-sm max-w-none">
+          <CardContent className="space-y-4 prose prose-sm max-w-none px-4 sm:px-6">
             <p>
               RankVault is more than just a study tool - it's a community of
               dedicated students working towards their goals. Whether you're

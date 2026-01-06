@@ -136,7 +136,7 @@ export function RankMargAd({ ad, className, onClick }: RankMargAdProps) {
             </div>
             <div className="flex-1 min-w-0">
               <div className="flex items-center gap-2 mb-1">
-                <h4 className="font-semibold text-foreground text-sm sm:text-base truncate">
+                <h4 className="font-semibold text-foreground text-sm sm:text-base break-words line-clamp-2">
                   {ad.title}
                 </h4>
                 <Badge variant="secondary" className="text-xs shrink-0">

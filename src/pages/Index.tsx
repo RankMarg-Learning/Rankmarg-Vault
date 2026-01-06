@@ -168,7 +168,7 @@ export default function Index() {
             </p>
           </div>
 
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-3 sm:gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
             {subjectData.topics.map((topic, index) => (
               <div key={topic.id}>
                 <TopicCard
@@ -194,16 +194,16 @@ export default function Index() {
       <SEOHead {...seoContent} />
       <div className="space-y-8">
         {/* Hero Section */}
-        <div className="text-center py-8">
-          <div className="flex justify-center mb-4">
-            <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-primary text-primary-foreground">
-              <BookOpen className="h-8 w-8" />
+        <div className="text-center py-6 sm:py-8">
+          <div className="flex justify-center mb-3 sm:mb-4">
+            <div className="flex h-14 w-14 sm:h-16 sm:w-16 items-center justify-center rounded-2xl bg-primary text-primary-foreground">
+              <BookOpen className="h-7 w-7 sm:h-8 sm:w-8" />
             </div>
           </div>
-          <h1 className="text-3xl font-bold text-foreground mb-2">
+          <h1 className="text-2xl sm:text-3xl font-bold text-foreground mb-2 px-4">
             Welcome to RankVault
           </h1>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto px-4">
             Your ultimate recall and revision vault for {selectedExam}. Access
             formulas, reactions, and tricks organized for quick revision.
           </p>
@@ -211,35 +211,43 @@ export default function Index() {
 
         {/* Subjects Grid - Direct Display */}
         <div>
-          <h2 className="text-xl font-semibold text-foreground mb-4">
+          <h2 className="text-lg sm:text-xl font-semibold text-foreground mb-3 sm:mb-4 px-4 sm:px-0">
             {selectedExam} Subjects
           </h2>
-          <p className="text-muted-foreground mb-6">
+          <p className="text-sm sm:text-base text-muted-foreground mb-4 sm:mb-6 px-4 sm:px-0">
             Select a subject to start exploring topics
           </p>
 
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-3 sm:gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
             {examData?.subjects.map((subject) => {
               const SubjectIcon = getSubjectIcon(subject.id);
               return (
                 <Card
                   key={subject.id}
-                  className="cursor-pointer transition-all hover:shadow-md hover:border-primary/50"
+                  className="cursor-pointer transition-all hover:shadow-md hover:border-primary/50 active:scale-[0.98]"
                   onClick={() => {
                     // Navigate to subject page using slug
                     navigate(`/${subject.slug}`);
                   }}
+                  role="button"
+                  tabIndex={0}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                      e.preventDefault();
+                      navigate(`/${subject.slug}`);
+                    }
+                  }}
                 >
                   <CardHeader>
                     <div className="flex items-center gap-3">
-                      <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10">
+                      <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 shrink-0">
                         <SubjectIcon className="h-6 w-6 text-primary" />
                       </div>
-                      <div>
-                        <CardTitle className="text-lg">
+                      <div className="flex-1 min-w-0">
+                        <CardTitle className="text-lg break-words line-clamp-2">
                           {subject.name}
                         </CardTitle>
-                        <CardDescription>
+                        <CardDescription className="break-words">
                           {subject.topics.length} topics
                         </CardDescription>
                       </div>
@@ -259,7 +267,7 @@ export default function Index() {
         </div>
 
         {/* Features */}
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-3 sm:gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
           {features.map((feature) => {
             const Icon = feature.icon;
             return (

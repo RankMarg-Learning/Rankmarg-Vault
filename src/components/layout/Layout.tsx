@@ -4,6 +4,7 @@ import { Footer } from "./Footer";
 import { Sidebar } from "./Sidebar";
 import { MobileNav } from "./MobileNav";
 import { SearchDialog } from "@/components/search/SearchDialog";
+import { useCapacitor } from "@/hooks/useCapacitor";
 
 interface LayoutProps {
   children: ReactNode;
@@ -11,6 +12,7 @@ interface LayoutProps {
 
 export function Layout({ children }: LayoutProps) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const isCapacitor = useCapacitor();
 
   return (
     <div className="min-h-screen flex flex-col bg-background">
@@ -19,11 +21,11 @@ export function Layout({ children }: LayoutProps) {
       <div className="flex flex-1">
         <Sidebar isOpen={sidebarOpen} onClose={() => setSidebarOpen(false)} />
 
-        <main className="flex-1 md:ml-72 flex flex-col">
-          <div className="flex-1 container px-4 py-6 pb-24 md:pb-6">
+        <main className="flex-1 md:ml-[280px] lg:ml-72 flex flex-col">
+          <div className="flex-1 container px-3 sm:px-4 py-4 sm:py-6 pb-20 sm:pb-24 md:pb-6 max-w-7xl mx-auto">
             {children}
           </div>
-          <Footer />
+          {!isCapacitor && <Footer />}
         </main>
       </div>
 

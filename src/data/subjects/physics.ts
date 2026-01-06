@@ -203,7 +203,7 @@ export const physicsContent: Record<
         id: "um1",
         title: "Absolute Error",
         content:
-          "$$\\Delta x = |x_{measured} - x_{true}|$$Where:• $\\Delta x$ = absolute error• $x_{measured}$ = measured value• $x_{true}$ = true/standard value",
+          "$$\\Delta x = |x_{measured} - x_{true}|$$Where: $\\Delta x$ = absolute error $x_{measured}$ = measured value $x_{true}$ = true/standard value",
         importance: "high",
         examFrequency: "Frequently in JEE & NEET",
       },
@@ -211,7 +211,7 @@ export const physicsContent: Record<
         id: "um2",
         title: "Mean Absolute Error",
         content:
-          "$$\\Delta x_{mean} = \\frac{1}{n}\\sum_{i=1}^{n} |x_i - \\bar{x}|$$Where:• $n$ = number of observations• $x_i$ = individual readings• $\\bar{x}$ = mean value",
+          "$$\\Delta x_{mean} = \\frac{1}{n}\\sum_{i=1}^{n} |x_i - \\bar{x}|$$Where: $n$ = number of observations $x_i$ = individual readings $\\bar{x}$ = mean value",
         importance: "high",
         examFrequency: "Every year in NEET",
       },
@@ -219,7 +219,7 @@ export const physicsContent: Record<
         id: "um3",
         title: "Relative Error",
         content:
-          "$$\\text{Relative Error} = \\frac{\\Delta x}{x}$$Where:• $\\Delta x$ = absolute error• $x$ = measured value",
+          "$$\\text{Relative Error} = \\frac{\\Delta x}{x}$$Where: $\\Delta x$ = absolute error $x$ = measured value",
         importance: "high",
         examFrequency: "Common in JEE",
       },
@@ -234,7 +234,7 @@ export const physicsContent: Record<
       {
         id: "um5",
         title: "Error in Sum or Difference",
-        content: "$$\\Delta Z = \\Delta A + \\Delta B$$For:• $Z = A \\pm B$",
+        content: "$$\\Delta Z = \\Delta A + \\Delta B$$For: $Z = A \\pm B$",
         importance: "high",
         examFrequency: "Very common",
       },
@@ -242,7 +242,7 @@ export const physicsContent: Record<
         id: "um6",
         title: "Error in Product or Quotient",
         content:
-          "$$\\frac{\\Delta Z}{Z} = \\frac{\\Delta A}{A} + \\frac{\\Delta B}{B}$$For:• $Z = A \\times B$ or $Z = \\frac{A}{B}$",
+          "$$\\frac{\\Delta Z}{Z} = \\frac{\\Delta A}{A} + \\frac{\\Delta B}{B}$$For: $Z = A \\times B$ or $Z = \\frac{A}{B}$",
         importance: "high",
         examFrequency: "Every year in JEE",
       },
@@ -250,7 +250,7 @@ export const physicsContent: Record<
         id: "um7",
         title: "Error in Power Function",
         content:
-          "$$\\frac{\\Delta Z}{Z} = n \\frac{\\Delta A}{A}$$For:• $Z = A^n$",
+          "$$\\frac{\\Delta Z}{Z} = n \\frac{\\Delta A}{A}$$For: $Z = A^n$",
         importance: "high",
         examFrequency: "JEE Advanced favorite",
       },
@@ -274,7 +274,7 @@ export const physicsContent: Record<
         id: "um10",
         title: "Dimensional Formula of Physical Quantity",
         content:
-          "$$[Q] = M^a L^b T^c$$Where:• $M$ = mass• $L$ = length• $T$ = time",
+          "$$[Q] = M^a L^b T^c$$Where: $M$ = mass $L$ = length $T$ = time",
         importance: "high",
         examFrequency: "Every year in JEE & NEET",
       },
@@ -282,7 +282,7 @@ export const physicsContent: Record<
         id: "um11",
         title: "Principle of Dimensional Homogeneity",
         content:
-          "Dimensions of LHS = Dimensions of RHSUsed to:• Check correctness of equations• Derive relations",
+          "Dimensions of LHS = Dimensions of RHSUsed to: Check correctness of equations Derive relations",
         importance: "high",
         examFrequency: "JEE Main & Advanced",
       },
@@ -363,7 +363,7 @@ export const physicsContent: Record<
         id: "msl5",
         title: "First Equation of Motion",
         content:
-          "$$v = u + at$$Where:• $u$ = initial velocity• $v$ = final velocity• $a$ = acceleration• $t$ = time",
+          "$$v = u + at$$Where: $u$ = initial velocity $v$ = final velocity $a$ = acceleration $t$ = time",
         importance: "high",
         examFrequency: "Every year in JEE & NEET",
       },
@@ -449,7 +449,7 @@ export const physicsContent: Record<
         id: "mp1",
         title: "Position Vector",
         content:
-          "$$\\vec{r} = x\\hat{i} + y\\hat{j}$$Where:• $x, y$ = coordinates• $\\hat{i}, \\hat{j}$ = unit vectors along x and y axes",
+          "$$\\vec{r} = x\\hat{i} + y\\hat{j}$$Where: $x, y$ = coordinates $\\hat{i}, \\hat{j}$ = unit vectors along x and y axes",
         importance: "high",
         examFrequency: "Every year in JEE",
       },
@@ -680,7 +680,7 @@ export const physicsContent: Record<
         id: "fr1",
         title: "Static Friction",
         content:
-          "$$f_s \\le \\mu_s N$$Where:• $f_s$ = static friction• $\\mu_s$ = coefficient of static friction• $N$ = normal reaction",
+          "$$f_s \\le \\mu_s N$$Where: $f_s$ = static friction $\\mu_s$ = coefficient of static friction $N$ = normal reaction",
         importance: "high",
         examFrequency: "Every year in JEE & NEET",
       },
@@ -694,7 +694,7 @@ export const physicsContent: Record<
       {
         id: "fr3",
         title: "Kinetic Friction",
-        content: "$$f_k = \\mu_k N$$Where:• $\\mu_k < \\mu_s$",
+        content: "$$f_k = \\mu_k N$$Where: $\\mu_k < \\mu_s$",
         importance: "high",
         examFrequency: "Every year",
       },
@@ -796,7 +796,7 @@ export const physicsContent: Record<
         id: "wep1",
         title: "Work Done by Constant Force",
         content:
-          "$$W = \\vec{F} \\cdot \\vec{s} = Fs\\cos\\theta$$Work is done only by the component of force along displacement.• $\\theta = 0^\\circ$ → maximum work• $\\theta = 90^\\circ$ → zero work",
+          "$$W = \\vec{F} \\cdot \\vec{s} = Fs\\cos\\theta$$Work is done only by the component of force along displacement. $\\theta = 0^\\circ$ → maximum work $\\theta = 90^\\circ$ → zero work",
         importance: "high",
         examFrequency: "Every year in JEE & NEET",
       },
@@ -923,7 +923,7 @@ export const physicsContent: Record<
         id: "cm1",
         title: "Angular Displacement",
         content:
-          "$$\\theta = \\frac{s}{r}$$Explanation:Angular displacement is the angle subtended at the center by arc length $s$.",
+          "$$\\theta = \\frac{s}{r}$$Angular displacement is the angle subtended at the center by arc length $s$.",
         importance: "high",
         examFrequency: "Foundational",
       },
@@ -931,7 +931,7 @@ export const physicsContent: Record<
         id: "cm2",
         title: "Angular Velocity",
         content:
-          "$$\\omega = \\frac{d\\theta}{dt}$$Explanation:Rate of change of angular displacement.Direction given by right-hand thumb rule.",
+          "$$\\omega = \\frac{d\\theta}{dt}$$Rate of change of angular displacement.Direction given by right-hand thumb rule.",
         importance: "high",
         examFrequency: "Every year in JEE & NEET",
       },
@@ -939,7 +939,7 @@ export const physicsContent: Record<
         id: "cm3",
         title: "Angular Acceleration",
         content:
-          "$$\\alpha = \\frac{d\\omega}{dt}$$Explanation:Rate of change of angular velocity.",
+          "$$\\alpha = \\frac{d\\omega}{dt}$$Rate of change of angular velocity.",
         importance: "medium",
         examFrequency: "JEE Main",
       },
@@ -947,7 +947,7 @@ export const physicsContent: Record<
         id: "cm4",
         title: "Linear Velocity in Circular Motion",
         content:
-          "$$v = r\\omega$$Explanation:Linear speed is directly proportional to radius and angular speed.",
+          "$$v = r\\omega$$Linear speed is directly proportional to radius and angular speed.",
         importance: "high",
         examFrequency: "Every year",
       },
@@ -955,7 +955,7 @@ export const physicsContent: Record<
         id: "cm5",
         title: "Centripetal Acceleration",
         content:
-          "$$a_c = \\frac{v^2}{r} = r\\omega^2$$Explanation:Always directed towards the center of the circle.Responsible for change in direction of velocity.",
+          "$$a_c = \\frac{v^2}{r} = r\\omega^2$$Always directed towards the center of the circle.Responsible for change in direction of velocity.",
         importance: "high",
         examFrequency: "Every year in JEE & NEET",
       },
@@ -963,7 +963,7 @@ export const physicsContent: Record<
         id: "cm6",
         title: "Centripetal Force",
         content:
-          "$$F_c = \\frac{mv^2}{r} = mr\\omega^2$$Explanation:Not a new force.Provided by tension, friction, gravity, or normal reaction.",
+          "$$F_c = \\frac{mv^2}{r} = mr\\omega^2$$Not a new force.Provided by tension, friction, gravity, or normal reaction.",
         importance: "high",
         examFrequency: "Every year",
       },
@@ -971,7 +971,7 @@ export const physicsContent: Record<
         id: "cm7",
         title: "Time Period of Uniform Circular Motion",
         content:
-          "$$T = \\frac{2\\pi}{\\omega}$$Explanation:Time taken to complete one full revolution.",
+          "$$T = \\frac{2\\pi}{\\omega}$$Time taken to complete one full revolution.",
         importance: "medium",
         examFrequency: "Basic questions",
       },
@@ -986,7 +986,7 @@ export const physicsContent: Record<
         id: "cm9",
         title: "Centrifugal Force (Non-inertial Frame)",
         content:
-          "$$F_{cf} = mr\\omega^2$$Explanation:Pseudo force acting outward in rotating frames only.",
+          "$$F_{cf} = mr\\omega^2$$Pseudo force acting outward in rotating frames only.",
         importance: "high",
         examFrequency: "JEE Advanced",
       },
@@ -994,7 +994,7 @@ export const physicsContent: Record<
         id: "cm10",
         title: "Maximum Speed on Level Circular Track",
         content:
-          "$$v_{max} = \\sqrt{\\mu rg}$$Explanation:Friction provides centripetal force.Used in vehicle turning problems.",
+          "$$v_{max} = \\sqrt{\\mu rg}$$Friction provides centripetal force.Used in vehicle turning problems.",
         importance: "high",
         examFrequency: "Every year in JEE",
       },
@@ -1002,7 +1002,7 @@ export const physicsContent: Record<
         id: "cm11",
         title: "Banking Angle (No Friction)",
         content:
-          "$$\\tan\\theta = \\frac{v^2}{rg}$$Explanation:Normal reaction provides centripetal force.Ideal banking condition.",
+          "$$\\tan\\theta = \\frac{v^2}{rg}$$Normal reaction provides centripetal force.Ideal banking condition.",
         importance: "high",
         examFrequency: "Very common",
       },
@@ -1010,7 +1010,7 @@ export const physicsContent: Record<
         id: "cm12",
         title: "Banking Angle with Friction",
         content:
-          "$$\\tan\\theta = \\frac{v^2 \\pm \\mu rg}{rg \\mp \\mu v^2}$$Explanation:Used to find max/min safe speed on banked roads.",
+          "$$\\tan\\theta = \\frac{v^2 \\pm \\mu rg}{rg \\mp \\mu v^2}$$Used to find max/min safe speed on banked roads.",
         importance: "high",
         examFrequency: "JEE Advanced",
       },
@@ -1018,7 +1018,7 @@ export const physicsContent: Record<
         id: "cm13",
         title: "Conical Pendulum – Angular Speed",
         content:
-          "$$\\omega = \\sqrt{\\frac{g}{l\\cos\\theta}}$$Explanation:Derived using vertical balance and horizontal centripetal force.",
+          "$$\\omega = \\sqrt{\\frac{g}{l\\cos\\theta}}$$Derived using vertical balance and horizontal centripetal force.",
         importance: "high",
         examFrequency: "Every year in JEE",
       },
@@ -1033,7 +1033,7 @@ export const physicsContent: Record<
         id: "cm15",
         title: "Motion in Vertical Circle – Minimum Speed at Top",
         content:
-          "$$v_{top(min)} = \\sqrt{gr}$$Explanation:Condition when tension at top becomes zero.",
+          "$$v_{top(min)} = \\sqrt{gr}$$Condition when tension at top becomes zero.",
         importance: "high",
         examFrequency: "JEE favorite",
       },
@@ -1041,7 +1041,7 @@ export const physicsContent: Record<
         id: "cm16",
         title: "Motion in Vertical Circle – Minimum Speed at Bottom",
         content:
-          "$$v_{bottom(min)} = \\sqrt{5gr}$$Explanation:Ensures particle completes full vertical loop.",
+          "$$v_{bottom(min)} = \\sqrt{5gr}$$Ensures particle completes full vertical loop.",
         importance: "high",
         examFrequency: "Every year in JEE",
       },
@@ -1057,7 +1057,7 @@ export const physicsContent: Record<
         id: "cmlm1",
         title: "Position of Center of Mass (Discrete System)",
         content:
-          "$$\\vec{R}_{CM} = \\frac{\\sum m_i \\vec{r}_i}{\\sum m_i}$$\n\nExplanation:\nWeighted average position of all particles based on mass.",
+          "$$\\vec{R}_{CM} = \\frac{\\sum m_i \\vec{r}_i}{\\sum m_i}$$ \n Weighted average position of all particles based on mass.",
         importance: "high",
         examFrequency: "Every year in JEE",
       },
@@ -1072,7 +1072,7 @@ export const physicsContent: Record<
         id: "cmlm3",
         title: "Center of Mass of Continuous Body",
         content:
-          "$$\\vec{R}_{CM} = \\frac{1}{M} \\int \\vec{r}\\,dm$$\n\nExplanation:\nUsed for rods, plates, rings, discs.",
+          "$$\\vec{R}_{CM} = \\frac{1}{M} \\int \\vec{r}\\,dm$$ \n Used for rods, plates, rings, discs.",
         importance: "medium",
         examFrequency: "JEE Advanced",
       },
@@ -1080,7 +1080,7 @@ export const physicsContent: Record<
         id: "cmlm4",
         title: "Velocity of Center of Mass",
         content:
-          "$$\\vec{V}_{CM} = \\frac{\\sum m_i \\vec{v}_i}{\\sum m_i}$$\n\nExplanation:\nDetermines overall motion of system.",
+          "$$\\vec{V}_{CM} = \\frac{\\sum m_i \\vec{v}_i}{\\sum m_i}$$ \n Determines overall motion of system.",
         importance: "high",
         examFrequency: "Every year",
       },
@@ -1088,7 +1088,7 @@ export const physicsContent: Record<
         id: "cmlm5",
         title: "Acceleration of Center of Mass",
         content:
-          "$$\\vec{A}_{CM} = \\frac{\\sum \\vec{F}_{ext}}{M}$$\n\nExplanation:\nOnly external forces affect CM acceleration.",
+          "$$\\vec{A}_{CM} = \\frac{\\sum \\vec{F}_{ext}}{M}$$ \n Only external forces affect CM acceleration.",
         importance: "high",
         examFrequency: "Every year in JEE & NEET",
       },
@@ -1110,7 +1110,7 @@ export const physicsContent: Record<
         id: "cmlm8",
         title: "Relation Between CM Velocity and Momentum",
         content:
-          "$$\\vec{P} = M \\vec{V}_{CM}$$\n\nExplanation:\nTotal momentum behaves as if entire mass is concentrated at CM.",
+          "$$\\vec{P} = M \\vec{V}_{CM}$$ \n Total momentum behaves as if entire mass is concentrated at CM.",
         importance: "high",
         examFrequency: "JEE Main & Advanced",
       },
@@ -1118,7 +1118,7 @@ export const physicsContent: Record<
         id: "cmlm9",
         title: "Law of Conservation of Linear Momentum",
         content:
-          "$$\\vec{P}_{initial} = \\vec{P}_{final}$$\n\nExplanation:\nValid when net external force is zero.",
+          "$$\\vec{P}_{initial} = \\vec{P}_{final}$$ \n Valid when net external force is zero.",
         importance: "high",
         examFrequency: "Every year in JEE & NEET",
       },
@@ -1133,7 +1133,7 @@ export const physicsContent: Record<
         id: "cmlm11",
         title: "Collision – Coefficient of Restitution",
         content:
-          "$$e = \\frac{v_2 - v_1}{u_1 - u_2}$$\n\nExplanation:\nMeasures elasticity of collision.",
+          "$$e = \\frac{v_2 - v_1}{u_1 - u_2}$$ \n Measures elasticity of collision.",
         importance: "high",
         examFrequency: "Every year in JEE",
       },
@@ -1147,8 +1147,7 @@ export const physicsContent: Record<
       {
         id: "cmlm13",
         title: "Perfectly Inelastic Collision Condition",
-        content:
-          "$$e = 0$$\n\nExplanation:\nBodies stick together after collision.",
+        content: "$$e = 0$$ \n Bodies stick together after collision.",
         importance: "medium",
         examFrequency: "Conceptual",
       },
@@ -1185,7 +1184,7 @@ export const physicsContent: Record<
         id: "rm1",
         title: "Angular Displacement",
         content:
-          "$$\\theta = \\frac{s}{r}$$\n\nExplanation:\nAngular displacement is the angle swept by the radius when the body moves along a circular arc.",
+          "$$\\theta = \\frac{s}{r}$$ \n Angular displacement is the angle swept by the radius when the body moves along a circular arc.",
         importance: "high",
         examFrequency: "Foundational",
       },
@@ -1193,7 +1192,7 @@ export const physicsContent: Record<
         id: "rm2",
         title: "Angular Velocity",
         content:
-          "$$\\omega = \\frac{d\\theta}{dt}$$\n\nExplanation:\nRate of change of angular displacement.\nDirection by right-hand thumb rule.",
+          "$$\\omega = \\frac{d\\theta}{dt}$$ \n Rate of change of angular displacement. \n Direction by right-hand thumb rule.",
         importance: "high",
         examFrequency: "Every year",
       },
@@ -1208,7 +1207,7 @@ export const physicsContent: Record<
         id: "rm4",
         title: "Relation Between Linear and Angular Quantities",
         content:
-          "$$v = r\\omega, \\quad a_t = r\\alpha, \\quad a_c = r\\omega^2$$\n\nExplanation:\nLinear motion parameters are proportional to radius.",
+          "$$v = r\\omega, \\quad a_t = r\\alpha, \\quad a_c = r\\omega^2$$ \n Linear motion parameters are proportional to radius.",
         importance: "high",
         examFrequency: "Every year in JEE & NEET",
       },
@@ -1216,7 +1215,7 @@ export const physicsContent: Record<
         id: "rm5",
         title: "Equations of Rotational Motion",
         content:
-          "$$\\omega = \\omega_0 + \\alpha t$$\n$$\\theta = \\omega_0 t + \\frac{1}{2}\\alpha t^2$$\n$$\\omega^2 = \\omega_0^2 + 2\\alpha\\theta$$",
+          "$$\\omega = \\omega_0 + \\alpha t$$ \n $$\\theta = \\omega_0 t + \\frac{1}{2}\\alpha t^2$$ \n $$\\omega^2 = \\omega_0^2 + 2\\alpha\\theta$$",
         importance: "high",
         examFrequency: "Every year",
       },
@@ -1224,7 +1223,7 @@ export const physicsContent: Record<
         id: "rm6",
         title: "Moment of Inertia (Discrete System)",
         content:
-          "$$I = \\sum m_i r_i^2$$\n\nExplanation:\nMeasures resistance to change in rotational motion.",
+          "$$I = \\sum m_i r_i^2$$ \n Measures resistance to change in rotational motion.",
         importance: "high",
         examFrequency: "Every year",
       },
@@ -1239,15 +1238,14 @@ export const physicsContent: Record<
         id: "rm8",
         title: "Parallel Axis Theorem",
         content:
-          "$$I = I_{CM} + Md^2$$\n\nExplanation:\nUsed when axis is parallel but not passing through CM.",
+          "$$I = I_{CM} + Md^2$$ \n Used when axis is parallel but not passing through CM.",
         importance: "high",
         examFrequency: "Every year in JEE",
       },
       {
         id: "rm9",
         title: "Perpendicular Axis Theorem",
-        content:
-          "$$I_z = I_x + I_y$$\n\nExplanation:\nApplicable only for planar lamina.",
+        content: "$$I_z = I_x + I_y$$ \n Applicable only for planar lamina.",
         importance: "high",
         examFrequency: "JEE Main",
       },
@@ -1255,7 +1253,7 @@ export const physicsContent: Record<
         id: "rm10",
         title: "Torque",
         content:
-          "$$\\vec{\\tau} = \\vec{r} \\times \\vec{F}$$\n\nExplanation:\nRotational equivalent of force.",
+          "$$\\vec{\\tau} = \\vec{r} \\times \\vec{F}$$ \n Rotational equivalent of force.",
         importance: "high",
         examFrequency: "Every year",
       },
@@ -1263,7 +1261,7 @@ export const physicsContent: Record<
         id: "rm11",
         title: "Relation Between Torque and Angular Acceleration",
         content:
-          "$$\\tau = I\\alpha$$\n\nExplanation:\nRotational form of Newton’s Second Law.",
+          "$$\\tau = I\\alpha$$ \n Rotational form of Newton’s Second Law.",
         importance: "high",
         examFrequency: "Every year in JEE & NEET",
       },
@@ -1285,7 +1283,7 @@ export const physicsContent: Record<
         id: "rm14",
         title: "Conservation of Angular Momentum",
         content:
-          "$$I_1\\omega_1 = I_2\\omega_2$$\n\nExplanation:\nValid when net external torque is zero.",
+          "$$I_1\\omega_1 = I_2\\omega_2$$ \n Valid when net external torque is zero.",
         importance: "high",
         examFrequency: "Every year in JEE",
       },
@@ -1300,7 +1298,7 @@ export const physicsContent: Record<
         id: "rm16",
         title: "Rolling Motion Condition",
         content:
-          "$$v_{CM} = r\\omega$$\n\nExplanation:\nPure rolling means no slipping at contact point.",
+          "$$v_{CM} = r\\omega$$ \n Pure rolling means no slipping at contact point.",
         importance: "high",
         examFrequency: "Every year",
       },
@@ -1330,7 +1328,7 @@ export const physicsContent: Record<
         id: "grav1",
         title: "Newton’s Law of Gravitation",
         content:
-          "$$F = G\\frac{m_1 m_2}{r^2}$$\n\nExplanation:\nGravitational force is always attractive and acts along the line joining the two masses.",
+          "$$F = G\\frac{m_1 m_2}{r^2}$$ \n Gravitational force is always attractive and acts along the line joining the two masses.",
         importance: "high",
         examFrequency: "Every year in JEE & NEET",
       },
@@ -1338,7 +1336,7 @@ export const physicsContent: Record<
         id: "grav2",
         title: "Gravitational Constant",
         content:
-          "$$G = 6.67 \\times 10^{-11}\\ \\text{N m}^2\\text{/kg}^2$$\n\nExplanation:\nUniversal constant; same everywhere in the universe.",
+          "$$G = 6.67 \\times 10^{-11}\\ \\text{N m}^2\\text{/kg}^2$$ \n Universal constant; same everywhere in the universe.",
         importance: "medium",
         examFrequency: "Direct fact-based",
       },
@@ -1346,15 +1344,14 @@ export const physicsContent: Record<
         id: "grav3",
         title: "Acceleration Due to Gravity at Earth’s Surface",
         content:
-          "$$g = \\frac{GM}{R^2}$$\n\nExplanation:\n$M$ = mass of Earth, $R$ = radius of Earth.",
+          "$$g = \\frac{GM}{R^2}$$ \n $M$ = mass of Earth, $R$ = radius of Earth.",
         importance: "high",
         examFrequency: "Every year",
       },
       {
         id: "grav4",
         title: "Weight of a Body",
-        content:
-          "$$W = mg$$\n\nExplanation:\nWeight depends on location; mass is constant.",
+        content: "$$W = mg$$ \n Weight depends on location; mass is constant.",
         importance: "high",
         examFrequency: "Every year",
       },
@@ -1362,7 +1359,7 @@ export const physicsContent: Record<
         id: "grav5",
         title: "Variation of g with Height",
         content:
-          "$$g_h = g\\left(1 - \\frac{2h}{R}\\right)$$\n\nExplanation:\nValid when height $h \\ll R$.",
+          "$$g_h = g\\left(1 - \\frac{2h}{R}\\right)$$ \n Valid when height $h \\ll R$.",
         importance: "high",
         examFrequency: "JEE Main",
       },
@@ -1370,7 +1367,7 @@ export const physicsContent: Record<
         id: "grav6",
         title: "Variation of g with Depth",
         content:
-          "$$g_d = g\\left(1 - \\frac{d}{R}\\right)$$\n\nExplanation:\nGravity decreases linearly inside Earth.",
+          "$$g_d = g\\left(1 - \\frac{d}{R}\\right)$$ \n Gravity decreases linearly inside Earth.",
         importance: "high",
         examFrequency: "JEE & NEET",
       },
@@ -1378,15 +1375,14 @@ export const physicsContent: Record<
         id: "grav7",
         title: "Gravitational Potential Energy",
         content:
-          "$$U = -\\frac{GMm}{r}$$\n\nExplanation:\nZero potential energy is taken at infinity.",
+          "$$U = -\\frac{GMm}{r}$$ \n Zero potential energy is taken at infinity.",
         importance: "high",
         examFrequency: "Every year",
       },
       {
         id: "grav8",
         title: "Gravitational Potential",
-        content:
-          "$$V = -\\frac{GM}{r}$$\n\nExplanation:\nPotential energy per unit mass.",
+        content: "$$V = -\\frac{GM}{r}$$ \n Potential energy per unit mass.",
         importance: "medium",
         examFrequency: "Conceptual",
       },
@@ -1394,7 +1390,7 @@ export const physicsContent: Record<
         id: "grav9",
         title: "Escape Velocity",
         content:
-          "$$v_e = \\sqrt{\\frac{2GM}{R}} = \\sqrt{2gR}$$\n\nExplanation:\nMinimum speed to escape Earth’s gravity without further propulsion.",
+          "$$v_e = \\sqrt{\\frac{2GM}{R}} = \\sqrt{2gR}$$ \n Minimum speed to escape Earth’s gravity without further propulsion.",
         importance: "high",
         examFrequency: "Every year",
       },
@@ -1402,7 +1398,7 @@ export const physicsContent: Record<
         id: "grav10",
         title: "Orbital Velocity of Satellite",
         content:
-          "$$v_o = \\sqrt{\\frac{GM}{R + h}}$$\n\nExplanation:\nSpeed needed for circular orbit at height $h$.",
+          "$$v_o = \\sqrt{\\frac{GM}{R + h}}$$ \n Speed needed for circular orbit at height $h$.",
         importance: "high",
         examFrequency: "Every year in JEE",
       },
@@ -1410,7 +1406,7 @@ export const physicsContent: Record<
         id: "grav11",
         title: "Time Period of Satellite",
         content:
-          "$$T = 2\\pi \\sqrt{\\frac{(R + h)^3}{GM}}$$\n\nExplanation:\nDerived from centripetal force = gravitational force.",
+          "$$T = 2\\pi \\sqrt{\\frac{(R + h)^3}{GM}}$$ \n Derived from centripetal force = gravitational force.",
         importance: "high",
         examFrequency: "Every year",
       },
@@ -1418,7 +1414,7 @@ export const physicsContent: Record<
         id: "grav12",
         title: "Kepler’s Third Law",
         content:
-          "$$T^2 \\propto r^3$$\n\nExplanation:\nSquare of time period is proportional to cube of orbital radius.",
+          "$$T^2 \\propto r^3$$ \n Square of time period is proportional to cube of orbital radius.",
         importance: "high",
         examFrequency: "Conceptual + numerical",
       },
@@ -1426,7 +1422,7 @@ export const physicsContent: Record<
         id: "grav13",
         title: "Total Mechanical Energy of Satellite",
         content:
-          "$$E = -\\frac{GMm}{2r}$$\n\nExplanation:\nNegative sign indicates bound orbit.",
+          "$$E = -\\frac{GMm}{2r}$$ \n Negative sign indicates bound orbit.",
         importance: "high",
         examFrequency: "JEE Advanced",
       },
@@ -1434,7 +1430,7 @@ export const physicsContent: Record<
         id: "grav14",
         title: "Binding Energy of Satellite",
         content:
-          "$$E_b = \\frac{GMm}{2r}$$\n\nExplanation:\nEnergy required to remove satellite from orbit.",
+          "$$E_b = \\frac{GMm}{2r}$$ \n Energy required to remove satellite from orbit.",
         importance: "medium",
         examFrequency: "Advanced problems",
       },
@@ -1457,7 +1453,7 @@ export const physicsContent: Record<
         id: "psl1",
         title: "Stress",
         content:
-          "$$\\text{Stress} = \\frac{F}{A}$$\n\nExplanation:\nInternal restoring force per unit area developed inside a body when external force is applied.",
+          "$$\\text{Stress} = \\frac{F}{A}$$ \n Internal restoring force per unit area developed inside a body when external force is applied.",
         importance: "high",
         examFrequency: "Every year in NEET",
       },
@@ -1465,7 +1461,7 @@ export const physicsContent: Record<
         id: "psl2",
         title: "Strain",
         content:
-          "$$\\text{Strain} = \\frac{\\Delta L}{L}$$\n\nExplanation:\nRatio of change in dimension to original dimension.\nDimensionless quantity.",
+          "$$\\text{Strain} = \\frac{\\Delta L}{L}$$ \n Ratio of change in dimension to original dimension. \n Dimensionless quantity.",
         importance: "high",
         examFrequency: "Every year",
       },
@@ -1473,7 +1469,7 @@ export const physicsContent: Record<
         id: "psl3",
         title: "Young’s Modulus",
         content:
-          "$$Y = \\frac{\\text{Longitudinal Stress}}{\\text{Longitudinal Strain}}$$\n\nExplanation:\nMeasures stiffness of a material.",
+          "$$Y = \\frac{\\text{Longitudinal Stress}}{\\text{Longitudinal Strain}}$$ \n Measures stiffness of a material.",
         importance: "high",
         examFrequency: "Very common",
       },
@@ -1481,7 +1477,7 @@ export const physicsContent: Record<
         id: "psl4",
         title: "Bulk Modulus",
         content:
-          "$$K = \\frac{\\text{Volume Stress}}{\\text{Volume Strain}}$$\n\nExplanation:\nResistance offered by a material to change in volume.",
+          "$$K = \\frac{\\text{Volume Stress}}{\\text{Volume Strain}}$$ \n Resistance offered by a material to change in volume.",
         importance: "high",
         examFrequency: "JEE & NEET",
       },
@@ -1497,7 +1493,7 @@ export const physicsContent: Record<
         id: "psl6",
         title: "Relation Between Elastic Constants",
         content:
-          "$$Y = 9K\\eta / (3K + \\eta)$$\n\nExplanation:\nValid for isotropic materials.",
+          "$$Y = 9K\\eta / (3K + \\eta)$$ \n Valid for isotropic materials.",
         importance: "medium",
         examFrequency: "JEE Main",
       },
@@ -1505,7 +1501,7 @@ export const physicsContent: Record<
         id: "psl7",
         title: "Poisson’s Ratio",
         content:
-          "$$\\nu = -\\frac{\\text{Lateral Strain}}{\\text{Longitudinal Strain}}$$\n\nExplanation:\nNegative sign indicates opposite nature of strains.",
+          "$$ \n u = -\\frac{\\text{Lateral Strain}}{\\text{Longitudinal Strain}}$$ \n Negative sign indicates opposite nature of strains.",
         importance: "high",
         examFrequency: "Every year",
       },
@@ -1513,7 +1509,7 @@ export const physicsContent: Record<
         id: "psl8",
         title: "Stress–Strain Relation (Hooke’s Law)",
         content:
-          "$$\\text{Stress} \\propto \\text{Strain}$$\n\nExplanation:\nValid only within elastic limit.",
+          "$$\\text{Stress} \\propto \\text{Strain}$$ \n Valid only within elastic limit.",
         importance: "high",
         examFrequency: "Conceptual",
       },
@@ -1528,8 +1524,7 @@ export const physicsContent: Record<
       {
         id: "psl10",
         title: "Pressure in a Liquid",
-        content:
-          "$$P = P_0 + \\rho gh$$\n\nExplanation:\nPressure increases with depth.",
+        content: "$$P = P_0 + \\rho gh$$ \n Pressure increases with depth.",
         importance: "high",
         examFrequency: "Every year",
       },
@@ -1537,7 +1532,7 @@ export const physicsContent: Record<
         id: "psl11",
         title: "Buoyant Force",
         content:
-          "$$F_B = \\rho V g$$\n\nExplanation:\nEqual to weight of displaced fluid (Archimedes’ Principle).",
+          "$$F_B = \\rho V g$$ \n Equal to weight of displaced fluid (Archimedes’ Principle).",
         importance: "high",
         examFrequency: "Every year in NEET",
       },
@@ -1552,7 +1547,7 @@ export const physicsContent: Record<
         id: "psl13",
         title: "Viscous Force (Stokes’ Law)",
         content:
-          "$$F = 6\\pi \\eta r v$$\n\nExplanation:\nOpposes motion of small spherical body in viscous fluid.",
+          "$$F = 6\\pi \\eta r v$$ \n Opposes motion of small spherical body in viscous fluid.",
         importance: "high",
         examFrequency: "JEE Main & NEET",
       },
@@ -1560,7 +1555,7 @@ export const physicsContent: Record<
         id: "psl14",
         title: "Terminal Velocity",
         content:
-          "$$v_t = \\frac{2r^2(\\rho - \\sigma)g}{9\\eta}$$\n\nExplanation:\nVelocity becomes constant when net force is zero.",
+          "$$v_t = \\frac{2r^2(\\rho - \\sigma)g}{9\\eta}$$ \n Velocity becomes constant when net force is zero.",
         importance: "high",
         examFrequency: "Frequently asked",
       },
@@ -1568,15 +1563,14 @@ export const physicsContent: Record<
         id: "psl15",
         title: "Streamline Flow Condition",
         content:
-          "$$Re < 2000$$\n\nExplanation:\nReynolds number below 2000 ensures laminar flow.",
+          "$$Re < 2000$$ \n Reynolds number below 2000 ensures laminar flow.",
         importance: "medium",
         examFrequency: "Conceptual",
       },
       {
         id: "psl16",
         title: "Continuity Equation",
-        content:
-          "$$A_1v_1 = A_2v_2$$\n\nExplanation:\nMass conservation in fluid flow.",
+        content: "$$A_1v_1 = A_2v_2$$ \n Mass conservation in fluid flow.",
         importance: "high",
         examFrequency: "Every year",
       },
@@ -1584,7 +1578,7 @@ export const physicsContent: Record<
         id: "psl17",
         title: "Bernoulli’s Theorem",
         content:
-          "$$P + \\frac{1}{2}\\rho v^2 + \\rho gh = \\text{constant}$$\n\nExplanation:\nEnergy conservation in fluid flow.",
+          "$$P + \\frac{1}{2}\\rho v^2 + \\rho gh = \\text{constant}$$ \n Energy conservation in fluid flow.",
         importance: "high",
         examFrequency: "Every year in JEE & NEET",
       },
@@ -1621,7 +1615,7 @@ export const physicsContent: Record<
         id: "tpm1",
         title: "Heat",
         content:
-          "$$Q = mc\\Delta T$$\n\nExplanation:\nHeat required to change temperature of a body without phase change.\n• $m$ = mass\n• $c$ = specific heat capacity\n• $\\Delta T$ = change in temperature",
+          "$$Q = mc\\Delta T$$ \n Heat required to change temperature of a body without phase change. \n  $m$ = mass \n  $c$ = specific heat capacity \n  $\\Delta T$ = change in temperature",
         importance: "high",
         examFrequency: "Every year in JEE & NEET",
       },
@@ -1629,7 +1623,7 @@ export const physicsContent: Record<
         id: "tpm2",
         title: "Specific Heat Capacity",
         content:
-          "$$c = \\frac{Q}{m\\Delta T}$$\n\nExplanation:\nAmount of heat required to raise temperature of unit mass by $1^\\circ C$.",
+          "$$c = \\frac{Q}{m\\Delta T}$$ \n Amount of heat required to raise temperature of unit mass by $1^\\circ C$.",
         importance: "high",
         examFrequency: "Very common",
       },
@@ -1637,7 +1631,7 @@ export const physicsContent: Record<
         id: "tpm3",
         title: "Heat Capacity",
         content:
-          "$$C = mc$$\n\nExplanation:\nHeat required to raise temperature of the entire body by $1^\\circ C$.",
+          "$$C = mc$$ \n Heat required to raise temperature of the entire body by $1^\\circ C$.",
         importance: "medium",
         examFrequency: "Occasional",
       },
@@ -1645,7 +1639,7 @@ export const physicsContent: Record<
         id: "tpm4",
         title: "Latent Heat",
         content:
-          "$$Q = mL$$\n\nExplanation:\nHeat absorbed or released during phase change at constant temperature.",
+          "$$Q = mL$$ \n Heat absorbed or released during phase change at constant temperature.",
         importance: "high",
         examFrequency: "Every year in NEET",
       },
@@ -1653,7 +1647,7 @@ export const physicsContent: Record<
         id: "tpm5",
         title: "Linear Expansion",
         content:
-          "$$\\Delta L = L_0 \\alpha \\Delta T$$\n\nExplanation:\nChange in length due to temperature change.",
+          "$$\\Delta L = L_0 \\alpha \\Delta T$$ \n Change in length due to temperature change.",
         importance: "high",
         examFrequency: "Every year",
       },
@@ -1661,7 +1655,7 @@ export const physicsContent: Record<
         id: "tpm6",
         title: "Areal Expansion",
         content:
-          "$$\\Delta A = A_0 \\beta \\Delta T$$\n\nExplanation:\n$\\beta = 2\\alpha$ for isotropic solids.",
+          "$$\\Delta A = A_0 \\beta \\Delta T$$ \n $\\beta = 2\\alpha$ for isotropic solids.",
         importance: "medium",
         examFrequency: "JEE Main",
       },
@@ -1669,7 +1663,7 @@ export const physicsContent: Record<
         id: "tpm7",
         title: "Volume Expansion",
         content:
-          "$$\\Delta V = V_0 \\gamma \\Delta T$$\n\nExplanation:\n$\\gamma = 3\\alpha$ for isotropic solids.",
+          "$$\\Delta V = V_0 \\gamma \\Delta T$$ \n $\\gamma = 3\\alpha$ for isotropic solids.",
         importance: "high",
         examFrequency: "Every year",
       },
@@ -1677,7 +1671,7 @@ export const physicsContent: Record<
         id: "tpm8",
         title: "Relation Between Expansion Coefficients",
         content:
-          "$$\\beta = 2\\alpha, \\quad \\gamma = 3\\alpha$$\n\nExplanation:\nValid for isotropic materials.",
+          "$$\\beta = 2\\alpha, \\quad \\gamma = 3\\alpha$$ \n Valid for isotropic materials.",
         importance: "high",
         examFrequency: "Direct formula-based",
       },
@@ -1692,7 +1686,7 @@ export const physicsContent: Record<
         id: "tpm10",
         title: "Thermal Stress",
         content:
-          "$$\\text{Stress} = Y \\alpha \\Delta T$$\n\nExplanation:\nDeveloped when expansion is prevented.",
+          "$$\\text{Stress} = Y \\alpha \\Delta T$$ \n Developed when expansion is prevented.",
         importance: "high",
         examFrequency: "Frequently asked",
       },
@@ -1700,7 +1694,7 @@ export const physicsContent: Record<
         id: "tpm11",
         title: "Heat Conduction (Fourier’s Law)",
         content:
-          "$$\\frac{dQ}{dt} = \\frac{kA(T_1 - T_2)}{L}$$\n\nExplanation:\nRate of heat flow through a conductor.",
+          "$$\\frac{dQ}{dt} = \\frac{kA(T_1 - T_2)}{L}$$ \n Rate of heat flow through a conductor.",
         importance: "high",
         examFrequency: "Every year",
       },
@@ -1708,7 +1702,7 @@ export const physicsContent: Record<
         id: "tpm12",
         title: "Thermal Resistance",
         content:
-          "$$R = \\frac{L}{kA}$$\n\nExplanation:\nOpposition to heat flow (analogous to electrical resistance).",
+          "$$R = \\frac{L}{kA}$$ \n Opposition to heat flow (analogous to electrical resistance).",
         importance: "medium",
         examFrequency: "Conceptual",
       },
@@ -1716,7 +1710,7 @@ export const physicsContent: Record<
         id: "tpm13",
         title: "Newton’s Law of Cooling",
         content:
-          "$$\\frac{dT}{dt} \\propto (T - T_0)$$\n\nExplanation:\nRate of cooling is proportional to temperature difference for small $\\Delta T$.",
+          "$$\\frac{dT}{dt} \\propto (T - T_0)$$ \n Rate of cooling is proportional to temperature difference for small $\\Delta T$.",
         importance: "high",
         examFrequency: "Every year in JEE",
       },
@@ -1724,7 +1718,7 @@ export const physicsContent: Record<
         id: "tpm14",
         title: "Radiation – Stefan’s Law",
         content:
-          "$$E = \\sigma A T^4$$\n\nExplanation:\nEnergy radiated per unit time by a black body.",
+          "$$E = \\sigma A T^4$$ \n Energy radiated per unit time by a black body.",
         importance: "high",
         examFrequency: "JEE & NEET",
       },
@@ -1732,7 +1726,7 @@ export const physicsContent: Record<
         id: "tpm15",
         title: "Wien’s Displacement Law",
         content:
-          "$$\\lambda_{max} T = b$$\n\nExplanation:\nPeak wavelength inversely proportional to temperature.",
+          "$$\\lambda_{max} T = b$$ \n Peak wavelength inversely proportional to temperature.",
         importance: "medium",
         examFrequency: "Conceptual",
       },
@@ -1755,7 +1749,7 @@ export const physicsContent: Record<
         id: "td1",
         title: "Zeroth Law of Thermodynamics",
         content:
-          "If two systems are each in thermal equilibrium with a third system, they are in thermal equilibrium with each other.\n\nExplanation:\nBasis of temperature measurement.",
+          "If two systems are each in thermal equilibrium with a third system, they are in thermal equilibrium with each other. \n Basis of temperature measurement.",
         importance: "medium",
         examFrequency: "Conceptual (NEET)",
       },
@@ -1763,7 +1757,7 @@ export const physicsContent: Record<
         id: "td2",
         title: "First Law of Thermodynamics",
         content:
-          "$$\\Delta Q = \\Delta U + W$$\n\nExplanation:\nHeat supplied = change in internal energy + work done by system.",
+          "$$\\Delta Q = \\Delta U + W$$ \n Heat supplied = change in internal energy + work done by system.",
         importance: "high",
         examFrequency: "Every year in JEE & NEET",
       },
@@ -1771,7 +1765,7 @@ export const physicsContent: Record<
         id: "td3",
         title: "Work Done in Isothermal Process",
         content:
-          "$$W = nRT \\ln\\left(\\frac{V_2}{V_1}\\right)$$\n\nExplanation:\nTemperature remains constant.\nInternal energy change = 0.",
+          "$$W = nRT \\ln\\left(\\frac{V_2}{V_1}\\right)$$ \n Temperature remains constant. \n Internal energy change = 0.",
         importance: "high",
         examFrequency: "Frequently asked",
       },
@@ -1779,7 +1773,7 @@ export const physicsContent: Record<
         id: "td4",
         title: "Work Done in Adiabatic Process",
         content:
-          "$$W = \\frac{P_1V_1 - P_2V_2}{\\gamma - 1}$$\n\nExplanation:\nNo heat exchange with surroundings.",
+          "$$W = \\frac{P_1V_1 - P_2V_2}{\\gamma - 1}$$ \n No heat exchange with surroundings.",
         importance: "high",
         examFrequency: "Every year in JEE",
       },
@@ -1794,7 +1788,7 @@ export const physicsContent: Record<
         id: "td6",
         title: "Adiabatic Condition",
         content:
-          "$$PV^{\\gamma} = \\text{constant}$$\n\nExplanation:\n$\\gamma = \\frac{C_P}{C_V}$",
+          "$$PV^{\\gamma} = \\text{constant}$$ \n $\\gamma = \\frac{C_P}{C_V}$",
         importance: "high",
         examFrequency: "Every year",
       },
@@ -1802,7 +1796,7 @@ export const physicsContent: Record<
         id: "td7",
         title: "Internal Energy of Ideal Gas",
         content:
-          "$$U = \\frac{f}{2} nRT$$\n\nExplanation:\nDepends only on temperature.\n$f$ = degrees of freedom.",
+          "$$U = \\frac{f}{2} nRT$$ \n Depends only on temperature. \n $f$ = degrees of freedom.",
         importance: "high",
         examFrequency: "Every year",
       },
@@ -1823,8 +1817,7 @@ export const physicsContent: Record<
       {
         id: "td10",
         title: "Mayer’s Relation",
-        content:
-          "$$C_P - C_V = R$$\n\nExplanation:\nValid only for ideal gases.",
+        content: "$$C_P - C_V = R$$ \n Valid only for ideal gases.",
         importance: "high",
         examFrequency: "Every year in JEE & NEET",
       },
@@ -1853,7 +1846,7 @@ export const physicsContent: Record<
         id: "td14",
         title: "Efficiency of Heat Engine",
         content:
-          "$$\\eta = \\frac{W}{Q_H} = 1 - \\frac{Q_C}{Q_H}$$\n\nExplanation:\n$Q_H$ = heat absorbed\n$Q_C$ = heat rejected",
+          "$$\\eta = \\frac{W}{Q_H} = 1 - \\frac{Q_C}{Q_H}$$ \n $Q_H$ = heat absorbed \n $Q_C$ = heat rejected",
         importance: "high",
         examFrequency: "Every year",
       },
@@ -1861,7 +1854,7 @@ export const physicsContent: Record<
         id: "td15",
         title: "Efficiency of Carnot Engine",
         content:
-          "$$\\eta_{max} = 1 - \\frac{T_C}{T_H}$$\n\nExplanation:\nMaximum possible efficiency between two temperatures.",
+          "$$\\eta_{max} = 1 - \\frac{T_C}{T_H}$$ \n Maximum possible efficiency between two temperatures.",
         importance: "high",
         examFrequency: "Every year in JEE & NEET",
       },
@@ -1907,7 +1900,7 @@ export const physicsContent: Record<
         id: "ktg1",
         title: "Ideal Gas Equation",
         content:
-          "$$PV = nRT$$\n\nExplanation:\nRelates pressure, volume, and temperature of an ideal gas.\n• $n$ = number of moles\n• $R$ = universal gas constant",
+          "$$PV = nRT$$ \n Relates pressure, volume, and temperature of an ideal gas. \n  $n$ = number of moles \n  $R$ = universal gas constant",
         importance: "high",
         examFrequency: "Every year in JEE & NEET",
       },
@@ -1915,7 +1908,7 @@ export const physicsContent: Record<
         id: "ktg2",
         title: "Kinetic Energy of One Mole of Gas",
         content:
-          "$$E = \\frac{3}{2}RT$$\n\nExplanation:\nDepends only on absolute temperature, not on nature of gas.",
+          "$$E = \\frac{3}{2}RT$$ \n Depends only on absolute temperature, not on nature of gas.",
         importance: "high",
         examFrequency: "Every year",
       },
@@ -1923,7 +1916,7 @@ export const physicsContent: Record<
         id: "ktg3",
         title: "Average Kinetic Energy per Molecule",
         content:
-          "$$\\overline{E} = \\frac{3}{2}kT$$\n\nExplanation:\n$k$ = Boltzmann constant.\nApplies to monoatomic ideal gases.",
+          "$$\\overline{E} = \\frac{3}{2}kT$$ \n $k$ = Boltzmann constant. \n Applies to monoatomic ideal gases.",
         importance: "high",
         examFrequency: "Every year in NEET",
       },
@@ -1931,7 +1924,7 @@ export const physicsContent: Record<
         id: "ktg4",
         title: "Root Mean Square (RMS) Speed",
         content:
-          "$$v_{rms} = \\sqrt{\\frac{3RT}{M}}$$\n\nExplanation:\nRepresents effective molecular speed.\n$M$ = molar mass",
+          "$$v_{rms} = \\sqrt{\\frac{3RT}{M}}$$ \n Represents effective molecular speed. \n $M$ = molar mass",
         importance: "high",
         examFrequency: "Every year in JEE & NEET",
       },
@@ -1960,7 +1953,7 @@ export const physicsContent: Record<
         id: "ktg8",
         title: "Pressure of Ideal Gas (Kinetic Theory)",
         content:
-          "$$P = \\frac{1}{3} \\rho v_{rms}^2$$\n\nExplanation:\nPressure arises due to molecular collisions with container walls.",
+          "$$P = \\frac{1}{3} \\rho v_{rms}^2$$ \n Pressure arises due to molecular collisions with container walls.",
         importance: "high",
         examFrequency: "Every year",
       },
@@ -1968,7 +1961,7 @@ export const physicsContent: Record<
         id: "ktg9",
         title: "Mean Free Path",
         content:
-          "$$\\lambda = \\frac{1}{\\sqrt{2}\\pi d^2 n}$$\n\nExplanation:\nAverage distance traveled between two successive collisions.",
+          "$$\\lambda = \\frac{1}{\\sqrt{2}\\pi d^2 n}$$ \n Average distance traveled between two successive collisions.",
         importance: "medium",
         examFrequency: "JEE Advanced",
       },
@@ -1976,7 +1969,7 @@ export const physicsContent: Record<
         id: "ktg10",
         title: "Degrees of Freedom",
         content:
-          "$$f = 3, 5, 7$$\n\nExplanation:\nMonoatomic: 3\nDiatomic (room temp): 5\nPolyatomic: 6 or more",
+          "$$f = 3, 5, 7$$ \n Monoatomic: 3 \n Diatomic (room temp): 5 \n Polyatomic: 6 or more",
         importance: "high",
         examFrequency: "Every year",
       },
@@ -1984,7 +1977,7 @@ export const physicsContent: Record<
         id: "ktg11",
         title: "Internal Energy of Ideal Gas",
         content:
-          "$$U = \\frac{f}{2}nRT$$\n\nExplanation:\nDepends only on temperature for ideal gases.",
+          "$$U = \\frac{f}{2}nRT$$ \n Depends only on temperature for ideal gases.",
         importance: "high",
         examFrequency: "Every year in JEE & NEET",
       },
@@ -2006,7 +1999,7 @@ export const physicsContent: Record<
         id: "ktg14",
         title: "Ratio of Heat Capacities",
         content:
-          "$$\\gamma = \\frac{C_P}{C_V}$$\n\nExplanation:\nDetermines nature of thermodynamic processes.",
+          "$$\\gamma = \\frac{C_P}{C_V}$$ \n Determines nature of thermodynamic processes.",
         importance: "high",
         examFrequency: "Every year",
       },
@@ -2029,7 +2022,7 @@ export const physicsContent: Record<
         id: "osc1",
         title: "Simple Harmonic Motion (SHM) Condition",
         content:
-          "$$F = -kx$$\n\nExplanation:\nRestoring force is directly proportional to displacement and acts towards mean position.",
+          "$$F = -kx$$ \n Restoring force is directly proportional to displacement and acts towards mean position.",
         importance: "high",
         examFrequency: "Every year in JEE & NEET",
       },
@@ -2037,7 +2030,7 @@ export const physicsContent: Record<
         id: "osc2",
         title: "Angular Frequency of SHM",
         content:
-          "$$\\omega = \\sqrt{\\frac{k}{m}}$$\n\nExplanation:\nDetermines how fast oscillation occurs.",
+          "$$\\omega = \\sqrt{\\frac{k}{m}}$$ \n Determines how fast oscillation occurs.",
         importance: "high",
         examFrequency: "Every year",
       },
@@ -2052,7 +2045,7 @@ export const physicsContent: Record<
         id: "osc4",
         title: "Displacement in SHM",
         content:
-          "$$x = A\\sin(\\omega t + \\phi)$$\n\nExplanation:\n$A$ = amplitude, $\\phi$ = phase constant.",
+          "$$x = A\\sin(\\omega t + \\phi)$$ \n $A$ = amplitude, $\\phi$ = phase constant.",
         importance: "high",
         examFrequency: "Every year",
       },
@@ -2060,7 +2053,7 @@ export const physicsContent: Record<
         id: "osc5",
         title: "Velocity in SHM",
         content:
-          "$$v = \\omega\\sqrt{A^2 - x^2}$$\n\nExplanation:\nMaximum at mean position, zero at extremes.",
+          "$$v = \\omega\\sqrt{A^2 - x^2}$$ \n Maximum at mean position, zero at extremes.",
         importance: "high",
         examFrequency: "Every year",
       },
@@ -2068,7 +2061,7 @@ export const physicsContent: Record<
         id: "osc6",
         title: "Acceleration in SHM",
         content:
-          "$$a = -\\omega^2 x$$\n\nExplanation:\nAlways directed toward mean position.",
+          "$$a = -\\omega^2 x$$ \n Always directed toward mean position.",
         importance: "high",
         examFrequency: "Every year",
       },
@@ -2090,7 +2083,7 @@ export const physicsContent: Record<
         id: "osc9",
         title: "Total Energy in SHM",
         content:
-          "$$E = \\frac{1}{2}kA^2$$\n\nExplanation:\nRemains constant during oscillation.",
+          "$$E = \\frac{1}{2}kA^2$$ \n Remains constant during oscillation.",
         importance: "high",
         examFrequency: "Every year",
       },
@@ -2112,7 +2105,7 @@ export const physicsContent: Record<
         id: "osc12",
         title: "Time Period of Simple Pendulum",
         content:
-          "$$T = 2\\pi\\sqrt{\\frac{l}{g}}$$\n\nExplanation:\nValid for small angular oscillations.",
+          "$$T = 2\\pi\\sqrt{\\frac{l}{g}}$$ \n Valid for small angular oscillations.",
         importance: "high",
         examFrequency: "Every year in JEE & NEET",
       },
@@ -2127,7 +2120,7 @@ export const physicsContent: Record<
         id: "osc14",
         title: "Time Period of Physical Pendulum",
         content:
-          "$$T = 2\\pi\\sqrt{\\frac{I}{mgl}}$$\n\nExplanation:\n$I$ = moment of inertia about pivot.",
+          "$$T = 2\\pi\\sqrt{\\frac{I}{mgl}}$$ \n $I$ = moment of inertia about pivot.",
         importance: "high",
         examFrequency: "JEE Advanced",
       },
@@ -2171,7 +2164,7 @@ export const physicsContent: Record<
         id: "wo1",
         title: "Path Difference",
         content:
-          "$$\\Delta = d \\sin\\theta$$\n\nExplanation:\nDifference in distance traveled by two waves reaching a point.",
+          "$$\\Delta = d \\sin\\theta$$ \n Difference in distance traveled by two waves reaching a point.",
         importance: "high",
         examFrequency: "Every year in JEE & NEET",
       },
@@ -2179,7 +2172,7 @@ export const physicsContent: Record<
         id: "wo2",
         title: "Condition for Constructive Interference",
         content:
-          "$$\\Delta = n\\lambda$$\n\nExplanation:\nWaves meet in phase → maximum intensity.",
+          "$$\\Delta = n\\lambda$$ \n Waves meet in phase → maximum intensity.",
         importance: "high",
         examFrequency: "Every year",
       },
@@ -2187,7 +2180,7 @@ export const physicsContent: Record<
         id: "wo3",
         title: "Condition for Destructive Interference",
         content:
-          "$$\\Delta = (2n + 1)\\frac{\\lambda}{2}$$\n\nExplanation:\nWaves meet out of phase → minimum intensity.",
+          "$$\\Delta = (2n + 1)\\frac{\\lambda}{2}$$ \n Waves meet out of phase → minimum intensity.",
         importance: "high",
         examFrequency: "Every year",
       },
@@ -2195,7 +2188,7 @@ export const physicsContent: Record<
         id: "wo4",
         title: "Young’s Double Slit Experiment (YDSE) – Fringe Width",
         content:
-          "$$\\beta = \\frac{\\lambda D}{d}$$\n\nExplanation:\nFringe width depends on wavelength, screen distance, and slit separation.",
+          "$$\\beta = \\frac{\\lambda D}{d}$$ \n Fringe width depends on wavelength, screen distance, and slit separation.",
         importance: "high",
         examFrequency: "Every year in JEE & NEET",
       },
@@ -2217,7 +2210,7 @@ export const physicsContent: Record<
         id: "wo7",
         title: "Intensity in Interference",
         content:
-          "$$I = I_1 + I_2 + 2\\sqrt{I_1 I_2}\\cos\\phi$$\n\nExplanation:\n$\\phi$ = phase difference between waves.",
+          "$$I = I_1 + I_2 + 2\\sqrt{I_1 I_2}\\cos\\phi$$ \n $\\phi$ = phase difference between waves.",
         importance: "medium",
         examFrequency: "JEE Advanced",
       },
@@ -2225,7 +2218,7 @@ export const physicsContent: Record<
         id: "wo8",
         title: "Maximum and Minimum Intensity",
         content:
-          "$$I_{max} = (\\sqrt{I_1} + \\sqrt{I_2})^2$$\n$$I_{min} = (\\sqrt{I_1} - \\sqrt{I_2})^2$$",
+          "$$I_{max} = (\\sqrt{I_1} + \\sqrt{I_2})^2$$ \n $$I_{min} = (\\sqrt{I_1} - \\sqrt{I_2})^2$$",
         importance: "medium",
         examFrequency: "Advanced problems",
       },
@@ -2233,7 +2226,7 @@ export const physicsContent: Record<
         id: "wo9",
         title: "Diffraction – Single Slit Minima Condition",
         content:
-          "$$a\\sin\\theta = n\\lambda$$\n\nExplanation:\nDestructive interference of secondary wavelets.",
+          "$$a\\sin\\theta = n\\lambda$$ \n Destructive interference of secondary wavelets.",
         importance: "high",
         examFrequency: "Every year in JEE",
       },
@@ -2248,15 +2241,14 @@ export const physicsContent: Record<
         id: "wo11",
         title: "Resolving Power (Rayleigh Criterion)",
         content:
-          "$$\\theta_{min} = 1.22 \\frac{\\lambda}{D}$$\n\nExplanation:\nMinimum angular separation between two sources.",
+          "$$\\theta_{min} = 1.22 \\frac{\\lambda}{D}$$ \n Minimum angular separation between two sources.",
         importance: "high",
         examFrequency: "JEE Main & Advanced",
       },
       {
         id: "wo12",
         title: "Resolving Power of Microscope",
-        content:
-          "$$RP = \\frac{2NA}{\\lambda}$$\n\nExplanation:\n$NA$ = numerical aperture.",
+        content: "$$RP = \\frac{2NA}{\\lambda}$$ \n $NA$ = numerical aperture.",
         importance: "medium",
         examFrequency: "JEE Main",
       },
@@ -2271,7 +2263,7 @@ export const physicsContent: Record<
         id: "wo14",
         title: "Polarization by Reflection (Brewster’s Law)",
         content:
-          "$$\\tan\\theta_B = n$$\n\nExplanation:\nReflected light becomes completely polarized.",
+          "$$\\tan\\theta_B = n$$ \n Reflected light becomes completely polarized.",
         importance: "high",
         examFrequency: "Every year",
       },
@@ -2279,7 +2271,7 @@ export const physicsContent: Record<
         id: "wo15",
         title: "Malus’ Law",
         content:
-          "$$I = I_0 \\cos^2\\theta$$\n\nExplanation:\nIntensity after passing through analyzer.",
+          "$$I = I_0 \\cos^2\\theta$$ \n Intensity after passing through analyzer.",
         importance: "high",
         examFrequency: "Every year in NEET",
       },
@@ -2295,7 +2287,7 @@ export const physicsContent: Record<
         id: "ro1",
         title: "Refractive Index",
         content:
-          "$$n = \\frac{c}{v}$$\n\nExplanation:\nRatio of speed of light in vacuum to speed in medium.",
+          "$$n = \\frac{c}{v}$$ \n Ratio of speed of light in vacuum to speed in medium.",
         importance: "high",
         examFrequency: "Every year in JEE & NEET",
       },
@@ -2303,7 +2295,7 @@ export const physicsContent: Record<
         id: "ro2",
         title: "Snell’s Law of Refraction",
         content:
-          "$$n_1\\sin\\theta_1 = n_2\\sin\\theta_2$$\n\nExplanation:\nRelates angles of incidence and refraction at interface.",
+          "$$n_1\\sin\\theta_1 = n_2\\sin\\theta_2$$ \n Relates angles of incidence and refraction at interface.",
         importance: "high",
         examFrequency: "Every year",
       },
@@ -2318,7 +2310,7 @@ export const physicsContent: Record<
         id: "ro4",
         title: "Critical Angle",
         content:
-          "$$\\sin C = \\frac{1}{n}$$\n\nExplanation:\nOccurs when angle of refraction becomes $90^\\circ$.",
+          "$$\\sin C = \\frac{1}{n}$$ \n Occurs when angle of refraction becomes $90^\\circ$.",
         importance: "high",
         examFrequency: "Every year",
       },
@@ -2334,7 +2326,7 @@ export const physicsContent: Record<
         id: "ro6",
         title: "Mirror Formula",
         content:
-          "$$\\frac{1}{f} = \\frac{1}{v} + \\frac{1}{u}$$\n\nExplanation:\nValid for both concave and convex mirrors.",
+          "$$\\frac{1}{f} = \\frac{1}{v} + \\frac{1}{u}$$ \n Valid for both concave and convex mirrors.",
         importance: "high",
         examFrequency: "Every year in JEE & NEET",
       },
@@ -2356,7 +2348,7 @@ export const physicsContent: Record<
         id: "ro9",
         title: "Lens Maker’s Formula",
         content:
-          "$$\\frac{1}{f} = (n - 1)\\left(\\frac{1}{R_1} - \\frac{1}{R_2}\\right)$$\n\nExplanation:\nUsed to calculate focal length of lens.",
+          "$$\\frac{1}{f} = (n - 1)\\left(\\frac{1}{R_1} - \\frac{1}{R_2}\\right)$$ \n Used to calculate focal length of lens.",
         importance: "high",
         examFrequency: "Every year",
       },
@@ -2377,8 +2369,7 @@ export const physicsContent: Record<
       {
         id: "ro12",
         title: "Power of Lens",
-        content:
-          "$$P = \\frac{1}{f}$$\n\nExplanation:\n$f$ in meters, $P$ in dioptres.",
+        content: "$$P = \\frac{1}{f}$$ \n $f$ in meters, $P$ in dioptres.",
         importance: "high",
         examFrequency: "Every year in NEET",
       },
@@ -2400,7 +2391,7 @@ export const physicsContent: Record<
         id: "ro15",
         title: "Apparent Depth",
         content:
-          "$$\\text{Apparent depth} = \\frac{\\text{Real depth}}{n}$$\n\nExplanation:\nDue to refraction at plane surface.",
+          "$$\\text{Apparent depth} = \\frac{\\text{Real depth}}{n}$$ \n Due to refraction at plane surface.",
         importance: "high",
         examFrequency: "Every year",
       },
@@ -2415,7 +2406,7 @@ export const physicsContent: Record<
         id: "ro17",
         title: "Minimum Deviation Formula",
         content:
-          "$$n = \\frac{\\sin\\left(\\frac{A + \\delta_m}{2}\\right)}{\\sin\\left(\\frac{A}{2}\\right)}$$\n\nExplanation:\nUsed to find refractive index of prism.",
+          "$$n = \\frac{\\sin\\left(\\frac{A + \\delta_m}{2}\\right)}{\\sin\\left(\\frac{A}{2}\\right)}$$ \n Used to find refractive index of prism.",
         importance: "high",
         examFrequency: "Every year in JEE",
       },
@@ -2445,7 +2436,7 @@ export const physicsContent: Record<
         id: "es1",
         title: "Coulomb’s Law",
         content:
-          "$$F = k \\frac{q_1 q_2}{r^2}$$\n\nExplanation:\nForce between two point charges acting along the line joining them.\n• Attractive or repulsive depending on charges.",
+          "$$F = k \\frac{q_1 q_2}{r^2}$$ \n Force between two point charges acting along the line joining them. \n  Attractive or repulsive depending on charges.",
         importance: "high",
         examFrequency: "Every year in JEE & NEET",
       },
@@ -2453,7 +2444,7 @@ export const physicsContent: Record<
         id: "es2",
         title: "Coulomb Constant",
         content:
-          "$$k = \\frac{1}{4\\pi\\varepsilon_0}$$\n\nExplanation:\n$\\varepsilon_0$ = permittivity of free space.",
+          "$$k = \\frac{1}{4\\pi\\varepsilon_0}$$ \n $\\varepsilon_0$ = permittivity of free space.",
         importance: "medium",
         examFrequency: "Direct",
       },
@@ -2461,7 +2452,7 @@ export const physicsContent: Record<
         id: "es3",
         title: "Electric Field",
         content:
-          "$$\\vec{E} = \\frac{\\vec{F}}{q}$$\n\nExplanation:\nForce experienced per unit positive test charge.",
+          "$$\\vec{E} = \\frac{\\vec{F}}{q}$$ \n Force experienced per unit positive test charge.",
         importance: "high",
         examFrequency: "Every year",
       },
@@ -2476,7 +2467,7 @@ export const physicsContent: Record<
         id: "es5",
         title: "Superposition Principle",
         content:
-          "$$\\vec{E}_{net} = \\sum \\vec{E}_i$$\n\nExplanation:\nNet field is vector sum of individual fields.",
+          "$$\\vec{E}_{net} = \\sum \\vec{E}_i$$ \n Net field is vector sum of individual fields.",
         importance: "high",
         examFrequency: "Every year",
       },
@@ -2484,7 +2475,7 @@ export const physicsContent: Record<
         id: "es6",
         title: "Electric Dipole Moment",
         content:
-          "$$\\vec{p} = q\\vec{d}$$\n\nExplanation:\nDirected from negative to positive charge.",
+          "$$\\vec{p} = q\\vec{d}$$ \n Directed from negative to positive charge.",
         importance: "high",
         examFrequency: "Frequently asked",
       },
@@ -2506,7 +2497,7 @@ export const physicsContent: Record<
         id: "es9",
         title: "Torque on Electric Dipole",
         content:
-          "$$\\tau = pE\\sin\\theta$$\n\nExplanation:\nTends to align dipole along field direction.",
+          "$$\\tau = pE\\sin\\theta$$ \n Tends to align dipole along field direction.",
         importance: "high",
         examFrequency: "Every year",
       },
@@ -2542,7 +2533,7 @@ export const physicsContent: Record<
         id: "es14",
         title: "Relation Between Electric Field and Potential",
         content:
-          "$$E = -\\frac{dV}{dr}$$\n\nExplanation:\nElectric field points in direction of decreasing potential.",
+          "$$E = -\\frac{dV}{dr}$$ \n Electric field points in direction of decreasing potential.",
         importance: "high",
         examFrequency: "Every year",
       },
@@ -2550,7 +2541,7 @@ export const physicsContent: Record<
         id: "es15",
         title: "Gauss’s Law",
         content:
-          "$$\\oint \\vec{E} \\cdot d\\vec{A} = \\frac{q_{enc}}{\\varepsilon_0}$$\n\nExplanation:\nUseful for highly symmetric charge distributions.",
+          "$$\\oint \\vec{E} \\cdot d\\vec{A} = \\frac{q_{enc}}{\\varepsilon_0}$$ \n Useful for highly symmetric charge distributions.",
         importance: "high",
         examFrequency: "Every year in JEE",
       },
@@ -2615,7 +2606,7 @@ export const physicsContent: Record<
         id: "ce1",
         title: "Electric Current",
         content:
-          "$$I = \\frac{Q}{t}$$\n\nExplanation:\nRate of flow of electric charge through a conductor.",
+          "$$I = \\frac{Q}{t}$$ \n Rate of flow of electric charge through a conductor.",
         importance: "high",
         examFrequency: "Every year in JEE & NEET",
       },
@@ -2623,7 +2614,7 @@ export const physicsContent: Record<
         id: "ce2",
         title: "Current Density",
         content:
-          "$$\\vec{J} = \\frac{I}{A}$$\n\nExplanation:\nCurrent per unit cross-sectional area.\nVector quantity.",
+          "$$\\vec{J} = \\frac{I}{A}$$ \n Current per unit cross-sectional area. \n Vector quantity.",
         importance: "medium",
         examFrequency: "Conceptual",
       },
@@ -2631,7 +2622,7 @@ export const physicsContent: Record<
         id: "ce3",
         title: "Ohm’s Law",
         content:
-          "$$V = IR$$\n\nExplanation:\nVoltage across a conductor is proportional to current at constant temperature.",
+          "$$V = IR$$ \n Voltage across a conductor is proportional to current at constant temperature.",
         importance: "high",
         examFrequency: "Every year",
       },
@@ -2646,7 +2637,7 @@ export const physicsContent: Record<
         id: "ce5",
         title: "Resistance of a Uniform Wire",
         content:
-          "$$R = \\rho \\frac{L}{A}$$\n\nExplanation:\nDepends on material, length, and cross-sectional area.",
+          "$$R = \\rho \\frac{L}{A}$$ \n Depends on material, length, and cross-sectional area.",
         importance: "high",
         examFrequency: "Every year",
       },
@@ -2654,7 +2645,7 @@ export const physicsContent: Record<
         id: "ce6",
         title: "Resistivity",
         content:
-          "$$\\rho = \\frac{RA}{L}$$\n\nExplanation:\nMaterial property; independent of dimensions.",
+          "$$\\rho = \\frac{RA}{L}$$ \n Material property; independent of dimensions.",
         importance: "high",
         examFrequency: "Every year in NEET",
       },
@@ -2662,7 +2653,7 @@ export const physicsContent: Record<
         id: "ce7",
         title: "Temperature Dependence of Resistance",
         content:
-          "$$R_T = R_0(1 + \\alpha \\Delta T)$$\n\nExplanation:\nValid for small temperature changes.",
+          "$$R_T = R_0(1 + \\alpha \\Delta T)$$ \n Valid for small temperature changes.",
         importance: "high",
         examFrequency: "Frequently asked",
       },
@@ -2677,7 +2668,7 @@ export const physicsContent: Record<
         id: "ce9",
         title: "Combination of Resistors (Series)",
         content:
-          "$$R_{eq} = R_1 + R_2 + R_3$$\n\nExplanation:\nSame current flows through all resistors.",
+          "$$R_{eq} = R_1 + R_2 + R_3$$ \n Same current flows through all resistors.",
         importance: "high",
         examFrequency: "Every year",
       },
@@ -2685,7 +2676,7 @@ export const physicsContent: Record<
         id: "ce10",
         title: "Combination of Resistors (Parallel)",
         content:
-          "$$\\frac{1}{R_{eq}} = \\frac{1}{R_1} + \\frac{1}{R_2}$$\n\nExplanation:\nSame voltage across each branch.",
+          "$$\\frac{1}{R_{eq}} = \\frac{1}{R_1} + \\frac{1}{R_2}$$ \n Same voltage across each branch.",
         importance: "high",
         examFrequency: "Every year",
       },
@@ -2693,7 +2684,7 @@ export const physicsContent: Record<
         id: "ce11",
         title: "Electric Power",
         content:
-          "$$P = VI = I^2R = \\frac{V^2}{R}$$\n\nExplanation:\nRate of electrical energy consumption.",
+          "$$P = VI = I^2R = \\frac{V^2}{R}$$ \n Rate of electrical energy consumption.",
         importance: "high",
         examFrequency: "Every year",
       },
@@ -2708,15 +2699,14 @@ export const physicsContent: Record<
         id: "ce13",
         title: "Drift Velocity",
         content:
-          "$$v_d = \\frac{I}{nqA}$$\n\nExplanation:\nAverage velocity of charge carriers due to electric field.",
+          "$$v_d = \\frac{I}{nqA}$$ \n Average velocity of charge carriers due to electric field.",
         importance: "high",
         examFrequency: "JEE Main & Advanced",
       },
       {
         id: "ce14",
         title: "Relation Between Drift Velocity and Electric Field",
-        content:
-          "$$v_d = \\mu E$$\n\nExplanation:\n$\\mu$ = mobility of charge carriers.",
+        content: "$$v_d = \\mu E$$ \n $\\mu$ = mobility of charge carriers.",
         importance: "medium",
         examFrequency: "Conceptual",
       },
@@ -2731,7 +2721,7 @@ export const physicsContent: Record<
         id: "ce16",
         title: "EMF of a Cell",
         content:
-          "$$\\mathcal{E} = V + Ir$$\n\nExplanation:\nPotential difference across open terminals.",
+          "$$\\mathcal{E} = V + Ir$$ \n Potential difference across open terminals.",
         importance: "high",
         examFrequency: "Every year",
       },
@@ -2768,15 +2758,14 @@ export const physicsContent: Record<
         id: "ce21",
         title: "Kirchhoff’s Current Law (KCL)",
         content:
-          "$$\\sum I_{in} = \\sum I_{out}$$\n\nExplanation:\nCharge conservation at a junction.",
+          "$$\\sum I_{in} = \\sum I_{out}$$ \n Charge conservation at a junction.",
         importance: "high",
         examFrequency: "Every year in JEE",
       },
       {
         id: "ce22",
         title: "Kirchhoff’s Voltage Law (KVL)",
-        content:
-          "$$\\sum V = 0$$\n\nExplanation:\nEnergy conservation in a closed loop.",
+        content: "$$\\sum V = 0$$ \n Energy conservation in a closed loop.",
         importance: "high",
         examFrequency: "Every year in JEE",
       },
@@ -2806,7 +2795,7 @@ export const physicsContent: Record<
         id: "mem1",
         title: "Magnetic Force on a Moving Charge (Lorentz Force)",
         content:
-          "$$\\vec{F} = q(\\vec{v} \\times \\vec{B})$$\n\nExplanation:\nForce acts perpendicular to both velocity and magnetic field.\nZero force if $\\vec{v} \\parallel \\vec{B}$.",
+          "$$\\vec{F} = q(\\vec{v} \\times \\vec{B})$$ \n Force acts perpendicular to both velocity and magnetic field. \n Zero force if $\\vec{v} \\parallel \\vec{B}$.",
         importance: "high",
         examFrequency: "Every year in JEE & NEET",
       },
@@ -2821,7 +2810,7 @@ export const physicsContent: Record<
         id: "mem3",
         title: "Force on a Current Carrying Conductor",
         content:
-          "$$\\vec{F} = I(\\vec{L} \\times \\vec{B})$$\n\nExplanation:\nDirection given by Fleming’s Left Hand Rule.",
+          "$$\\vec{F} = I(\\vec{L} \\times \\vec{B})$$ \n Direction given by Fleming’s Left Hand Rule.",
         importance: "high",
         examFrequency: "Every year",
       },
@@ -2836,7 +2825,7 @@ export const physicsContent: Record<
         id: "mem5",
         title: "Motion of Charged Particle in Magnetic Field (Radius)",
         content:
-          "$$r = \\frac{mv}{qB}$$\n\nExplanation:\nParticle moves in circular path when velocity ⟂ field.",
+          "$$r = \\frac{mv}{qB}$$ \n Particle moves in circular path when velocity ⟂ field.",
         importance: "high",
         examFrequency: "Every year in JEE",
       },
@@ -2844,7 +2833,7 @@ export const physicsContent: Record<
         id: "mem6",
         title: "Time Period of Charged Particle in Magnetic Field",
         content:
-          "$$T = \\frac{2\\pi m}{qB}$$\n\nExplanation:\nIndependent of particle speed.",
+          "$$T = \\frac{2\\pi m}{qB}$$ \n Independent of particle speed.",
         importance: "high",
         examFrequency: "Frequently asked",
       },
@@ -2880,7 +2869,7 @@ export const physicsContent: Record<
         id: "mem11",
         title: "Biot–Savart Law",
         content:
-          "$$d\\vec{B} = \\frac{\\mu_0}{4\\pi} \\frac{I(d\\vec{l} \\times \\hat{r})}{r^2}$$\n\nExplanation:\nGives magnetic field due to small current element.",
+          "$$d\\vec{B} = \\frac{\\mu_0}{4\\pi} \\frac{I(d\\vec{l} \\times \\hat{r})}{r^2}$$ \n Gives magnetic field due to small current element.",
         importance: "high",
         examFrequency: "Every year in JEE",
       },
@@ -2888,7 +2877,7 @@ export const physicsContent: Record<
         id: "mem12",
         title: "Ampere’s Circuital Law",
         content:
-          "$$\\oint \\vec{B} \\cdot d\\vec{l} = \\mu_0 I_{enc}$$\n\nExplanation:\nUsed for symmetric current distributions.",
+          "$$\\oint \\vec{B} \\cdot d\\vec{l} = \\mu_0 I_{enc}$$ \n Used for symmetric current distributions.",
         importance: "high",
         examFrequency: "Every year",
       },
@@ -2896,7 +2885,7 @@ export const physicsContent: Record<
         id: "mem13",
         title: "Force Between Two Parallel Current-Carrying Wires",
         content:
-          "$$\\frac{F}{L} = \\frac{\\mu_0 I_1 I_2}{2\\pi d}$$\n\nExplanation:\nSame direction → attraction, opposite → repulsion.",
+          "$$\\frac{F}{L} = \\frac{\\mu_0 I_1 I_2}{2\\pi d}$$ \n Same direction → attraction, opposite → repulsion.",
         importance: "high",
         examFrequency: "Every year",
       },
@@ -2911,7 +2900,7 @@ export const physicsContent: Record<
         id: "mem15",
         title: "Torque on Magnetic Dipole",
         content:
-          "$$\\tau = mB\\sin\\theta$$\n\nExplanation:\nTends to align dipole with magnetic field.",
+          "$$\\tau = mB\\sin\\theta$$ \n Tends to align dipole with magnetic field.",
         importance: "high",
         examFrequency: "Every year",
       },
@@ -2947,7 +2936,7 @@ export const physicsContent: Record<
         id: "mem20",
         title: "Relation Between Magnetic Field Components",
         content:
-          "$$\\tan\\theta = \\frac{B_V}{B_H}$$\n\nExplanation:\n$\\theta$ = angle of dip.",
+          "$$\\tan\\theta = \\frac{B_V}{B_H}$$ \n $\\theta$ = angle of dip.",
         importance: "medium",
         examFrequency: "NEET",
       },
@@ -2963,7 +2952,7 @@ export const physicsContent: Record<
         id: "emi1",
         title: "Magnetic Flux",
         content:
-          "$$\\Phi = \\vec{B} \\cdot \\vec{A} = BA\\cos\\theta$$\n\nExplanation:\nMeasures number of magnetic field lines passing through a surface.",
+          "$$\\Phi = \\vec{B} \\cdot \\vec{A} = BA\\cos\\theta$$ \n Measures number of magnetic field lines passing through a surface.",
         importance: "high",
         examFrequency: "Every year in JEE & NEET",
       },
@@ -2971,7 +2960,7 @@ export const physicsContent: Record<
         id: "emi2",
         title: "Faraday’s First Law",
         content:
-          "An emf is induced whenever the magnetic flux linked with a circuit changes.\n\nExplanation:\nCause of induction is change in flux, not motion alone.",
+          "An emf is induced whenever the magnetic flux linked with a circuit changes. \n Cause of induction is change in flux, not motion alone.",
         importance: "high",
         examFrequency: "Conceptual",
       },
@@ -2979,7 +2968,7 @@ export const physicsContent: Record<
         id: "emi3",
         title: "Faraday’s Second Law",
         content:
-          "$$\\mathcal{E} = -\\frac{d\\Phi}{dt}$$\n\nExplanation:\nMagnitude of induced emf equals rate of change of flux.",
+          "$$\\mathcal{E} = -\\frac{d\\Phi}{dt}$$ \n Magnitude of induced emf equals rate of change of flux.",
         importance: "high",
         examFrequency: "Every year",
       },
@@ -2987,7 +2976,7 @@ export const physicsContent: Record<
         id: "emi4",
         title: "Lenz’s Law",
         content:
-          "Induced current flows in a direction that opposes the change producing it.\n\nExplanation:\nRepresents conservation of energy.",
+          "Induced current flows in a direction that opposes the change producing it. \n Represents conservation of energy.",
         importance: "high",
         examFrequency: "Every year",
       },
@@ -3002,7 +2991,7 @@ export const physicsContent: Record<
         id: "emi6",
         title: "Motional EMF",
         content:
-          "$$\\mathcal{E} = B\\ell v$$\n\nExplanation:\nInduced when conductor moves perpendicular to magnetic field.",
+          "$$\\mathcal{E} = B\\ell v$$ \n Induced when conductor moves perpendicular to magnetic field.",
         importance: "high",
         examFrequency: "Frequently asked",
       },
@@ -3017,7 +3006,7 @@ export const physicsContent: Record<
         id: "emi8",
         title: "Self Inductance",
         content:
-          "$$L = \\frac{N\\Phi}{I}$$\n\nExplanation:\nProperty of a coil to oppose change in current.",
+          "$$L = \\frac{N\\Phi}{I}$$ \n Property of a coil to oppose change in current.",
         importance: "high",
         examFrequency: "Every year",
       },
@@ -3032,7 +3021,7 @@ export const physicsContent: Record<
         id: "emi10",
         title: "Mutual Inductance",
         content:
-          "$$M = \\frac{N_2\\Phi_{21}}{I_1}$$\n\nExplanation:\nFlux in secondary due to current in primary.",
+          "$$M = \\frac{N_2\\Phi_{21}}{I_1}$$ \n Flux in secondary due to current in primary.",
         importance: "medium",
         examFrequency: "JEE Main",
       },
@@ -3054,7 +3043,7 @@ export const physicsContent: Record<
         id: "emi13",
         title: "Energy Stored in Inductor",
         content:
-          "$$U = \\frac{1}{2}LI^2$$\n\nExplanation:\nEnergy stored in magnetic field of the inductor.",
+          "$$U = \\frac{1}{2}LI^2$$ \n Energy stored in magnetic field of the inductor.",
         importance: "high",
         examFrequency: "Every year",
       },
@@ -3069,7 +3058,7 @@ export const physicsContent: Record<
         id: "emi15",
         title: "LR Circuit – Time Constant",
         content:
-          "$$\\tau = \\frac{L}{R}$$\n\nExplanation:\nTime to reach 63% of final current.",
+          "$$\\tau = \\frac{L}{R}$$ \n Time to reach 63% of final current.",
         importance: "high",
         examFrequency: "Every year",
       },
@@ -3106,7 +3095,7 @@ export const physicsContent: Record<
         id: "ac1",
         title: "Instantaneous Value of AC Current",
         content:
-          "$$i = i_0 \\sin(\\omega t)$$\n\nExplanation:\n$i_0$ = peak current, $\\omega$ = angular frequency.",
+          "$$i = i_0 \\sin(\\omega t)$$ \n $i_0$ = peak current, $\\omega$ = angular frequency.",
         importance: "high",
         examFrequency: "Every year in JEE & NEET",
       },
@@ -3120,8 +3109,7 @@ export const physicsContent: Record<
       {
         id: "ac3",
         title: "Angular Frequency",
-        content:
-          "$$\\omega = 2\\pi f$$\n\nExplanation:\n$f$ = frequency of AC source.",
+        content: "$$\\omega = 2\\pi f$$ \n $f$ = frequency of AC source.",
         importance: "high",
         examFrequency: "Foundational",
       },
@@ -3136,7 +3124,7 @@ export const physicsContent: Record<
         id: "ac5",
         title: "RMS Value of Current",
         content:
-          "$$I_{rms} = \\frac{I_0}{\\sqrt{2}}$$\n\nExplanation:\nEffective current producing same heating effect as DC.",
+          "$$I_{rms} = \\frac{I_0}{\\sqrt{2}}$$ \n Effective current producing same heating effect as DC.",
         importance: "high",
         examFrequency: "Every year",
       },
@@ -3150,16 +3138,14 @@ export const physicsContent: Record<
       {
         id: "ac7",
         title: "Average Value of AC Current",
-        content:
-          "$$I_{avg} = \\frac{2I_0}{\\pi}$$\n\nExplanation:\nAverage over half cycle.",
+        content: "$$I_{avg} = \\frac{2I_0}{\\pi}$$ \n Average over half cycle.",
         importance: "medium",
         examFrequency: "Occasional",
       },
       {
         id: "ac8",
         title: "Inductive Reactance",
-        content:
-          "$$X_L = \\omega L$$\n\nExplanation:\nOpposition offered by inductor to AC.",
+        content: "$$X_L = \\omega L$$ \n Opposition offered by inductor to AC.",
         importance: "high",
         examFrequency: "Every year",
       },
@@ -3167,7 +3153,7 @@ export const physicsContent: Record<
         id: "ac9",
         title: "Capacitive Reactance",
         content:
-          "$$X_C = \\frac{1}{\\omega C}$$\n\nExplanation:\nOpposition offered by capacitor to AC.",
+          "$$X_C = \\frac{1}{\\omega C}$$ \n Opposition offered by capacitor to AC.",
         importance: "high",
         examFrequency: "Every year",
       },
@@ -3189,7 +3175,7 @@ export const physicsContent: Record<
         id: "ac12",
         title: "Phase Angle in RLC Circuit",
         content:
-          "$$\\tan\\phi = \\frac{X_L - X_C}{R}$$\n\nExplanation:\nDetermines lead or lag of current.",
+          "$$\\tan\\phi = \\frac{X_L - X_C}{R}$$ \n Determines lead or lag of current.",
         importance: "high",
         examFrequency: "Frequently asked",
       },
@@ -3197,7 +3183,7 @@ export const physicsContent: Record<
         id: "ac13",
         title: "Power in AC Circuit",
         content:
-          "$$P = V_{rms} I_{rms} \\cos\\phi$$\n\nExplanation:\n$\\cos\\phi$ = power factor.",
+          "$$P = V_{rms} I_{rms} \\cos\\phi$$ \n $\\cos\\phi$ = power factor.",
         importance: "high",
         examFrequency: "Every year",
       },
@@ -3212,7 +3198,7 @@ export const physicsContent: Record<
         id: "ac15",
         title: "Resonant Frequency (Series RLC)",
         content:
-          "$$\\omega_0 = \\frac{1}{\\sqrt{LC}}$$\n\nExplanation:\nAt resonance: $X_L = X_C$ and current is maximum.",
+          "$$\\omega_0 = \\frac{1}{\\sqrt{LC}}$$ \n At resonance: $X_L = X_C$ and current is maximum.",
         importance: "high",
         examFrequency: "Every year in JEE",
       },
@@ -3227,7 +3213,7 @@ export const physicsContent: Record<
         id: "ac17",
         title: "Quality Factor (Q-Factor)",
         content:
-          "$$Q = \\frac{\\omega_0 L}{R}$$\n\nExplanation:\nMeasures sharpness of resonance.",
+          "$$Q = \\frac{\\omega_0 L}{R}$$ \n Measures sharpness of resonance.",
         importance: "medium",
         examFrequency: "JEE Advanced",
       },
@@ -3271,7 +3257,7 @@ export const physicsContent: Record<
         id: "emw1",
         title: "Nature of Electromagnetic Waves",
         content:
-          "Electromagnetic waves are transverse waves consisting of oscillating electric and magnetic fields perpendicular to each other and to the direction of propagation.\n\nExplanation:\nThey do not require a material medium.",
+          "Electromagnetic waves are transverse waves consisting of oscillating electric and magnetic fields perpendicular to each other and to the direction of propagation. \n They do not require a material medium.",
         importance: "high",
         examFrequency: "Every year in NEET",
       },
@@ -3279,7 +3265,7 @@ export const physicsContent: Record<
         id: "emw2",
         title: "Speed of Electromagnetic Waves in Vacuum",
         content:
-          "$$c = 3 \\times 10^8\\ \\text{m/s}$$\n\nExplanation:\nSpeed is same for all EM waves in vacuum.",
+          "$$c = 3 \\times 10^8\\ \\text{m/s}$$ \n Speed is same for all EM waves in vacuum.",
         importance: "high",
         examFrequency: "Every year",
       },
@@ -3287,7 +3273,7 @@ export const physicsContent: Record<
         id: "emw3",
         title: "Relation Between Speed, Frequency and Wavelength",
         content:
-          "$$c = \\nu \\lambda$$\n\nExplanation:\nValid for all electromagnetic waves.",
+          "$$c =  \n u \\lambda$$ \n Valid for all electromagnetic waves.",
         importance: "high",
         examFrequency: "Every year in JEE & NEET",
       },
@@ -3295,7 +3281,7 @@ export const physicsContent: Record<
         id: "emw4",
         title: "Speed of EM Wave in Medium",
         content:
-          "$$v = \\frac{1}{\\sqrt{\\mu \\varepsilon}}$$\n\nExplanation:\nDepends on permeability and permittivity of the medium.",
+          "$$v = \\frac{1}{\\sqrt{\\mu \\varepsilon}}$$ \n Depends on permeability and permittivity of the medium.",
         importance: "medium",
         examFrequency: "JEE Main",
       },
@@ -3303,7 +3289,7 @@ export const physicsContent: Record<
         id: "emw5",
         title: "Relation Between Electric and Magnetic Fields",
         content:
-          "$$E = cB$$\n\nExplanation:\nElectric field is much stronger than magnetic field in magnitude.",
+          "$$E = cB$$ \n Electric field is much stronger than magnetic field in magnitude.",
         importance: "high",
         examFrequency: "Every year",
       },
@@ -3311,7 +3297,7 @@ export const physicsContent: Record<
         id: "emw6",
         title: "Energy Density of Electromagnetic Wave",
         content:
-          "$$u = u_E + u_B = \\frac{1}{2}\\varepsilon_0 E^2 + \\frac{1}{2\\mu_0} B^2$$\n\nExplanation:\nEnergy is equally shared between electric and magnetic fields.",
+          "$$u = u_E + u_B = \\frac{1}{2}\\varepsilon_0 E^2 + \\frac{1}{2\\mu_0} B^2$$ \n Energy is equally shared between electric and magnetic fields.",
         importance: "medium",
         examFrequency: "JEE Advanced",
       },
@@ -3319,7 +3305,7 @@ export const physicsContent: Record<
         id: "emw7",
         title: "Intensity of Electromagnetic Wave",
         content:
-          "$$I = \\frac{1}{2} c \\varepsilon_0 E_0^2$$\n\nExplanation:\nAverage energy crossing unit area per unit time.",
+          "$$I = \\frac{1}{2} c \\varepsilon_0 E_0^2$$ \n Average energy crossing unit area per unit time.",
         importance: "medium",
         examFrequency: "Occasional",
       },
@@ -3327,7 +3313,7 @@ export const physicsContent: Record<
         id: "emw8",
         title: "Momentum of Electromagnetic Wave",
         content:
-          "$$p = \\frac{E}{c}$$\n\nExplanation:\nEM waves carry momentum despite having no mass.",
+          "$$p = \\frac{E}{c}$$ \n EM waves carry momentum despite having no mass.",
         importance: "medium",
         examFrequency: "Conceptual",
       },
@@ -3335,7 +3321,7 @@ export const physicsContent: Record<
         id: "emw9",
         title: "Radiation Pressure",
         content:
-          "$$P = \\frac{I}{c}$$\n\nExplanation:\nPressure exerted by EM waves on a surface (for complete absorption).",
+          "$$P = \\frac{I}{c}$$ \n Pressure exerted by EM waves on a surface (for complete absorption).",
         importance: "medium",
         examFrequency: "JEE Main",
       },
@@ -3350,7 +3336,7 @@ export const physicsContent: Record<
         id: "emw11",
         title: "Maxwell’s Prediction",
         content:
-          "$$c = \\frac{1}{\\sqrt{\\mu_0 \\varepsilon_0}}$$\n\nExplanation:\nSpeed of EM waves depends only on electric and magnetic constants.",
+          "$$c = \\frac{1}{\\sqrt{\\mu_0 \\varepsilon_0}}$$ \n Speed of EM waves depends only on electric and magnetic constants.",
         importance: "high",
         examFrequency: "Every year in NEET",
       },
@@ -3358,14 +3344,14 @@ export const physicsContent: Record<
         id: "emw12",
         title: "Electromagnetic Spectrum (Order)",
         content:
-          "Radio → Microwave → Infrared → Visible → Ultraviolet → X-rays → Gamma rays\n\nExplanation:\nWavelength decreases and frequency increases in this order.",
+          "Radio → Microwave → Infrared → Visible → Ultraviolet → X-rays → Gamma rays \n Wavelength decreases and frequency increases in this order.",
         importance: "high",
         examFrequency: "Every year in NEET & JEE",
       },
       {
         id: "emw13",
         title: "Wavelength–Frequency Relation in Spectrum",
-        content: "$$\\lambda \\downarrow \\Rightarrow \\nu \\uparrow$$",
+        content: "$$\\lambda \\downarrow \\Rightarrow  \n u \\uparrow$$",
         importance: "high",
         examFrequency: "Direct theory",
       },
@@ -3396,7 +3382,7 @@ export const physicsContent: Record<
         id: "dn1",
         title: "Planck’s Quantum Relation",
         content:
-          "$$E = h\\nu$$\n\nExplanation:\nEnergy of a photon is directly proportional to its frequency.\n• $h$ = Planck’s constant",
+          "$$E = h \n u$$ \n Energy of a photon is directly proportional to its frequency. \n  $h$ = Planck’s constant",
         importance: "high",
         examFrequency: "Every year in JEE & NEET",
       },
@@ -3404,7 +3390,7 @@ export const physicsContent: Record<
         id: "dn2",
         title: "Energy–Wavelength Relation",
         content:
-          "$$E = \\frac{hc}{\\lambda}$$\n\nExplanation:\nUsed to calculate photon energy from wavelength.",
+          "$$E = \\frac{hc}{\\lambda}$$ \n Used to calculate photon energy from wavelength.",
         importance: "high",
         examFrequency: "Every year",
       },
@@ -3412,7 +3398,7 @@ export const physicsContent: Record<
         id: "dn3",
         title: "Photon Momentum",
         content:
-          "$$p = \\frac{E}{c} = \\frac{h}{\\lambda}$$\n\nExplanation:\nPhotons carry momentum despite having zero rest mass.",
+          "$$p = \\frac{E}{c} = \\frac{h}{\\lambda}$$ \n Photons carry momentum despite having zero rest mass.",
         importance: "high",
         examFrequency: "Frequently asked",
       },
@@ -3420,14 +3406,14 @@ export const physicsContent: Record<
         id: "dn4",
         title: "Photoelectric Effect – Einstein’s Equation",
         content:
-          "$$h\\nu = \\phi + K_{max}$$\n\nExplanation:\nPhoton energy is used to overcome work function and give kinetic energy to electron.",
+          "$$h \n u = \\phi + K_{max}$$ \n Photon energy is used to overcome work function and give kinetic energy to electron.",
         importance: "high",
         examFrequency: "Every year in JEE & NEET",
       },
       {
         id: "dn5",
         title: "Maximum Kinetic Energy of Photoelectrons",
-        content: "$$K_{max} = h\\nu - \\phi$$",
+        content: "$$K_{max} = h \n u - \\phi$$",
         importance: "high",
         examFrequency: "Every year",
       },
@@ -3435,7 +3421,7 @@ export const physicsContent: Record<
         id: "dn6",
         title: "Stopping Potential",
         content:
-          "$$K_{max} = eV_0$$\n\nExplanation:\nStopping potential just stops the most energetic photoelectrons.",
+          "$$K_{max} = eV_0$$ \n Stopping potential just stops the most energetic photoelectrons.",
         importance: "high",
         examFrequency: "Every year",
       },
@@ -3443,7 +3429,7 @@ export const physicsContent: Record<
         id: "dn7",
         title: "Threshold Frequency",
         content:
-          "$$\\nu_0 = \\frac{\\phi}{h}$$\n\nExplanation:\nMinimum frequency required for photoelectric emission.",
+          "$$ \n u_0 = \\frac{\\phi}{h}$$ \n Minimum frequency required for photoelectric emission.",
         importance: "high",
         examFrequency: "Every year",
       },
@@ -3458,7 +3444,7 @@ export const physicsContent: Record<
         id: "dn9",
         title: "de Broglie Wavelength",
         content:
-          "$$\\lambda = \\frac{h}{p} = \\frac{h}{mv}$$\n\nExplanation:\nMatter exhibits wave nature.",
+          "$$\\lambda = \\frac{h}{p} = \\frac{h}{mv}$$ \n Matter exhibits wave nature.",
         importance: "high",
         examFrequency: "Every year in JEE & NEET",
       },
@@ -3473,7 +3459,7 @@ export const physicsContent: Record<
         id: "dn11",
         title: "Non-Relativistic Approximation of de Broglie Wavelength",
         content:
-          "$$\\lambda(\\text{Å}) = \\frac{12.27}{\\sqrt{V}}$$\n\nExplanation:\n$V$ in volts.\nUsed directly in numericals.",
+          "$$\\lambda(\\text{Å}) = \\frac{12.27}{\\sqrt{V}}$$ \n $V$ in volts. \n Used directly in numericals.",
         importance: "high",
         examFrequency: "Every year",
       },
@@ -3513,7 +3499,7 @@ export const physicsContent: Record<
         id: "an1",
         title: "Rutherford Scattering Formula",
         content:
-          "$$\\frac{dN}{d\\Omega} \\propto \\frac{1}{\\sin^4(\\theta/2)}$$\n\nExplanation:\nProbability of scattering decreases rapidly with increase in angle.",
+          "$$\\frac{dN}{d\\Omega} \\propto \\frac{1}{\\sin^4(\\theta/2)}$$ \n Probability of scattering decreases rapidly with increase in angle.",
         importance: "medium",
         examFrequency: "JEE Advanced (theory)",
       },
@@ -3521,7 +3507,7 @@ export const physicsContent: Record<
         id: "an2",
         title: "Bohr’s Radius",
         content:
-          "$$r_n = \\frac{n^2 h^2}{4\\pi^2 m k e^2} = 0.529n^2\\ \\text{Å}$$\n\nExplanation:\nRadius of nth orbit in hydrogen atom.",
+          "$$r_n = \\frac{n^2 h^2}{4\\pi^2 m k e^2} = 0.529n^2\\ \\text{Å}$$ \n Radius of nth orbit in hydrogen atom.",
         importance: "high",
         examFrequency: "Every year in JEE & NEET",
       },
@@ -3536,7 +3522,7 @@ export const physicsContent: Record<
         id: "an4",
         title: "Total Energy of Electron in nth Orbit",
         content:
-          "$$E_n = -\\frac{13.6}{n^2}\\ \\text{eV}$$\n\nExplanation:\nNegative sign indicates bound state.",
+          "$$E_n = -\\frac{13.6}{n^2}\\ \\text{eV}$$ \n Negative sign indicates bound state.",
         importance: "high",
         examFrequency: "Every year",
       },
@@ -3550,7 +3536,7 @@ export const physicsContent: Record<
       {
         id: "an6",
         title: "Frequency of Emitted/Absorbed Radiation",
-        content: "$$h\\nu = E_2 - E_1$$",
+        content: "$$h \n u = E_2 - E_1$$",
         importance: "high",
         examFrequency: "Every year",
       },
@@ -3558,7 +3544,7 @@ export const physicsContent: Record<
         id: "an7",
         title: "Rydberg Formula",
         content:
-          "$$\\frac{1}{\\lambda} = R\\left(\\frac{1}{n_1^2} - \\frac{1}{n_2^2}\\right)$$\n\nExplanation:\nUsed to calculate wavelength of spectral lines.",
+          "$$\\frac{1}{\\lambda} = R\\left(\\frac{1}{n_1^2} - \\frac{1}{n_2^2}\\right)$$ \n Used to calculate wavelength of spectral lines.",
         importance: "high",
         examFrequency: "Every year in JEE & NEET",
       },
@@ -3566,15 +3552,14 @@ export const physicsContent: Record<
         id: "an8",
         title: "Ionization Energy of Hydrogen Atom",
         content:
-          "$$E = 13.6\\ \\text{eV}$$\n\nExplanation:\nEnergy required to remove electron from ground state.",
+          "$$E = 13.6\\ \\text{eV}$$ \n Energy required to remove electron from ground state.",
         importance: "high",
         examFrequency: "Direct",
       },
       {
         id: "an9",
         title: "Nuclear Radius",
-        content:
-          "$$R = R_0 A^{1/3}$$\n\nExplanation:\n$R_0 \\approx 1.3\\ \\text{fm}$.",
+        content: "$$R = R_0 A^{1/3}$$ \n $R_0 \\approx 1.3\\ \\text{fm}$.",
         importance: "high",
         examFrequency: "Every year",
       },
@@ -3582,7 +3567,7 @@ export const physicsContent: Record<
         id: "an10",
         title: "Nuclear Density",
         content:
-          "$$\\rho = \\frac{3M}{4\\pi R^3}$$\n\nExplanation:\nNearly constant for all nuclei.",
+          "$$\\rho = \\frac{3M}{4\\pi R^3}$$ \n Nearly constant for all nuclei.",
         importance: "medium",
         examFrequency: "Conceptual",
       },
@@ -3590,7 +3575,7 @@ export const physicsContent: Record<
         id: "an11",
         title: "Mass Defect",
         content:
-          "$$\\Delta m = Zm_p + (A-Z)m_n - M$$\n\nExplanation:\nDifference between sum of nucleon masses and actual nucleus mass.",
+          "$$\\Delta m = Zm_p + (A-Z)m_n - M$$ \n Difference between sum of nucleon masses and actual nucleus mass.",
         importance: "high",
         examFrequency: "Every year",
       },
@@ -3598,15 +3583,14 @@ export const physicsContent: Record<
         id: "an12",
         title: "Binding Energy",
         content:
-          "$$BE = \\Delta m c^2$$\n\nExplanation:\nEnergy required to completely disassemble nucleus.",
+          "$$BE = \\Delta m c^2$$ \n Energy required to completely disassemble nucleus.",
         importance: "high",
         examFrequency: "Every year",
       },
       {
         id: "an13",
         title: "Binding Energy per Nucleon",
-        content:
-          "$$\\frac{BE}{A}$$\n\nExplanation:\nIndicator of nuclear stability.",
+        content: "$$\\frac{BE}{A}$$ \n Indicator of nuclear stability.",
         importance: "high",
         examFrequency: "Every year in NEET",
       },
@@ -3614,7 +3598,7 @@ export const physicsContent: Record<
         id: "an14",
         title: "Radioactive Decay Law",
         content:
-          "$$N = N_0 e^{-\\lambda t}$$\n\nExplanation:\nNumber of undecayed nuclei decreases exponentially.",
+          "$$N = N_0 e^{-\\lambda t}$$ \n Number of undecayed nuclei decreases exponentially.",
         importance: "high",
         examFrequency: "Every year",
       },
@@ -3658,7 +3642,7 @@ export const physicsContent: Record<
         id: "se1",
         title: "Energy Band Gap",
         content:
-          "$$E_g = E_c - E_v$$\n\nExplanation:\nEnergy difference between conduction band ($E_c$) and valence band ($E_v$).\nDetermines conducting behavior.",
+          "$$E_g = E_c - E_v$$ \n Energy difference between conduction band ($E_c$) and valence band ($E_v$). \n Determines conducting behavior.",
         importance: "high",
         examFrequency: "Every year in NEET",
       },
@@ -3666,7 +3650,7 @@ export const physicsContent: Record<
         id: "se2",
         title: "Classification by Band Gap",
         content:
-          "Conductor: $E_g \\approx 0$\nSemiconductor: $E_g \\approx 1\\ \\text{eV}$\nInsulator: $E_g > 3\\ \\text{eV}$",
+          "Conductor: $E_g \\approx 0$ \n Semiconductor: $E_g \\approx 1\\ \\text{eV}$ \n Insulator: $E_g > 3\\ \\text{eV}$",
         importance: "high",
         examFrequency: "Direct theory",
       },
@@ -3681,7 +3665,7 @@ export const physicsContent: Record<
         id: "se4",
         title: "Current Density in Semiconductor",
         content:
-          "$$J = nqv_d$$\n\nExplanation:\n$n$ = charge carrier density\n$v_d$ = drift velocity",
+          "$$J = nqv_d$$ \n $n$ = charge carrier density \n $v_d$ = drift velocity",
         importance: "high",
         examFrequency: "Frequently asked",
       },
@@ -3689,7 +3673,7 @@ export const physicsContent: Record<
         id: "se5",
         title: "Conductivity of Semiconductor",
         content:
-          "$$\\sigma = nq\\mu$$\n\nExplanation:\nDepends on charge density and mobility.",
+          "$$\\sigma = nq\\mu$$ \n Depends on charge density and mobility.",
         importance: "high",
         examFrequency: "Every year",
       },
@@ -3704,7 +3688,7 @@ export const physicsContent: Record<
         id: "se7",
         title: "Mobility",
         content:
-          "$$\\mu = \\frac{v_d}{E}$$\n\nExplanation:\nHigher mobility → better conductivity.",
+          "$$\\mu = \\frac{v_d}{E}$$ \n Higher mobility → better conductivity.",
         importance: "medium",
         examFrequency: "Conceptual",
       },
@@ -3712,15 +3696,14 @@ export const physicsContent: Record<
         id: "se8",
         title: "Intrinsic Carrier Concentration Relation",
         content:
-          "$$n = p = n_i$$\n\nExplanation:\nIn pure (intrinsic) semiconductors, electron and hole concentrations are equal.",
+          "$$n = p = n_i$$ \n In pure (intrinsic) semiconductors, electron and hole concentrations are equal.",
         importance: "high",
         examFrequency: "Every year",
       },
       {
         id: "se9",
         title: "Mass Action Law",
-        content:
-          "$$np = n_i^2$$\n\nExplanation:\nValid at thermal equilibrium.",
+        content: "$$np = n_i^2$$ \n Valid at thermal equilibrium.",
         importance: "high",
         examFrequency: "Every year in JEE & NEET",
       },
@@ -3728,7 +3711,7 @@ export const physicsContent: Record<
         id: "se10",
         title: "Diode Current Equation",
         content:
-          "$$I = I_0\\left(e^{\\frac{V}{\\eta V_T}} - 1\\right)$$\n\nExplanation:\n$I_0$ = reverse saturation current\n$V_T$ ≈ 26 mV at room temperature",
+          "$$I = I_0\\left(e^{\\frac{V}{\\eta V_T}} - 1\\right)$$ \n $I_0$ = reverse saturation current \n $V_T$ ≈ 26 mV at room temperature",
         importance: "high",
         examFrequency: "JEE Main",
       },
@@ -3736,7 +3719,7 @@ export const physicsContent: Record<
         id: "se11",
         title: "Threshold Voltage of Diode",
         content:
-          "Silicon: $\\approx 0.7\\ \\text{V}$\nGermanium: $\\approx 0.3\\ \\text{V}$",
+          "Silicon: $\\approx 0.7\\ \\text{V}$ \n Germanium: $\\approx 0.3\\ \\text{V}$",
         importance: "high",
         examFrequency: "Every year",
       },
@@ -3758,7 +3741,7 @@ export const physicsContent: Record<
         id: "se14",
         title: "Ripple Factor",
         content:
-          "$$r = \\frac{I_{rms(ac)}}{I_{dc}}$$\n\nExplanation:\nMeasures smoothness of rectified output.",
+          "$$r = \\frac{I_{rms(ac)}}{I_{dc}}$$ \n Measures smoothness of rectified output.",
         importance: "medium",
         examFrequency: "NEET",
       },
@@ -3766,7 +3749,7 @@ export const physicsContent: Record<
         id: "se15",
         title: "Zener Breakdown Condition",
         content:
-          "$$V = V_Z$$\n\nExplanation:\nDiode maintains constant voltage in breakdown region.",
+          "$$V = V_Z$$ \n Diode maintains constant voltage in breakdown region.",
         importance: "high",
         examFrequency: "Every year",
       },
@@ -3808,7 +3791,7 @@ export const physicsContent: Record<
       {
         id: "se21",
         title: "Logic Levels (Digital Electronics)",
-        content: "Logic 0: Low voltage\nLogic 1: High voltage",
+        content: "Logic 0: Low voltage \n Logic 1: High voltage",
         importance: "high",
         examFrequency: "Every year in NEET",
       },

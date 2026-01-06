@@ -67,21 +67,21 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
       {/* Sidebar */}
       <aside
         className={cn(
-          "fixed left-0 top-16 z-40 h-[calc(100vh-4rem)] w-64 sm:w-72 border-r border-border bg-sidebar transition-transform duration-300 md:translate-x-0",
+          "fixed left-0 top-14 sm:top-16 z-40 h-[calc(100vh-3.5rem)] sm:h-[calc(100vh-4rem)] w-[280px] sm:w-72 border-r border-border bg-sidebar transition-transform duration-300 ease-in-out md:translate-x-0 shadow-lg md:shadow-none",
           isOpen ? "translate-x-0" : "-translate-x-full"
         )}
       >
-        <ScrollArea className="h-full py-3 sm:py-4">
-          <div className="px-2 sm:px-3 mb-3 sm:mb-4">
-            <div className="flex items-center gap-2 px-2 sm:px-3 py-2 bg-primary/10 rounded-lg">
-              <Library className="h-4 w-4 sm:h-5 sm:w-5 text-primary" />
-              <span className="font-semibold text-sm sm:text-base text-sidebar-foreground">
+        <ScrollArea className="h-full">
+          <div className="p-3 sm:p-4 pb-2 sm:pb-3">
+            <div className="flex items-center gap-2 sm:gap-2.5 px-2 sm:px-3 py-2.5 sm:py-3 bg-primary/10 rounded-lg border border-primary/20">
+              <Library className="h-4 w-4 sm:h-5 sm:w-5 text-primary shrink-0" />
+              <span className="font-semibold text-sm sm:text-base text-sidebar-foreground truncate">
                 {selectedExam} Vault
               </span>
             </div>
           </div>
 
-          <nav className="px-2 sm:px-3 space-y-1">
+          <nav className="px-2 sm:px-3 pb-3 sm:pb-4 space-y-0.5 sm:space-y-1">
             {examData?.subjects.map((subject) => (
               <div key={subject.id}>
                 <Button
@@ -89,59 +89,22 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
                     selectedSubjectId === subject.id ? "secondary" : "ghost"
                   }
                   className={cn(
-                    "w-full justify-between h-auto py-2 sm:py-3 text-sm",
-                    selectedSubjectId === subject.id && "bg-secondary",
-                    "hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"
+                    "w-full justify-between h-auto min-h-[44px] py-2.5 sm:py-3 px-2 sm:px-3 text-sm transition-all",
+                    selectedSubjectId === subject.id &&
+                      "bg-secondary shadow-sm",
+                    "hover:bg-sidebar-accent hover:text-sidebar-accent-foreground active:scale-[0.98]"
                   )}
                   onClick={() => handleSubjectClick(subject.slug)}
                 >
-                  <div className="flex items-center gap-2 sm:gap-3">
-                    <span className="w-6 h-6 sm:w-8 sm:h-8 rounded-lg bg-primary/10 text-primary flex items-center justify-center text-xs sm:text-sm font-bold">
+                  <div className="flex items-center gap-2 sm:gap-3 min-w-0 flex-1">
+                    <span className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-primary/10 text-primary flex items-center justify-center text-xs sm:text-sm font-bold shrink-0">
                       {subject.icon}
                     </span>
-                    <span className="font-medium">{subject.name}</span>
+                    <span className="font-medium text-sm sm:text-base truncate">
+                      {subject.name}
+                    </span>
                   </div>
-                  <ChevronRight
-                    className={cn(
-                      "h-4 w-4 text-muted-foreground transition-transform",
-                      selectedSubjectId === subject.id && "rotate-90"
-                    )}
-                  />
                 </Button>
-
-                {/* Topics */}
-                {selectedSubjectId === subject.id && (
-                  <div className="ml-4 sm:ml-6 mt-1 space-y-1 border-l-2 border-border pl-2 sm:pl-3">
-                    {subject.topics.map((topic) => (
-                      <Button
-                        key={topic.id}
-                        variant={
-                          selectedTopicId === topic.id ? "default" : "ghost"
-                        }
-                        className={cn(
-                          "w-full justify-start h-auto py-2 text-left text-sm",
-                          selectedTopicId === topic.id &&
-                            "bg-primary text-primary-foreground",
-                          selectedTopicId !== topic.id &&
-                            "hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"
-                        )}
-                        onClick={() =>
-                          handleTopicClick(subject.slug, topic.slug)
-                        }
-                      >
-                        <div className="flex flex-col items-start gap-1 w-full">
-                          <div className="flex items-center gap-2">
-                            
-                            <span className="text-xs sm:text-sm truncate">
-                              {topic.name}
-                            </span>
-                          </div>
-                          
-                        </div>
-                      </Button>
-                    ))}
-                  </div>
-                )}
               </div>
             ))}
           </nav>

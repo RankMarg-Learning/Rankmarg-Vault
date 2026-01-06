@@ -8,8 +8,6 @@ import {
   ChevronRight,
   ExternalLink,
   Sparkles,
-  CheckCircle2,
-  BookOpen,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -191,7 +189,7 @@ export function ContentViewer({
           setAnimationState("enter");
           setTimeout(() => {
             setAnimationState("idle");
-          }, 200);
+          }, 250);
         } else {
           // Regular item, update parent and reset local index
           setLocalDisplayIndex(null);
@@ -202,9 +200,9 @@ export function ContentViewer({
           setAnimationState("enter");
           setTimeout(() => {
             setAnimationState("idle");
-          }, 200);
+          }, 250);
         }
-      }, 300);
+      }, 250);
     },
     [onIndexChange, trackView, items, getActualIndex]
   );
@@ -239,30 +237,13 @@ export function ContentViewer({
     disabled: animationState !== "idle",
   });
 
-  // Calculate card transform based on drag
+  // Calculate card transform based on drag - subtle slide effect
   const getCardTransform = useCallback(() => {
     if (!dragState.isDragging) return "";
-    const { deltaX, deltaY } = dragState;
-    const rotation = deltaX * 0.1; // Rotation based on horizontal drag
-    const opacity = Math.max(0.3, 1 - Math.abs(deltaX) / 300);
-    return `translate(${deltaX}px, ${deltaY}px) rotate(${rotation}deg)`;
+    const { deltaX } = dragState;
+    // Simple horizontal slide without rotation
+    return `translateX(${deltaX}px)`;
   }, [dragState]);
-
-  // Calculate swipe indicator opacity
-  const getSwipeIndicatorOpacity = useCallback(
-    (direction: "left" | "right") => {
-      if (!dragState.isDragging) return 0;
-      const { deltaX } = dragState;
-      if (direction === "right" && deltaX > 0) {
-        return Math.min(1, deltaX / 150);
-      }
-      if (direction === "left" && deltaX < 0) {
-        return Math.min(1, Math.abs(deltaX) / 150);
-      }
-      return 0;
-    },
-    [dragState]
-  );
 
   const handleSave = () => {
     if (!currentItem) return;
@@ -341,16 +322,17 @@ export function ContentViewer({
     low: "bg-muted text-muted-foreground border-muted",
   };
 
+  // Clean flashcard-style animation - simple slide and fade
   const getCardAnimation = () => {
     switch (animationState) {
       case "exit-left":
-        return "translate-x-[-120%] rotate-[-12deg] opacity-0 scale-90 blur-sm";
+        return "translate-x-[-100%] opacity-0";
       case "exit-right":
-        return "translate-x-[120%] rotate-[12deg] opacity-0 scale-90 blur-sm";
+        return "translate-x-[100%] opacity-0";
       case "enter":
-        return "translate-x-0 rotate-0 opacity-100 scale-100 blur-0";
+        return "translate-x-0 opacity-100";
       default:
-        return "translate-x-0 rotate-0 opacity-100 scale-100 blur-0";
+        return "translate-x-0 opacity-100";
     }
   };
 
@@ -369,7 +351,7 @@ export function ContentViewer({
               <X className="h-5 w-5" />
             </Button>
             <div className="min-w-0 flex-1">
-              <p className="text-xs sm:text-sm text-muted-foreground truncate">
+              <p className="text-xs sm:text-sm text-muted-foreground break-words line-clamp-1">
                 {subjectName} / {topicName}
               </p>
               <Badge variant="secondary" className="text-xs">
@@ -410,9 +392,9 @@ export function ContentViewer({
           </div>
         </div>
 
-        {/* Swipe indicator */}
+        {/* Navigation hint */}
         <div className="text-center text-xs text-muted-foreground mb-2 sm:hidden">
-          Drag or swipe to navigate
+          Swipe left/right or use buttons to navigate
         </div>
 
         {/* Flashcard Stack Container */}
@@ -469,68 +451,31 @@ export function ContentViewer({
                 transform: dragState.isDragging
                   ? getCardTransform()
                   : animationState === "exit-left"
-                  ? "translateX(-120%) rotate(-30deg)"
+                  ? "translateX(-100%)"
                   : animationState === "exit-right"
-                  ? "translateX(120%) rotate(30deg)"
+                  ? "translateX(100%)"
                   : animationState === "enter"
-                  ? "translate(0, 0) rotate(0deg) scale(0.95)"
-                  : "translate(0, 0) rotate(0deg) scale(1)",
+                  ? "translateX(0)"
+                  : "translateX(0)",
                 opacity: dragState.isDragging
-                  ? Math.max(0.3, 1 - Math.abs(dragState.deltaX) / 300)
+                  ? Math.max(0.5, 1 - Math.abs(dragState.deltaX) / 400)
                   : animationState === "exit-left" ||
                     animationState === "exit-right"
                   ? 0
                   : animationState === "enter"
-                  ? 0.8
+                  ? 1
                   : 1,
                 transition: dragState.isDragging
                   ? "none"
                   : animationState === "idle"
-                  ? "transform 0.3s ease-out, opacity 0.3s ease-out"
-                  : "transform 0.3s ease-in, opacity 0.3s ease-in",
+                  ? "transform 0.25s ease-out, opacity 0.25s ease-out"
+                  : "transform 0.25s ease-in-out, opacity 0.25s ease-in-out",
                 zIndex: dragState.isDragging ? 50 : 10,
                 userSelect: dragState.isDragging ? "none" : "auto",
                 WebkitUserSelect: dragState.isDragging ? "none" : "auto",
               }}
               {...dragHandlers}
             >
-              {/* Educational swipe indicators overlay */}
-              <div className="absolute inset-0 pointer-events-none flex items-center justify-between p-4 sm:p-6 z-10">
-                {/* Mastered indicator (swipe right) */}
-                <div
-                  className={cn(
-                    "flex flex-col items-center justify-center gap-2 w-24 h-24 sm:w-28 sm:h-28 rounded-2xl border-4 transition-all duration-200 shadow-lg",
-                    "border-green-500 bg-green-500/90 backdrop-blur-sm"
-                  )}
-                  style={{
-                    opacity: getSwipeIndicatorOpacity("right"),
-                    transform: `scale(${getSwipeIndicatorOpacity("right")})`,
-                  }}
-                >
-                  <CheckCircle2 className="h-10 w-10 sm:h-12 sm:w-12 text-white" />
-                  <span className="text-white font-semibold text-xs sm:text-sm">
-                    Mastered
-                  </span>
-                </div>
-
-                {/* Review indicator (swipe left) */}
-                <div
-                  className={cn(
-                    "flex flex-col items-center justify-center gap-2 w-24 h-24 sm:w-28 sm:h-28 rounded-2xl border-4 transition-all duration-200 shadow-lg",
-                    "border-blue-500 bg-blue-500/90 backdrop-blur-sm"
-                  )}
-                  style={{
-                    opacity: getSwipeIndicatorOpacity("left"),
-                    transform: `scale(${getSwipeIndicatorOpacity("left")})`,
-                  }}
-                >
-                  <BookOpen className="h-10 w-10 sm:h-12 sm:w-12 text-white" />
-                  <span className="text-white font-semibold text-xs sm:text-sm">
-                    Review
-                  </span>
-                </div>
-              </div>
-
               {/* Card content - Fixed height with scrollable content */}
               {isAd ? (
                 <div className="w-full h-full">
@@ -545,7 +490,7 @@ export function ContentViewer({
                 <Card className="w-full h-full shadow-xl overflow-hidden bg-card flex flex-col">
                   <CardHeader className="pb-2 sm:pb-4 flex-shrink-0 border-b">
                     <div className="flex items-start justify-between gap-3 sm:gap-4">
-                      <CardTitle className="text-lg sm:text-xl flex-1 line-clamp-2">
+                      <CardTitle className="text-lg sm:text-xl flex-1 line-clamp-3 break-words">
                         {currentItem.title}
                       </CardTitle>
                       <Badge
@@ -571,22 +516,17 @@ export function ContentViewer({
                         "hsl(var(--muted-foreground) / 0.3) transparent",
                     }}
                     onTouchStart={(e) => {
-                      // Allow scrolling if not dragging
-                      if (!dragState.isDragging) {
-                        e.stopPropagation();
-                      }
+                      // Don't stop propagation - allow swipe gestures to work
+                      // The drag handler will determine if it's a swipe or scroll
                     }}
                     onMouseDown={(e) => {
-                      // Allow text selection if not dragging
-                      if (!dragState.isDragging) {
-                        e.stopPropagation();
-                      }
+                      // Don't stop propagation - allow swipe gestures to work
                     }}
                   >
                     <div className="bg-muted/50 p-3 sm:p-4 rounded-lg min-h-full">
                       <Latex
                         content={currentItem.content}
-                        className="text-sm sm:text-base leading-relaxed"
+                        className="text-sm sm:text-base leading-relaxed select-none"
                       />
                     </div>
                   </CardContent>
@@ -596,9 +536,9 @@ export function ContentViewer({
           </div>
         </div>
 
-        {/* Navigation - Action buttons + Progress */}
-        <div className="flex flex-col items-center justify-center mt-3 sm:mt-4 max-w-3xl mx-auto w-full gap-3">
-          {/* Action buttons (like dating app style) */}
+        {/* Navigation - Action buttons + Progress (hidden on mobile) */}
+        <div className="hidden sm:flex flex-col items-center justify-center mt-3 sm:mt-4 max-w-3xl mx-auto w-full gap-3">
+          {/* Action buttons */}
           <div className="flex items-center justify-center gap-4">
             {/* Previous button */}
             <button
@@ -676,7 +616,7 @@ export function ContentViewer({
 
           {/* Hint text */}
           <p className="text-xs text-muted-foreground text-center">
-            Drag the card or use buttons to navigate
+            Swipe the card or use buttons to navigate
           </p>
         </div>
       </div>

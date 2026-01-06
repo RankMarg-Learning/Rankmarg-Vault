@@ -44,18 +44,7 @@ export function useDragToSwipe({
     (clientX: number, clientY: number, target?: EventTarget | null): boolean => {
       if (disabled) return false;
       
-      // Check if the target is a scrollable element or its child
-      if (target instanceof HTMLElement) {
-        const isScrollable = target.scrollHeight > target.clientHeight;
-        const isContentArea = target.closest('[class*="overflow"]') || 
-                             target.closest('[class*="CardContent"]');
-        
-        // If clicking on scrollable content, don't start drag
-        if (isScrollable && isContentArea) {
-          return false;
-        }
-      }
-      
+      // Allow drag to start on any element - we'll determine swipe vs scroll based on movement direction
       setDragState({
         isDragging: true,
         startX: clientX,
@@ -71,11 +60,16 @@ export function useDragToSwipe({
   );
 
   const handleMove = useCallback(
-    (clientX: number, clientY: number) => {
-      if (!dragStateRef.current.isDragging || disabled) return;
+    (clientX: number, clientY: number, target?: EventTarget | null): boolean => {
+      if (!dragStateRef.current.isDragging || disabled) return false;
 
       const deltaX = clientX - dragStateRef.current.startX;
       const deltaY = clientY - dragStateRef.current.startY;
+      const absDeltaX = Math.abs(deltaX);
+      const absDeltaY = Math.abs(deltaY);
+
+      // If horizontal movement is dominant, prevent default scrolling
+      const isHorizontalSwipe = absDeltaX > absDeltaY && absDeltaX > 10;
 
       setDragState((prev) => ({
         ...prev,
@@ -86,6 +80,9 @@ export function useDragToSwipe({
       }));
 
       onDrag?.(deltaX, deltaY);
+
+      // Return whether this is a horizontal swipe (to prevent scrolling)
+      return isHorizontalSwipe;
     },
     [onDrag, disabled]
   );
@@ -134,9 +131,12 @@ export function useDragToSwipe({
   const handleTouchMove = useCallback(
     (e: TouchEvent) => {
       if (!dragStateRef.current.isDragging) return;
-      e.preventDefault();
       const touch = e.touches[0];
-      handleMove(touch.clientX, touch.clientY);
+      const isHorizontalSwipe = handleMove(touch.clientX, touch.clientY, e.target);
+      // Only prevent default if it's a horizontal swipe to allow vertical scrolling
+      if (isHorizontalSwipe) {
+        e.preventDefault();
+      }
     },
     [handleMove]
   );
@@ -159,7 +159,7 @@ export function useDragToSwipe({
   const handleMouseMove = useCallback(
     (e: MouseEvent) => {
       if (!dragStateRef.current.isDragging) return;
-      handleMove(e.clientX, e.clientY);
+      handleMove(e.clientX, e.clientY, e.target);
     },
     [handleMove]
   );
@@ -172,7 +172,7 @@ export function useDragToSwipe({
   const handleMouseMoveGlobal = useCallback(
     (e: globalThis.MouseEvent) => {
       if (!dragStateRef.current.isDragging) return;
-      handleMove(e.clientX, e.clientY);
+      handleMove(e.clientX, e.clientY, e.target);
     },
     [handleMove]
   );

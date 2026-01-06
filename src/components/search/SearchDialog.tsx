@@ -103,9 +103,9 @@ export function SearchDialog() {
 
   return (
     <Dialog open={isSearchOpen} onOpenChange={setIsSearchOpen}>
-      <DialogContent className="sm:max-w-xl">
+      <DialogContent className="sm:max-w-xl max-h-[90vh] flex flex-col">
         <DialogHeader>
-          <DialogTitle className="flex items-center gap-2">
+          <DialogTitle className="flex items-center gap-2 text-lg sm:text-xl">
             <Search className="h-5 w-5" />
             Search RankVault
           </DialogTitle>
@@ -117,20 +117,20 @@ export function SearchDialog() {
             placeholder="Search topics, formulas, reactions..."
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            className="pl-10 pr-10"
+            className="pl-10 pr-10 text-sm sm:text-base"
             autoFocus
           />
           {query && (
             <button
               onClick={() => setQuery('')}
-              className="absolute right-3 top-1/2 -translate-y-1/2"
+              className="absolute right-3 top-1/2 -translate-y-1/2 p-1"
             >
               <X className="h-4 w-4 text-muted-foreground hover:text-foreground" />
             </button>
           )}
         </div>
 
-        <ScrollArea className="max-h-[400px]">
+        <ScrollArea className="max-h-[50vh] sm:max-h-[400px] flex-1">
           {query.trim() === '' ? (
             <div className="py-8 text-center text-muted-foreground">
               <Search className="h-12 w-12 mx-auto mb-3 opacity-50" />
@@ -148,19 +148,19 @@ export function SearchDialog() {
                 <button
                   key={`${result.id}-${result.contentType}`}
                   onClick={() => handleResultClick(result)}
-                  className="w-full text-left p-3 rounded-lg hover:bg-secondary transition-colors"
+                  className="w-full text-left p-3 sm:p-4 rounded-lg hover:bg-secondary transition-colors"
                 >
-                  <div className="flex items-start justify-between gap-2">
+                  <div className="flex items-start justify-between gap-2 sm:gap-3">
                     <div className="flex-1 min-w-0">
-                      <p className="font-medium text-foreground truncate">
+                      <p className="font-medium text-sm sm:text-base text-foreground break-words line-clamp-2">
                         {result.title}
                       </p>
-                      <p className="text-sm text-muted-foreground">
+                      <p className="text-xs sm:text-sm text-muted-foreground mt-1 break-words">
                         {result.examId} → {result.subjectName} → {result.topicName}
                       </p>
                     </div>
-                    <Badge variant="secondary" className="shrink-0">
-                      {contentTypeLabels[result.contentType].icon} {contentTypeLabels[result.contentType].label}
+                    <Badge variant="secondary" className="shrink-0 text-xs">
+                      {contentTypeLabels[result.contentType].icon} <span className="hidden sm:inline">{contentTypeLabels[result.contentType].label}</span>
                     </Badge>
                   </div>
                 </button>

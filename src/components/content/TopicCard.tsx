@@ -22,7 +22,7 @@ export function TopicCard({ topic, subjectSlug, isSelected, onClick }: TopicCard
         </div>
         
         <div className="flex-1 min-w-0">
-          <h3 className="font-semibold text-foreground mb-2 text-sm sm:text-base">{topic.name}</h3>
+          <h3 className="font-semibold text-foreground mb-2 text-sm sm:text-base break-words line-clamp-2">{topic.name}</h3>
           
           <div className="flex flex-wrap gap-1 sm:gap-1.5">
             {topic.allowedTypes.map((type) => {
@@ -46,14 +46,21 @@ export function TopicCard({ topic, subjectSlug, isSelected, onClick }: TopicCard
   return (
     <Card
       className={cn(
-        'cursor-pointer transition-all hover:shadow-md hover:border-primary/50',
+        'cursor-pointer transition-all hover:shadow-md hover:border-primary/50 active:scale-[0.98]',
         isSelected && 'border-primary ring-2 ring-primary/20'
       )}
+      onClick={onClick}
+      role={onClick ? "button" : undefined}
+      tabIndex={onClick ? 0 : undefined}
+      onKeyDown={onClick ? (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          onClick();
+        }
+      } : undefined}
     >
       {onClick ? (
-        <div onClick={onClick}>
-          {cardContent}
-        </div>
+        cardContent
       ) : (
         <Link to={href} className="block">
           {cardContent}

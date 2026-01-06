@@ -11,17 +11,17 @@ export default function Contact() {
         keywords="contact RankMarg, RankVault support, JEE NEET support, exam preparation help, RankMarg feedback, student support, educational platform contact, JEE preparation queries, NEET study help"
         canonicalPath="/contact"
       />
-      <div className="max-w-3xl mx-auto space-y-8">
-        <div className="text-center py-8">
-          <div className="flex justify-center mb-4">
-            <div className="flex h-20 w-20 items-center justify-center rounded-2xl bg-primary text-primary-foreground">
-              <MessageSquare className="h-10 w-10" />
+      <div className="max-w-3xl mx-auto space-y-6 sm:space-y-8 px-3 sm:px-4">
+        <div className="text-center py-6 sm:py-8">
+          <div className="flex justify-center mb-3 sm:mb-4">
+            <div className="flex h-16 w-16 sm:h-20 sm:w-20 items-center justify-center rounded-2xl bg-primary text-primary-foreground">
+              <MessageSquare className="h-8 w-8 sm:h-10 sm:w-10" />
             </div>
           </div>
-          <h1 className="text-4xl font-bold text-foreground mb-4">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground mb-3 sm:mb-4 px-4">
             Get in Touch
           </h1>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto px-4">
             Have questions, feedback, or need support? We'd love to hear from
             you. Reach out to us and we'll respond as soon as possible.
           </p>

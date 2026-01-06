@@ -68,7 +68,7 @@ export function TopicContent() {
           <div className="flex items-center gap-2 text-xs sm:text-sm text-muted-foreground mb-1">
             <span>{selectedExam}</span>
             <span>/</span>
-            <span className="truncate">{subject.name}</span>
+            <span className="break-words">{subject.name}</span>
           </div>
           <h1 className="text-lg sm:text-2xl font-bold text-foreground">
             {topic.name}

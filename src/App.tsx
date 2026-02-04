@@ -13,6 +13,7 @@ import About from "./pages/About";
 import Contact from "./pages/Contact";
 import FlashcardPage from "./pages/FlashcardPage";
 import SubjectPage from "./pages/SubjectPage";
+import ReelPage from "./pages/ReelPage";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -28,6 +29,7 @@ const AppContent = () => {
               <Route path="/privacy-policy" element={<PrivacyPolicy />} />
               <Route path="/about" element={<About />} />
               <Route path="/contact" element={<Contact />} />
+              <Route path="/:subjectSlug/:topicSlug/:type/:itemId" element={<ReelPage />} />
               <Route path="/:subjectSlug/:topicSlug" element={<FlashcardPage />} />
               <Route path="/:subjectSlug" element={<SubjectPage />} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}

@@ -5,14 +5,26 @@ import { Button } from '@/components/ui/button';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { useApp } from '@/contexts/AppContext';
 import { getTopicContent, contentTypeLabels, ContentType } from '@/data/content';
+import { TopicConfig, SubjectConfig, ExamType } from '@/data/types';
 import { ContentList } from './ContentList';
 import { ContentViewer } from './ContentViewer';
 
-export function TopicContent() {
+interface TopicContentProps {
+  topic?: TopicConfig;
+  subject?: SubjectConfig;
+  examId?: ExamType;
+}
+
+export function TopicContent({ topic: propTopic, subject: propSubject, examId: propExamId }: TopicContentProps = {}) {
   const navigate = useNavigate();
   const location = useLocation();
-  const { getSelectedTopicData, setSelectedTopicId, trackView, selectedExam, selectedTopicId } = useApp();
-  const topicData = getSelectedTopicData();
+  const { getSelectedTopicData, setSelectedTopicId, trackView, selectedExam } = useApp();
+  
+  const topicData = (propTopic && propSubject) 
+    ? { topic: propTopic, subject: propSubject } 
+    : getSelectedTopicData();
+  
+  const currentExam = propExamId || selectedExam;
 
   const [activeTab, setActiveTab] = useState<ContentType | null>(null);
   const [viewerOpen, setViewerOpen] = useState(false);
@@ -44,10 +56,10 @@ export function TopicContent() {
   const currentContent = activeTab ? getTopicContent(topic.id, activeTab) : [];
 
   const handleItemClick = (index: number) => {
-    setViewerIndex(index);
-    setViewerOpen(true);
     if (currentContent[index]) {
-      trackView(currentContent[index].id);
+      const item = currentContent[index];
+      // Navigate to the reel page: /subject/topic/type/itemId
+      navigate(`/${subject.slug}/${topic.slug}/${activeTab}/${item.id}`);
     }
   };
 
@@ -66,7 +78,7 @@ export function TopicContent() {
 
         <div className="min-w-0 flex-1">
           <div className="flex items-center gap-2 text-xs sm:text-sm text-muted-foreground mb-1">
-            <span>{selectedExam}</span>
+            <span>{currentExam}</span>
             <span>/</span>
             <span className="break-words">{subject.name}</span>
           </div>
@@ -113,21 +125,6 @@ export function TopicContent() {
           </TabsContent>
         ))}
       </Tabs>
-
-      {/* Content Viewer */}
-      {viewerOpen && activeTab && currentContent.length > 0 && selectedTopicId && (
-        <ContentViewer
-          items={currentContent}
-          contentType={activeTab}
-          topicName={topic.name}
-          subjectName={subject.name}
-          subjectId={subject.id}
-          topicId={selectedTopicId}
-          currentIndex={viewerIndex}
-          onIndexChange={setViewerIndex}
-          onClose={() => setViewerOpen(false)}
-        />
-      )}
     </div>
   );
 }

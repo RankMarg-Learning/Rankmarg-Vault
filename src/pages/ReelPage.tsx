@@ -155,11 +155,31 @@ export default function ReelPage() {
 
   const handleShare = async () => {
       const url = window.location.href;
-      try {
-          await navigator.clipboard.writeText(url);
-          toast({ title: "Link copied to clipboard" });
-      } catch (e) {
-          toast({ title: "Failed to copy", variant: "destructive" });
+      if (navigator.share) {
+          try {
+              await navigator.share({
+                  title: `${currentItem.title} - RankVault`,
+                  text: `Check out this revision card for ${topic.name}: ${currentItem.title}`,
+                  url: url,
+              });
+          } catch (e) {
+               // User cancelled or share failed, fallback to copy if not AbortError
+               if ((e as Error).name !== 'AbortError') {
+                  try {
+                      await navigator.clipboard.writeText(url);
+                      toast({ title: "Link copied to clipboard" });
+                  } catch (err) {
+                      toast({ title: "Failed to share", variant: "destructive" });
+                  }
+               }
+          }
+      } else {
+          try {
+              await navigator.clipboard.writeText(url);
+              toast({ title: "Link copied to clipboard" });
+          } catch (e) {
+              toast({ title: "Failed to copy", variant: "destructive" });
+          }
       }
   };
 
@@ -224,7 +244,10 @@ function ReelViewer({
     };
 
     return (
-        <div className="fixed inset-0 z-50 bg-background flex flex-col h-[100dvh]">
+        <div 
+            className="fixed inset-0 z-50 bg-background flex flex-col h-[100dvh]"
+            {...handlers}
+        >
             {/* Header */}
             <div className="flex items-center justify-between px-4 py-3 border-b flex-shrink-0 bg-background/80 backdrop-blur z-10 transition-opactiy">
                 <div className="flex items-center gap-3">
@@ -242,10 +265,7 @@ function ReelViewer({
             </div>
 
             {/* Content Area */}
-            <div 
-                className="flex-1 relative overflow-hidden bg-muted/10"
-                {...handlers}
-            >
+            <div className="flex-1 relative overflow-hidden bg-muted/10">
                 {/* Animation Container */}
                 <div 
                     key={currentItem.id} // Key change triggers React remount/animation

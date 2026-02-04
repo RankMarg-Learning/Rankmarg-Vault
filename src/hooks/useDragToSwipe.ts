@@ -55,7 +55,13 @@ export function useDragToSwipe({
     (clientX: number, clientY: number, target?: EventTarget | null): boolean => {
       if (disabled) return false;
       
-      targetRef.current = target || null;
+      let actualTarget = target;
+      // Handle text nodes
+      if (actualTarget instanceof Text) {
+        actualTarget = actualTarget.parentElement;
+      }
+      
+      targetRef.current = actualTarget || null;
 
       setDragState({
         isDragging: true,

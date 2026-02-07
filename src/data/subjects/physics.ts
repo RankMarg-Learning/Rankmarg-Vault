@@ -322,7 +322,205 @@ export const physicsContent: Record<
         examFrequency: "Occasional",
       },
     ],
-    short_tricks: [],
+    short_tricks: [
+      {
+        id: "umst1",
+        title: "SI Base Quantities – 7 Heroes Trick",
+        content: `
+### 🎬 Movie Memory Trick: "7 Avengers of Physics"
+
+SI Base Quantities (Remember: **LMTTIAN**)
+
+| Quantity | Symbol | Unit |
+|----------|--------|------|
+| Length | L | metre (m) |
+| Mass | M | kilogram (kg) |
+| Time | T | second (s) |
+| Electric Current | I | ampere (A) |
+| Temperature | Θ | kelvin (K) |
+| Amount of Substance | N | mole (mol) |
+| Luminous Intensity | Iv | candela (cd) |
+
+🧠 Hindi Sentence Trick:
+**"लंबा मोटा टाइम इधर तापमान और नंबर की रोशनी"**
+
+🎵 Song Hook:
+Imagine song *"Saat Samundar Paar"* → 7 Samundar = 7 Base Units.
+
+📌 Concept Anchor:
+Fundamental quantities are independent.
+
+Mathematically:
+Derived Quantity = Combination of Base Quantities
+
+Example:
+$$ Velocity = \\frac{Length}{Time} = LT^{-1} $$
+
+`,
+        importance: "high",
+        examFrequency: "Very Frequent in JEE Main & NEET (Direct theory + dimensional questions)"
+      },
+
+      {
+        id: "umst2",
+        title: "Dimensional Formula Master Trick",
+        content: `
+### 🎬 Bollywood Dialogue Trick: "Picture Abhi Baaki Hai"
+
+Dimensional Formula Format:
+$$ [M^a L^b T^c] $$
+
+🧠 Hindi Trick:
+**"मम्मी लेती टाइम" → M L T**
+
+Example:
+Force:
+$$ F = ma $$
+$$ [F] = [M][LT^{-2}] = [MLT^{-2}] $$
+
+Pressure:
+$$ P = \\frac{F}{A} $$
+$$ [P] = \\frac{MLT^{-2}}{L^2} = ML^{-1}T^{-2} $$
+
+🎵 Song Hook:
+*"Apna Time Aayega"* → T always important in dimensions 😄
+
+⚡ Use:
+1. Check correctness of equation
+2. Convert units
+3. Derive relation
+
+❌ Cannot find dimensionless constants (like 1/2, π)
+
+`,
+        importance: "high",
+        examFrequency: "Extremely Frequent (1 guaranteed question in JEE Main)"
+      },
+
+      {
+        id: "umst3",
+        title: "Significant Figures – Cricket Score Trick",
+        content: `
+### 🏏 Cricket Memory Method
+
+Rules:
+
+1. Non-zero digits always significant.
+2. Zeros between non-zero digits significant.
+3. Leading zeros NOT significant.
+4. Trailing zeros significant only if decimal present.
+
+🧠 Hindi Trick:
+**"बीच वाला जीरो हीरो, आगे वाला जीरो जीरो"**
+
+Examples:
+0.0025 → 2 significant figures  
+2.500 → 4 significant figures  
+1000 → 1 significant figure  
+
+🎬 Movie Hook:
+*"3 Idiots"* → Count carefully, Rancho style precision 😄
+
+📌 Rounding Rule:
+If digit ≥ 5 → increase previous digit by 1
+
+`,
+        importance: "high",
+        examFrequency: "Very Frequent in NEET & JEE Numerical Based Questions"
+      },
+
+      {
+        id: "umst4",
+        title: "Error Propagation – Percentage Shortcut",
+        content: `
+### 📊 Error Propagation Fast Trick
+
+If:
+$$ Q = A^a B^b $$
+
+Then percentage error:
+$$ \\frac{ΔQ}{Q} = a\\frac{ΔA}{A} + b\\frac{ΔB}{B} $$
+
+🧠 Hindi Trick:
+**"पावर नीचे गुणा, एरर ऊपर जुड़ा"**
+
+Addition/Subtraction:
+Absolute errors add.
+
+Multiplication/Division:
+Percentage errors add.
+
+🎵 Song Hook:
+*"Jod Jod Ke"* → Errors always add 😄
+
+Example:
+If A has 2% error and B has 3% error,
+Q = AB
+→ Total error = 5%
+
+`,
+        importance: "high",
+        examFrequency: "Frequently Asked in JEE Advanced & NEET Assertion/Reason"
+      },
+
+      {
+        id: "umst5",
+        title: "Unit Conversion Power Trick",
+        content: `
+### 🚀 Conversion Formula Shortcut
+
+If:
+$$ 1 \\ unit = 10^n \\ new \\ unit $$
+
+Then:
+$$ (old)^{power} = 10^{n × power} $$
+
+🧠 Hindi Trick:
+**"Power देखो, exponent से गुणा करो"**
+
+Example:
+1 m = 100 cm = 10^2 cm
+
+Area:
+$$ 1 m^2 = (10^2)^2 = 10^4 cm^2 $$
+
+Volume:
+$$ 1 m^3 = 10^6 cm^3 $$
+
+🎬 Movie Hook:
+*"Bahubali"* → Power ke saath power badhta hai 😄
+
+`,
+        importance: "high",
+        examFrequency: "Common in JEE Main Numerical & Unit Based Questions"
+      },
+
+      {
+        id: "umst6",
+        title: "Precision vs Accuracy – Target Board Trick",
+        content: `
+### 🎯 Dartboard Concept
+
+Accuracy = Close to true value  
+Precision = Close to each other  
+
+🧠 Hindi Trick:
+**"सही निशाना = Accuracy, बार-बार पास = Precision"**
+
+Example:
+If readings:
+5.01, 5.02, 5.03 → High Precision  
+But true value = 6 → Not Accurate  
+
+🎵 Song Hook:
+*"Kar Har Maidaan Fateh"* → Aim correct karo 😄
+
+`,
+        importance: "high",
+        examFrequency: "Conceptual question common in NEET"
+      }
+    ]
+    ,
     reactions: [],
     constants: [],
     exceptions: [],

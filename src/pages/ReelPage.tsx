@@ -8,7 +8,7 @@ import { ExamType } from "@/data/types";
 import { Button } from "@/components/ui/button";
 import { X, ChevronUp, ChevronDown, Share2, Star } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
-import { Latex } from "@/components/ui/latex";
+import { MarkdownRenderer } from "@/components/common-ui";
 import { useToast } from "@/hooks/use-toast";
 import { useDragToSwipe } from "@/hooks/useDragToSwipe";
 import { cn } from "@/lib/utils";
@@ -304,7 +304,7 @@ function ReelViewer({
                             style={{ WebkitOverflowScrolling: 'touch' }}
                         >
                             <div className="prose dark:prose-invert max-w-none">
-                                <Latex content={currentItem.content} className="text-lg leading-relaxed" />
+                                <MarkdownRenderer content={currentItem.content} className="text-lg leading-relaxed" />
                             </div>
                             <div className="h-20" />
                         </div>

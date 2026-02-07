@@ -12,7 +12,7 @@ import { useToast } from "@/hooks/use-toast";
 import { useApp } from "@/contexts/AppContext";
 import { ContentItem, contentTypeLabels, ContentType } from "@/data/content";
 import { useDragToSwipe } from "@/hooks/useDragToSwipe";
-import { Latex } from "@/components/ui/latex";
+import { MarkdownRenderer } from "@/components/common-ui";
 import { cn } from "@/lib/utils";
 import {
   shouldShowAd,
@@ -379,7 +379,7 @@ export function ContentViewer({
                      style={{ WebkitOverflowScrolling: 'touch' }}
                   >
                      <div className="prose dark:prose-invert max-w-none">
-                        <Latex content={currentItem.content} className="text-lg leading-relaxed" />
+                        <MarkdownRenderer content={currentItem.content} className="text-lg leading-relaxed" />
                      </div>
                      
                      {/* Padding at bottom for ease of reading */}

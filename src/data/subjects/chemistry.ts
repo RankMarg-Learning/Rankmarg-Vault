@@ -282,7 +282,223 @@ export const chemistryContent: Record<
         examFrequency: "Occasional (NEET)",
       },
     ],
-    short_tricks: [],
+    short_tricks: [
+      {
+        id: "sbcst1",
+        title: "Mole Concept – Avogadro Superstar Trick",
+        content: `
+### 🎬 Movie Trick: "3 Idiots = 6.022 × 10^23 Friends"
+
+1 mole = 
+$$ 6.022 × 10^{23} $$
+particles
+
+🧠 Hindi Trick:
+**"6 वाली गाड़ी, 23 की सवारी"**
+
+Avogadro Number:
+$$ N_A = 6.022 × 10^{23} $$
+
+Formula:
+$$ n = \\frac{Given\\ Quantity}{Molar\\ Quantity} $$
+
+For mass:
+$$ n = \\frac{m}{M} $$
+
+🎵 Song Hook:
+*"Apna Time Aayega"* → Mole ka time har numerical mein aayega 😄
+
+📌 Concept Anchor:
+Mole connects **mass ↔ particles ↔ volume**
+
+`,
+        importance: "high",
+        examFrequency: "Very Frequent (1–2 direct questions in NEET/JEE Main)"
+      },
+
+      {
+        id: "sbcst2",
+        title: "Molar Mass Shortcut – Atomic Weight Game",
+        content: `
+### 🎬 Bollywood Trick: "Total Family Weight"
+
+Molar Mass = Sum of atomic masses
+
+Example:
+$$ H_2O $$
+= 2(1) + 16 = 18 g/mol
+
+🧠 Hindi Sentence:
+**"पूरे परिवार का वजन जोड़ो"**
+
+Glucose:
+$$ C_6H_{12}O_6 $$
+= 6(12) + 12(1) + 6(16)
+
+🎵 Song Hook:
+*"Sabka Weight Add Karo"* 😄
+
+📌 Important:
+Molar mass unit = g/mol
+
+`,
+        importance: "high",
+        examFrequency: "Very Frequent (Base of all mole numericals)"
+      },
+
+      {
+        id: "sbcst3",
+        title: "Empirical vs Molecular Formula – Ratio Story",
+        content: `
+### 🎬 Movie Trick: "Baahubali vs Original Story"
+
+Empirical Formula = Simplest ratio  
+Molecular Formula = Actual formula  
+
+Relation:
+$$ Molecular\\ Formula = (Empirical\\ Formula)^{n} $$
+
+Where:
+$$ n = \\frac{Molecular\\ Mass}{Empirical\\ Mass} $$
+
+🧠 Hindi Trick:
+**"सरल पहले, असली बाद में"**
+
+Example:
+Empirical = CH₂  
+Molecular Mass = 28  
+Empirical Mass = 14  
+
+$$ n = 2 $$  
+Molecular = C₂H₄
+
+🎵 Song Hook:
+*"Picture Abhi Baaki Hai"* → Actual formula baad mein aata hai 😄
+
+`,
+        importance: "high",
+        examFrequency: "Frequently asked in NEET & JEE"
+      },
+
+      {
+        id: "sbcst4",
+        title: "Percentage Composition – Marksheet Trick",
+        content: `
+### 📊 Marksheet Memory Method
+
+Formula:
+$$ \\%\\ by\\ mass = \\frac{Mass\\ of\\ element}{Molar\\ Mass} × 100 $$
+
+🧠 Hindi Trick:
+**"अपने नंबर / कुल नंबर × 100"**
+
+Example:
+In H₂O:
+% H =
+$$ \\frac{2}{18} × 100 $$
+
+🎵 Song Hook:
+*"Give Me Some Sunshine"* → Percentage hamesha 100 ke aas paas 😄
+
+📌 Important:
+Total % always = 100
+
+`,
+        importance: "high",
+        examFrequency: "Common in NEET"
+      },
+
+      {
+        id: "sbcst5",
+        title: "Stoichiometry – Recipe Formula Trick",
+        content: `
+### 🍲 Recipe Method
+
+Balanced Equation = Recipe
+
+Example:
+$$ 2H_2 + O_2 → 2H_2O $$
+
+Mole Ratio:
+2 : 1 : 2
+
+🧠 Hindi Trick:
+**"रसोई की तरह नाप-तोल जरूरी"**
+
+Steps:
+1. Convert given to moles
+2. Apply mole ratio
+3. Convert back to required quantity
+
+🎵 Song Hook:
+*"Jod Jod Ke"* → Coefficients yaad rakho 😄
+
+`,
+        importance: "high",
+        examFrequency: "Extremely Frequent (Core of Physical Chemistry)"
+      },
+
+      {
+        id: "sbcst6",
+        title: "Limiting Reagent – Wedding Food Trick",
+        content: `
+### 🍛 Shaadi Function Trick
+
+Limiting reagent = Jo pehle khatam ho jaye
+
+🧠 Hindi Trick:
+**"जो पहले खत्म, वही लिमिट"**
+
+Formula:
+Compare:
+$$ \\frac{Given}{Coefficient} $$
+
+Smallest value → Limiting reagent
+
+Example:
+If required ratio 2:1  
+But available 1:1  
+→ Hydrogen limiting
+
+🎬 Movie Hook:
+*"Zindagi Na Milegi Dobara"* → Extra reagent waste ho jata hai 😄
+
+`,
+        importance: "high",
+        examFrequency: "Very Frequent in JEE & NEET Numericals"
+      },
+
+      {
+        id: "sbcst7",
+        title: "Molarity & Molality – Cold Drink Trick",
+        content: `
+### 🥤 Solution Shortcut
+
+Molarity (M):
+$$ M = \\frac{moles}{Volume (L)} $$
+
+Depends on temperature
+
+Molality (m):
+$$ m = \\frac{moles}{kg\\ of\\ solvent} $$
+
+Independent of temperature
+
+🧠 Hindi Trick:
+**"Molarity = Volume वाली, Molality = Weight वाली"**
+
+🎵 Song Hook:
+*"Garmi Mein Volume Badhta"* 😄
+
+📌 Important:
+Volume changes with temperature, mass does not.
+
+`,
+        importance: "high",
+        examFrequency: "Frequently asked in NEET & JEE Main"
+      }
+    ]
+    ,
     constants: [],
     exceptions: [],
     reactions: [],
